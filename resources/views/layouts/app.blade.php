@@ -8,41 +8,36 @@
     <title>@yield('title') | {{ config('app.name') }}</title>
 
     <livewire:styles/>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <!-- Vendor CSS Files -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="vendor/aos/aos.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="css/style.css" rel="stylesheet" >
-    <!-- Load Tempalte CSS -->
-    <link rel="stylesheet" href="css/templatemo.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
+    <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
 <body>
-<!-- ======= Header ======= -->
+
 <header id="header" class="fixed-top">
     <div class="container d-flex">
 
         <div class="logo mr-auto">
-            <a href="index.html"> <img src="img/allthatreception_black.png"> </a>
+            <a href="{{route('index')}}"> <img src="{{asset('img/allthatreception_black.png')}}"> </a>
 
         </div>
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">올댓리셉션</a></li>
+                <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
                 <li><a href="#service">서비스</a></li>
-                <li><a href="#news">뉴스</a></li>
+                <li><a href="{{route('news')}}">뉴스</a></li>
                 <li><a href="#mobile">APP</a></li>
                 <li><a href="#contact">회사 소개</a></li>
-                <li><a href="job.html">채용</a></li>
+                <li><a href="{{route('jobs')}}">채용</a></li>
                 <li><a href="#">올댓그룹</a></li>
 
             </ul>
@@ -54,14 +49,12 @@
         </div>
 
     </div>
-</header><!-- End Header -->
+</header>
 
 <main id="main">
     {{ $slot }}
 </main>
 
-
-<!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="footer-top">
         <div class="container">
@@ -125,41 +118,30 @@
             </div>
         </div>
     </div>
-</footer><!-- End Footer -->
+</footer>
 
 <livewire:scripts/>
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts/>
 
-
-<!-- Bootstrap -->
-<script src="js/bootstrap.bundle.min.js"></script>
-<!-- Load jQuery require for isotope -->
-<script src="js/jquery.min.js"></script>
-<!-- Isotope -->
-<script src="js/isotope.pkgd.js"></script>
-
-<!-- Templatemo -->
-<script src="js/templatemo.js"></script>
-<!-- Custom -->
-<script src="js/custom.js"></script>
-
-
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/isotope.pkgd.js')}}"></script>
+<script src="{{asset('js/templatemo.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-<script src="vendor/php-email-form/validate.js"></script>
-<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="vendor/venobox/venobox.min.js"></script>
-<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-<script src="vendor/aos/aos.js"></script>
+<script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{asset('vendor/php-email-form/validate.js')}}"></script>
+<script src="{{asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('vendor/venobox/venobox.min.js')}}"></script>
+<script src="{{asset('vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('vendor/aos/aos.js')}}"></script>
 
 <!-- Template Main JS File -->
-<script src="js/main.js"></script>
+<script src="{{asset('js/main.js')}}"></script>
 
 
 <!-- Page Script -->

@@ -32,9 +32,9 @@
 
                                     <select class="custom-select">
                                         <option selected>선택</option>
-                                        <option class="form-control" value="1">모두</option>
-                                        <option class="form-control" value="2">리셉션</option>
-                                        <option class="form-control" value="3">비서</option>
+                                        @foreach($categories as $category)
+                                            <option class="form-control" value="{{$category->id}}">{{$category->title}}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -95,14 +95,14 @@
                     <section class="featured-job-area">
                         <div class="container">
 
-                            <!-- single-job-content -->
+                            @foreach($jobs as $job)
                             <div class="single-job-items mb-30">
                                 <div class="job-items">
                                     <div class="company-img">
                                         <a href="#"><img src="img/job-list1.png" alt=""></a>
                                     </div>
                                     <div class="job-tittle job-tittle2">
-                                        <a href="#">
+                                        <a href="{{route('job',["slug"=>$job->slug])}}">
                                             <h4>Digital Marketer</h4>
                                         </a>
                                         <ul>
@@ -113,142 +113,11 @@
                                     </div>
                                 </div>
                                 <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
+                                    <a href="{{route('job',["slug"=>$job->slug])}}">취업</a>
                                     <span>7 시간 전</span>
                                 </div>
                             </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list2.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list3.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list4.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list1.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list3.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
-                            <!-- single-job-content -->
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list4.png" alt=""></a>
-                                    </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="#">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="job-details.html">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </section>
                     <!-- Featured_job_end -->
