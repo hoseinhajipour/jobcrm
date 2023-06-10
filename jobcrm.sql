@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 09, 2023 at 06:29 PM
+-- Generation Time: Jun 10, 2023 at 07:54 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -397,14 +397,16 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pages_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Hello World', 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.', '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', 'pages/page1.jpg', 'hello-world', 'Yar Meta Description', 'Keyword1, Keyword2', 'ACTIVE', '2023-06-09 12:23:52', '2023-06-09 12:23:52');
+(2, 2, 'service', 'service', '<p>service</p>', NULL, 'service', 'service', 'service', 'ACTIVE', '2023-06-10 16:04:48', '2023-06-10 16:04:48'),
+(3, 2, 'mobile', 'mobile', '<pre>mobile</pre>', NULL, 'mobile', 'mobile', 'mobile', 'ACTIVE', '2023-06-10 16:05:11', '2023-06-10 16:05:11'),
+(4, 2, 'groups', 'groups', '<pre>groups</pre>', NULL, 'groups', 'groups', 'groups', 'ACTIVE', '2023-06-10 16:05:47', '2023-06-10 16:05:47');
 
 -- --------------------------------------------------------
 
@@ -638,7 +640,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roles`
@@ -646,7 +648,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrator', '2023-06-09 12:23:51', '2023-06-09 12:23:51'),
-(2, 'user', 'Normal User', '2023-06-09 12:23:51', '2023-06-09 12:23:51');
+(3, 'employer', 'employer', '2023-06-10 15:35:40', '2023-06-10 15:35:40'),
+(4, 'job-seeker', 'job seeker', '2023-06-10 15:37:10', '2023-06-10 15:47:17');
 
 -- --------------------------------------------------------
 
@@ -779,15 +782,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `table_users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Maia Champlin', 'user@example.com', 'users/default.png', '2023-06-09 12:00:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OjE9J5zSBk', NULL, '2023-05-11 08:26:12', '2023-06-09 12:00:03'),
-(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', NULL, NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16');
+(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', NULL, NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16'),
+(3, 4, 'js', 'js@test.com', 'users/default.png', NULL, '$2y$10$Ik4rv5hBS9wkgWJmglSMyOh8ckYZCDqUZ/Vk1HbXxTZoPkvHw0LAW', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:28', '2023-06-10 15:49:28'),
+(4, 3, 'em', 'em@test.com', 'users/default.png', NULL, '$2y$10$KgZD03HmQBGzxjncEo6yGuw.lI5lthCjICl4ENrZnTL.3UE8oAfKu', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:45', '2023-06-10 15:49:45');
 
 -- --------------------------------------------------------
 
