@@ -19,6 +19,8 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+
+    @yield('style')
 </head>
 <body>
 
@@ -33,19 +35,24 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                <li><a href="#service">서비스</a></li>
+                <li><a href="{{route('service')}}">서비스</a></li>
                 <li><a href="{{route('news')}}">뉴스</a></li>
-                <li><a href="#mobile">APP</a></li>
-                <li><a href="#contact">회사 소개</a></li>
+                <li><a href="{{route('mobile')}}">APP</a></li>
+                <li><a href="{{route('contact')}}">회사 소개</a></li>
                 <li><a href="{{route('jobs')}}">채용</a></li>
-                <li><a href="#">올댓그룹</a></li>
+                <li><a href="{{route('page',["slug"=>"groups"])}}">올댓그룹</a></li>
 
             </ul>
-        </nav><!-- .nav-menu -->
+        </nav>
 
         <div class="header-social-links">
-            <a href="signup_login.html" class="user"><i class="icofont-user"></i></a>
+            @auth
+                <a href="{{route('profile')}}" class="user"><i class="icofont-user"></i></a>
 
+            @endauth
+            @guest
+                <a href="{{route('login')}}" class="user"><i class="icofont-user"></i></a>
+            @endguest
         </div>
 
     </div>
@@ -143,8 +150,6 @@
 <!-- Template Main JS File -->
 <script src="{{asset('js/main.js')}}"></script>
 
-
-<!-- Page Script -->
 <script>
     $(window).load(function () {
         // init Isotope
@@ -165,5 +170,7 @@
         });
     });
 </script>
+@yield('script')
+
 </body>
 </html>

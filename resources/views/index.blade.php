@@ -2,7 +2,7 @@
 
 <div class="main-banner" id="top">
     <video autoplay muted loop id="bg-video">
-        <source src="img/ATR_MPH_HP.mp4" type="video/mp4" />
+        <source src="{{asset('img/ATR_MPH_HP.mp4')}}" type="video/mp4"/>
     </video>
 
     <div class="video-overlay header-text">
@@ -16,13 +16,6 @@
     </div>
 </div>
 
-
-<!-- End Hero -->
-
-
-
-
-<!-- Start Recent Work -->
 <section id="service" class="py-5 mb-5">
     <div class="container">
 
@@ -86,11 +79,7 @@
         </div>
     </div>
 </section>
-<!-- End Recent Work -->
 
-
-
-<!-- ======= news Section ======= -->
 <section id="news" class="about">
     <div class="container">
 
@@ -104,17 +93,17 @@
                     <h4>면접관을 위한 면접 진행  </h4>
                     <p class="font">
                         예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을
-                        들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다. <br />
+                        들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다. <br/>
                         실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이
                         아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.
 
                     </p>
 
-                    <br /><br />
+                    <br/><br/>
 
                     <div class="atr-center">
                         <form action="news.html">
-                            <button type="submit" >보기 </button>
+                            <button type="submit">보기</button>
                         </form>
                     </div>
 
@@ -123,11 +112,8 @@
         </div>
 
     </div>
-</section><!-- End About Section -->
+</section>
 
-
-
-<!-- ======= Features Section =======  -->
 <section id="news" class="features">
     <div class="container">
 
@@ -135,8 +121,8 @@
             <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
                 <div class="nav nav-tabs flex-column">
                     <div class="nav-item" data-aos="fade-up">
-                        <h2>구직자 뉴스 </h2> <br />
-                        <h4>내가 하고싶은 일 찾는 방법  </h4>
+                        <h2>구직자 뉴스 </h2> <br/>
+                        <h4>내가 하고싶은 일 찾는 방법 </h4>
                         <p class="font">
                             인간은 진화적으로 불확실성을 싫어한다고 합니다. 그래서 "내가 원하는 걸 나도 모르겠다."
                             "지금 하는 일이 내가 원하는 것인지 확실하지 않다." "나만의 커리어를 찾고 싶다."
@@ -145,7 +131,7 @@
 
                         </p>
 
-                        <br /><br />
+                        <br/><br/>
 
                         <div class="atr-center">
                             <form action="news.html">
@@ -170,192 +156,24 @@
 
         </div>
 </section>
-<!-- End Features Section -->
-
-
-<!-- ======= Portfolio Section ======= -->
-
-<section id="">
-
-</section>
-
-<!-- End Portfolio Section -->
-
-
-
-<!-- ======= Portfolio Section ======= -->
-<!-- <section id="portfolio" class="portfolio">
-   <div class="container">
-
-     <div class="section-title" data-aos="fade-up">
-       <h2>Portfolio</h2>
-       <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-     </div>
-
-     <div class="row">
-       <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-         <ul id="portfolio-flters">
-           <li data-filter="*" class="filter-active">All</li>
-           <li data-filter=".filter-app">App</li>
-           <li data-filter=".filter-card">Card</li>
-           <li data-filter=".filter-web">Web</li>
-         </ul>
-       </div>
-     </div>
-
-     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 1</h4>
-             <p>App</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 3</h4>
-             <p>Web</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 2</h4>
-             <p>App</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 2</h4>
-             <p>Card</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 2</h4>
-             <p>Web</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>App 3</h4>
-             <p>App</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 1</h4>
-             <p>Card</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Card 3</h4>
-             <p>Card</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-         <div class="portfolio-wrap">
-           <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-           <div class="portfolio-info">
-             <h4>Web 3</h4>
-             <p>Web</p>
-           </div>
-           <div class="portfolio-links">
-             <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-             <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-           </div>
-         </div>
-       </div>
-
-     </div>
-
-   </div>
- </section> -->
-<!-- End Portfolio Section -->
-
-<!-- ======= Cta Section ======= -->
-
 
 <section id="mobile" class="mobile">
     <div class="container">
 
         <div class="row">
             <div class="col-lg-6" data-aos="zoom-in">
-                <img src="img/phone.png" class="img-fluid" id="mobile-login" alt="">
+                <img src="{{asset('img/phone.png')}}" class="img-fluid" id="mobile-login" alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
                 <div class="content pt-4 pt-lg-0">
-                    <br /> <h2 style="color:white;">모바일 앱 플랫폼  </h2> <br /><br />
+                    <br/>
+                    <h2 style="color:white;">모바일 앱 플랫폼 </h2> <br/><br/>
 
                     <p style="color:white;" class="font-italic">
                         모바일 애플리케이션을 다운로드하여 더 쉽게 서비스를 이용하세요 !
 
 
-                        <br /><br /><br /><br />
+                        <br/><br/><br/><br/>
 
                     <div class="app-icons">
                         <a href="https://apps.apple.com/app/id1551353775">
@@ -368,7 +186,7 @@
                             <img
                                 class="android"
                                 alt='Get it on Google Play'
-                                src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' />
+                                src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
                         </a>
                     </div>
 
@@ -377,135 +195,24 @@
         </div>
 
     </div>
-
-
-    <!-- End Cta Section -->
-
-
-
-
-    <!-- ======= Pricing Section =======
-
-
-    <section id="pricing" class="pricing section-bg">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>Pricing</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
+</section>
+<section id="contact" class="contact section-bg">
+    <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="box" data-aos="zoom-in">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
+            <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-right">
+                <div class="info">
+                    <div class="address">
+                        <i class="icofont-google-map"></i>
+                        <h4>주소 :</h4>
+                        <p>06682 ) 서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층</p>
+                    </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-
-    <!-- End Pricing Section -->
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-        <div class="container">
-
-
-
-            <div class="row">
-
-                <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-right">
-                    <div class="info">
-                        <div class="address">
-                            <i class="icofont-google-map"></i>
-                            <h4>주소 :</h4>
-                            <p>06682 ) 서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층</p>
-                        </div>
-
-                        <div class="email">
-                            <i class="icofont-envelope"></i>
-                            <h4>메일:</h4>
-                            <p>recruit@allthatmodel.co.kr</p>
-                        </div>
+                    <div class="email">
+                        <i class="icofont-envelope"></i>
+                        <h4>메일:</h4>
+                        <p>recruit@allthatmodel.co.kr</p>
+                    </div>
 
                         <div class="phone">
                             <i class="icofont-phone"></i>
@@ -519,10 +226,6 @@
                     </div>
 
                 </div>
-
-
-
-
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
                     <form action="#" method="post" role="form" class="php-email-form">
                         <div class="form-row">
@@ -539,7 +242,7 @@
                                     청춘이 만나 새로운 미래를 시작합니다. 올댓모델은 더욱 넉넉한 기회의 강물이 되어 꿈의 바다로 함께 나아가고 싶습니다.
 
                                 </p>
-                                <br /><br />
+                                <br/><br/>
 
 
                                 <div class="text-center">
@@ -547,8 +250,8 @@
                                 </div>
                     </form>
                 </div>
-
-            </div>
-
         </div>
-    </section><!-- End Contact Section -->
+
+    </div>
+</section>
+

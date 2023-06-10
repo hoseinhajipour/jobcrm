@@ -1,35 +1,40 @@
 @section('title', 'Login')
+@section('style')
+    <link href="{{asset('css/signup_login.css')}}" rel="stylesheet">
+@endsection
+<section class="container1 forms">
+    <div class="form login">
+        <div class="form-content">
+            <header>로그인</header>
 
-<div class="d-grid col-lg-4 mx-auto">
-    <div class="card">
-        <div class="card-header">
-            @yield('title')
-        </div>
-        <form wire:submit.prevent="login" class="card-body">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" wire:model.defer="email"
-                    class="form-control @error('email') is-invalid @enderror">
-                @error('email') <span class="invalid-feedback">{{ $message }}</span> @enderror
-            </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" wire:model.defer="password"
-                    class="form-control @error('password') is-invalid @enderror">
-                @error('password') <span class="invalid-feedback">{{ $message }}</span> @enderror
-            </div>
-
-            <div class="d-flex justify-content-between mb-3">
-                <div class="form-check">
-                    <input type="checkbox" id="remember" wire:model.defer="remember" class="form-check-input">
-                    <label for="remember" class="form-check-label">Remember me</label>
+            <form wire:submit.prevent="login">
+                <div class="field input-field">
+                    <input type="email" wire:model.defer="email"
+                           placeholder="이메일"
+                           class="input @error('password') is-invalid @enderror">
+                    @error('email') <span class="invalid-feedback">{{ $message }}</span> @enderror
                 </div>
 
-                <a href="{{ route('password.forgot') }}">Forgot password?</a>
-            </div>
+                <div class="field input-field">
+                    <input type="password" wire:model.defer="password" placeholder="비밀번호"
+                           class="password @error('password') is-invalid @enderror">
+                    @error('password') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
 
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
+                <div class="form-link">
+                    <a href="{{ route('password.forgot') }}" class="forgot-pass">비밀번호 찾기</a>
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit">로그인</button>
+                </div>
+            </form>
+
+            <div class="form-link">
+                <span>계정이 없으세요 ?<a href="{{route('SingupJs')}}" class="link signup-link">회원가입</a></span>
+            </div>
+        </div>
     </div>
-</div>
+</section>
