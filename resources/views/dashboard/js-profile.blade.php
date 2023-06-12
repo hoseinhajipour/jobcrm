@@ -1,7 +1,9 @@
+@section('script')
+    <script src="{{asset('js/exam-chart.js')}}"></script>
+@endsection
+
+
 <div class="container">
-
-
-
     <div class="row">
         <div class="col-12">
             <!-- Page title -->
@@ -11,11 +13,6 @@
                 <h3>나의 정보관리</h3>
                 <hr>
             </div>
-
-
-
-
-
             <!-- Form START -->
             <form class="file-upload " action="javascript:alert('프로필 수정이 완료되었습니다!');" id="form">
 
@@ -193,7 +190,8 @@
 
                 <br /> <br /> <br />
 
-            </form> <!-- Form END -->
+            </form>
+            <!-- Form END -->
         </div>
     </div>
 </div>

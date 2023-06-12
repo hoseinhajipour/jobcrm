@@ -214,7 +214,8 @@
 
                 <br /> <br /> <br />
 
-            </form> <!-- Form END -->
+            </form>
+            <!-- Form END -->
         </div>
     </div>
 </div>
