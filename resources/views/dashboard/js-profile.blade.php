@@ -1,4 +1,5 @@
 @section('script')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{asset('js/exam-chart.js')}}"></script>
 @endsection
 
@@ -26,7 +27,7 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                            <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
                                         </div>
                                         <!-- Button -->
                                         <input type="file" id="customFile" name="file" hidden="">
@@ -43,7 +44,7 @@
                                 <div class="col-md-4  offset-md-4 ">
                                     <div class="chart  px-4 py-5 rounded">
 
-                                        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                                        <canvas id="barchart" style="width:100%;max-width:600px"></canvas>
 
                                     </div>
                                 </div>

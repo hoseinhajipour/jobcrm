@@ -4,6 +4,8 @@ namespace App\Components\Pages;
 
 use App\Models\Job;
 use App\Models\JobCategory;
+use App\Models\JobType;
+use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
@@ -17,6 +19,9 @@ class Jobs extends Component
     public $search;
 
     public $categories = [];
+    public $jobTypes = [];
+    public $regions = [];
+
 
     public function mount(Request $request)
     {
@@ -25,6 +30,8 @@ class Jobs extends Component
         }
 
         $this->categories = JobCategory::all();
+        $this->jobTypes = JobType::all();
+        $this->regions = Region::all();
     }
 
 
@@ -37,7 +44,7 @@ class Jobs extends Component
     public function render()
     {
         $search = $this->search;
-        $jobs = Job::where('status', "PUBLISHED")
+        $jobs = Job::where('agreed', true)
             ->when($search, function ($query) use ($search) {
                 return $query->where('title', 'LIKE', "%$search%");
             })

@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class JobCategory extends Model
+class JobType extends Model
 {
     use HasFactory;
-    protected $table = 'job_category';
+
+    protected $table = 'job_type';
 }

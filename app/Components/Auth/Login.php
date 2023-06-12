@@ -54,6 +54,6 @@ class Login extends Component
             return null;
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::profile);
     }
 }

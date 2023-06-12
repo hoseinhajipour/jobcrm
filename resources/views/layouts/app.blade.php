@@ -7,9 +7,20 @@
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 
-    <livewire:styles/>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Favicons -->
+    <link href="{{asset('img/favicon.png')}}" rel="icon">
+    <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+
+<!--
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    -->
+    <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
@@ -19,8 +30,10 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
-
+    <livewire:styles/>
     @yield('style')
+
+
 </head>
 <body>
 
@@ -48,7 +61,6 @@
         <div class="header-social-links">
             @auth
                 <a href="{{route('profile')}}" class="user"><i class="icofont-user"></i></a>
-
             @endauth
             @guest
                 <a href="{{route('login')}}" class="user"><i class="icofont-user"></i></a>
@@ -126,18 +138,17 @@
         </div>
     </div>
 </footer>
+<a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
 
 <livewire:scripts/>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts/>
-
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/isotope.pkgd.js')}}"></script>
 <script src="{{asset('js/templatemo.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-<a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('vendor/jquery.easing/jquery.easing.min.js')}}"></script>
@@ -151,7 +162,7 @@
 <script src="{{asset('js/main.js')}}"></script>
 
 <script>
-    $(window).load(function () {
+    $( document ).ready(function() {
         // init Isotope
         var $projects = $('.projects').isotope({
             itemSelector: '.project',

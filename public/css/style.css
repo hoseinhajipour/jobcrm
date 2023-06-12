@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   line-height: 1px;
   transition: 0.3s;
-  
+
 }
 
 .header-social-links a:hover {
@@ -403,7 +403,7 @@ section {
 }
 
 .media-body {
-  
+
    max-width: 100%;
    max-height: 100%;
 }
@@ -479,8 +479,8 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
-  
-  
+
+
 }
 
   .about  button[type="submit"]:hover {
@@ -576,8 +576,8 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
-  
-  
+
+
 }
 
   .features  button[type="submit"]:hover {
@@ -593,7 +593,7 @@ section {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
-  
+
   margin-bottom: 30px;
 }
 
@@ -721,7 +721,7 @@ section {
 .mobile {
   padding: 0;
   margin-top: 40px;
-  
+
 }
 
 
@@ -785,7 +785,7 @@ section {
 
 .pricing .container {
   background-color: #F7F8F9;
-  
+
 }
 
 .pricing h3 {
@@ -965,7 +965,7 @@ section {
 
 
 .contact .content-title h2  {
-  
+
   width: 100%;
 margin-left: 50%;
   text-align: center;
@@ -1052,7 +1052,7 @@ margin-left: 50%;
   transition: 0.4s;
   border-radius: 4px;
   margin-left: 50%;
-  
+
 }
 
 .contact .php-email-form button[type="submit"]:hover {
@@ -1085,7 +1085,7 @@ margin-left: 50%;
   background: #f4f6f7;
   min-height: 40px;
   margin-top: 70px;
- 
+
 }
 
 .breadcrumbs a:link, a:visited {
@@ -1214,7 +1214,7 @@ margin-left: 50%;
 }
 
 .form-group .btn-primary:hover {
-    
+
     background-color: #96368B;
     border-color: #96368B
 }
@@ -1229,7 +1229,7 @@ margin-left: 50%;
   background: #f4f6f7;
   min-height: 40px;
   margin-top: 70px;
- 
+
 }
 
 .job a:link, a:visited {
@@ -1368,7 +1368,7 @@ margin-left: 50%;
 #footer .footer-top {
   background: #271138;
   padding: 60px 0 30px 0;
- 
+
 }
 
 #footer .footer-top .footer-info {
@@ -1496,7 +1496,13 @@ margin-left: 50%;
 
 #footer .copyright {
   text-align: left;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
 
-  
+.pagination li {
+    display: block;
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 10, 2023 at 07:54 PM
+-- Generation Time: Jun 12, 2023 at 07:18 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
   `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `data_rows_data_type_id_foreign` (`data_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `data_rows`
@@ -134,18 +134,38 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (53, 6, 'created_at', 'timestamp', 'Created At', 1, 1, 1, 0, 0, 0, NULL, 10),
 (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
 (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12),
-(56, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(57, 8, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
-(58, 8, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:jobs,slug\"}}', 3),
-(59, 8, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 4),
-(60, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
-(61, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(62, 8, 'status', 'select_dropdown', 'Status', 0, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 7),
 (63, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (64, 9, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
 (65, 9, 'icon', 'text', 'Icon', 0, 1, 1, 1, 1, 1, '{}', 3),
 (66, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
-(67, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5);
+(67, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(68, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(69, 10, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
+(70, 10, 'areas_of_recruitment', 'text', 'Areas Of Recruitment', 1, 1, 1, 1, 1, 1, '{}', 3),
+(71, 10, 'type_of_employment', 'text', 'Type Of Employment', 1, 1, 1, 1, 1, 1, '{}', 4),
+(72, 10, 'number_of_recruits', 'text', 'Number Of Recruits', 1, 1, 1, 1, 1, 1, '{}', 5),
+(73, 10, 'gender', 'text', 'Gender', 1, 1, 1, 1, 1, 1, '{}', 6),
+(74, 10, 'age', 'text', 'Age', 1, 1, 1, 1, 1, 1, '{}', 7),
+(75, 10, 'education', 'text', 'Education', 1, 1, 1, 1, 1, 1, '{}', 8),
+(76, 10, 'day_of_the_week', 'text', 'Day Of The Week', 1, 1, 1, 1, 1, 1, '{}', 9),
+(77, 10, 'working_time', 'text', 'Working Time', 1, 1, 1, 1, 1, 1, '{}', 10),
+(78, 10, 'closing_time', 'text', 'Closing Time', 1, 1, 1, 1, 1, 1, '{}', 11),
+(79, 10, 'break_time', 'text', 'Break Time', 0, 1, 1, 1, 1, 1, '{}', 12),
+(80, 10, 'preferential_conditions', 'text', 'Preferential Conditions', 0, 1, 1, 1, 1, 1, '{}', 13),
+(81, 10, 'salary', 'text', 'Salary', 1, 1, 1, 1, 1, 1, '{}', 14),
+(82, 10, 'damdam_place_name', 'text', 'Damdam Place Name', 1, 1, 1, 1, 1, 1, '{}', 15),
+(83, 10, 'meal_included', 'text', 'Meal Included', 1, 1, 1, 1, 1, 1, '{}', 16),
+(84, 10, 'negotiable', 'text', 'Negotiable', 1, 1, 1, 1, 1, 1, '{}', 17),
+(85, 10, 'probation_period', 'text', 'Probation Period', 1, 1, 1, 1, 1, 1, '{}', 18),
+(86, 10, 'performance_pay', 'text', 'Performance Pay', 1, 1, 1, 1, 1, 1, '{}', 19),
+(87, 10, 'contact', 'text', 'Contact', 1, 1, 1, 1, 1, 1, '{}', 20),
+(88, 10, 'fax_number', 'text', 'Fax Number', 0, 1, 1, 1, 1, 1, '{}', 21),
+(89, 10, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 22),
+(90, 10, 'address', 'text', 'Address', 1, 1, 1, 1, 1, 1, '{}', 23),
+(91, 10, 'description', 'text', 'Description', 1, 1, 1, 1, 1, 1, '{}', 24),
+(92, 10, 'agreed', 'text', 'Agreed', 1, 1, 1, 1, 1, 1, '{}', 25),
+(93, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 26),
+(94, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 27);
 
 -- --------------------------------------------------------
 
@@ -173,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `data_types_name_unique` (`name`),
   UNIQUE KEY `data_types_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `data_types`
@@ -186,8 +206,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
-(8, 'jobs', 'jobs', 'Job', 'Jobs', NULL, 'App\\Models\\Job', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-09 12:56:20', '2023-06-09 13:05:11'),
-(9, 'job_category', 'job-category', 'Job Category', 'Job Categories', NULL, 'App\\Models\\JobCategory', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-09 13:14:26', '2023-06-09 13:15:58');
+(9, 'job_category', 'job-category', 'Job Category', 'Job Categories', NULL, 'App\\Models\\JobCategory', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-09 13:14:26', '2023-06-09 13:15:58'),
+(10, 'jobs', 'jobs', 'Job', 'Jobs', NULL, 'App\\Models\\Job', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2023-06-12 01:58:24', '2023-06-12 01:58:24');
 
 -- --------------------------------------------------------
 
@@ -216,22 +236,36 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE IF NOT EXISTS `jobs` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `title` text COLLATE utf8mb4_unicode_ci,
-  `slug` text COLLATE utf8mb4_unicode_ci,
-  `user_id` int(11) DEFAULT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `areas_of_recruitment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_of_employment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `number_of_recruits` int(11) NOT NULL,
+  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `education` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `day_of_the_week` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `working_time` time NOT NULL,
+  `closing_time` time NOT NULL,
+  `break_time` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `preferential_conditions` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `damdam_place_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meal_included` tinyint(1) NOT NULL DEFAULT '0',
+  `negotiable` tinyint(1) NOT NULL DEFAULT '0',
+  `probation_period` tinyint(1) NOT NULL DEFAULT '0',
+  `performance_pay` tinyint(1) NOT NULL DEFAULT '0',
+  `contact` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fax_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agreed` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`id`, `title`, `slug`, `user_id`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'Digital Marketer', 'digital-marketer', 1, '2023-06-09 13:05:00', '2023-06-09 13:07:56', 'PUBLISHED');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -304,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   `parameters` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `menu_items_menu_id_foreign` (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `menu_items`
@@ -324,8 +358,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2023-06-09 12:23:52', '2023-06-09 12:23:52', 'voyager.categories.index', NULL),
 (12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2023-06-09 12:23:52', '2023-06-09 12:23:52', 'voyager.posts.index', NULL),
 (13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2023-06-09 12:23:52', '2023-06-09 12:23:52', 'voyager.pages.index', NULL),
-(14, 1, 'Jobs', '', '_self', NULL, NULL, NULL, 15, '2023-06-09 12:56:20', '2023-06-09 12:56:20', 'voyager.jobs.index', NULL),
-(15, 1, 'Job Categories', '', '_self', NULL, NULL, NULL, 16, '2023-06-09 13:14:26', '2023-06-09 13:14:26', 'voyager.job-category.index', NULL);
+(15, 1, 'Job Categories', '', '_self', NULL, NULL, NULL, 16, '2023-06-09 13:14:26', '2023-06-09 13:14:26', 'voyager.job-category.index', NULL),
+(16, 1, 'Jobs', '', '_self', NULL, NULL, NULL, 17, '2023-06-12 01:58:24', '2023-06-12 01:58:24', 'voyager.jobs.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -339,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -373,7 +407,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2016_01_01_000000_create_pages_table', 3),
 (26, '2016_01_01_000000_create_posts_table', 3),
 (27, '2016_02_15_204651_create_categories_table', 3),
-(28, '2017_04_11_000000_alter_post_nullable_fields_table', 3);
+(28, '2017_04_11_000000_alter_post_nullable_fields_table', 3),
+(29, '2023_06_12_052536_create_jobs_table', 4);
 
 -- --------------------------------------------------------
 
@@ -437,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `permissions_key_index` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `permissions`
@@ -484,16 +519,16 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (38, 'edit_pages', 'pages', '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
 (39, 'add_pages', 'pages', '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
 (40, 'delete_pages', 'pages', '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
-(41, 'browse_jobs', 'jobs', '2023-06-09 12:56:20', '2023-06-09 12:56:20'),
-(42, 'read_jobs', 'jobs', '2023-06-09 12:56:20', '2023-06-09 12:56:20'),
-(43, 'edit_jobs', 'jobs', '2023-06-09 12:56:20', '2023-06-09 12:56:20'),
-(44, 'add_jobs', 'jobs', '2023-06-09 12:56:20', '2023-06-09 12:56:20'),
-(45, 'delete_jobs', 'jobs', '2023-06-09 12:56:20', '2023-06-09 12:56:20'),
 (46, 'browse_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26'),
 (47, 'read_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26'),
 (48, 'edit_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26'),
 (49, 'add_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26'),
-(50, 'delete_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26');
+(50, 'delete_job_category', 'job_category', '2023-06-09 13:14:26', '2023-06-09 13:14:26'),
+(51, 'browse_jobs', 'jobs', '2023-06-12 01:58:24', '2023-06-12 01:58:24'),
+(52, 'read_jobs', 'jobs', '2023-06-12 01:58:24', '2023-06-12 01:58:24'),
+(53, 'edit_jobs', 'jobs', '2023-06-12 01:58:24', '2023-06-12 01:58:24'),
+(54, 'add_jobs', 'jobs', '2023-06-12 01:58:24', '2023-06-12 01:58:24'),
+(55, 'delete_jobs', 'jobs', '2023-06-12 01:58:24', '2023-06-12 01:58:24');
 
 -- --------------------------------------------------------
 
@@ -555,16 +590,16 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (38, 1),
 (39, 1),
 (40, 1),
-(41, 1),
-(42, 1),
-(43, 1),
-(44, 1),
-(45, 1),
 (46, 1),
 (47, 1),
 (48, 1),
 (49, 1),
-(50, 1);
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1);
 
 -- --------------------------------------------------------
 
@@ -679,13 +714,13 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
 (2, 'site.description', 'Site Description', 'Site Description', '', 'text', 2, 'Site'),
 (3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
-(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', '', '', 'text', 4, 'Site'),
+(4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
-(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
+(6, 'admin.title', 'Admin Title', 'Job Crm', '', 'text', 1, 'Admin'),
 (7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
 (8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
-(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', '', '', 'text', 1, 'Admin');
+(10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin');
 
 -- --------------------------------------------------------
 
