@@ -1,4 +1,4 @@
-@section('title', 'Index')
+@section('title', 'Home')
 
 <div class="main-banner" id="top">
     <video autoplay muted loop id="bg-video">
