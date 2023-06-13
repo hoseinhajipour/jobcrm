@@ -1505,4 +1505,10 @@ margin-left: 50%;
 .pagination li {
     display: block;
 }
-
+.invalid-input{
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

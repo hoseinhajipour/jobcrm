@@ -26,7 +26,7 @@
                             <a class="nav-link " href="{{route('SingupJs')}}">개인회원</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('SingupEm')}}">기업회원</a>
+                            <a class="nav-link active" href="{{route('SingupEm')}}">기업회원</a>
                         </li>
                     </ul>
 
@@ -45,7 +45,7 @@
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
-                                        <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                        <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
                                     </div>
                                     <!-- Button -->
                                     <input type="file" id="customFile" name="file" hidden="">
@@ -212,7 +212,13 @@
                                 </div>
 
 
+                                <div class="col-md-12">
+                                    <label class="form-label">자기소개서 *</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
+                                        {{setting('policy.employer')}}
+									</textarea>
 
+                                </div>
                                 <div class="col-md-12 ">
                                     <div class="bg-secondary-soft px-3 py-4 rounded">
                                         <div class="row g-3">

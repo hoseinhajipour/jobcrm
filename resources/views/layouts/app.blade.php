@@ -17,9 +17,9 @@
         rel="stylesheet">
 
 
-<!--
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    -->
+
     <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
