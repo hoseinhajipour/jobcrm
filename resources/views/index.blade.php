@@ -173,14 +173,14 @@
                         <a href="https://apps.apple.com/app/id1551353775">
                             <img
                                 class="apple"
-                                src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1276560000&h=7e7b68fad19738b5649a1bfb78ff46e9"
+                                src="{{asset('img/appstore.png')}}"
                                 alt="Download on the App Store">
                         </a>
                         <a href='https://play.google.com/store/apps/details?id=com.stagescycling.stages'>
                             <img
                                 class="android"
                                 alt='Get it on Google Play'
-                                src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
+                                src='{{asset('img/googleplay.png')}}'/>
                         </a>
                     </div>
 
@@ -206,6 +206,7 @@
                         <i class="icofont-envelope"></i>
                         <h4>메일:</h4>
                         <p>recruit@allthatmodel.co.kr</p>
+                    </div>
                     </div>
 
                         <div class="phone">

@@ -15,9 +15,9 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
-
+<!--
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+-->
     <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
@@ -101,8 +101,8 @@
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>링크</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="index.html">올댓리셉션</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#service">서비스</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('index')}}">올댓리셉션</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('service')}}">서비스</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#news">뉴스</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#mobile">APP</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#contact">회사 소개</a></li>
@@ -111,21 +111,13 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4><br/></h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="job.html">채용</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('jobs')}}">채용</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">올댓그룹</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">올댓모델</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">올댓클린</a></li>
 
                     </ul>
                 </div>
-                <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
-                   <h4>Our Newsletter</h4>
-                   <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                   <form action="" method="post">
-                     <input type="email" name="email"><input type="submit" value="Subscribe">
-                   </form>
-
-                 </div> -->
 
 
             </div>
