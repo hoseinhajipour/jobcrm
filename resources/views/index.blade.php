@@ -18,11 +18,7 @@
 
 <section id="service" class="py-5 mb-5">
     <div class="container">
-
-
-
         <div class="recent-work-header row text-center pb-5">
-
         </div>
         <div class="row gy-5 g-lg-5 mb-4">
 
@@ -30,7 +26,7 @@
             <div class="col-md-4 mb-3">
                 <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
                     <h3 class="card-title light-300">기업 서비스 </h3>
-                    <img class="recent-work-img card-img" src="img/bussines.png" alt="Card image">
+                    <img class="recent-work-img card-img" src="{{asset('img/bussines.png')}}" alt="Card image">
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
 
@@ -45,7 +41,7 @@
             <div class="col-md-4 mb-3">
                 <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
                     <h3 class="card-title light-300">인공 지능</h3>
-                    <img class="recent-work-img card-img" src="img/artificial_intelligence.png" alt="Card image">
+                    <img class="recent-work-img card-img" src="{{asset('img/artificial_intelligence.png')}}" alt="Card image">
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
 
@@ -63,7 +59,7 @@
             <div class="col-md-4 mb-3">
                 <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
                     <h3 class="card-title light-300">구직자 서비스</h3>
-                    <img class="recent-work-img card-img" src="img/jobseeker.png" alt="Card image">
+                    <img class="recent-work-img card-img" src="{{asset('img/jobseeker.png')}}" alt="Card image">
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
 
@@ -85,7 +81,7 @@
 
         <div class="row">
             <div class="col-lg-6" data-aos="zoom-in">
-                <img src="img/about.jpg" class="img-fluid" id="employer-news" alt="">
+                <img src="{{asset('img/about.jpg')}}" class="img-fluid" id="employer-news" alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
                 <div class="content pt-4 pt-lg-0">
@@ -102,9 +98,9 @@
                     <br/><br/>
 
                     <div class="atr-center">
-                        <form action="news.html">
+                        <a href="{{route('news')}}">
                             <button type="submit">보기</button>
-                        </form>
+                        </a>
                     </div>
 
                 </div>
@@ -134,9 +130,9 @@
                         <br/><br/>
 
                         <div class="atr-center">
-                            <form action="news.html">
+                            <a href="{{route('news')}}">
                                 <button type="submit" >보기 </button>
-                            </form>
+                            </a>
                         </div>
 
                     </div>
@@ -147,7 +143,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active show" id="tab-1">
                         <figure>
-                            <img src="img/features-1.png" alt="" class="img-fluid">
+                            <img src="{{asset('img/features-1.png')}}" alt="" class="img-fluid">
                         </figure>
                     </div>
 
@@ -171,8 +167,6 @@
 
                     <p style="color:white;" class="font-italic">
                         모바일 애플리케이션을 다운로드하여 더 쉽게 서비스를 이용하세요 !
-
-
                         <br/><br/><br/><br/>
 
                     <div class="app-icons">

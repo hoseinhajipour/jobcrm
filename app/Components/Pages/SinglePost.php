@@ -13,7 +13,7 @@ class SinglePost extends Component
 
     public function mount($slug)
     {
-        $this->post = Post::where("slug", "LIKE", "%$slug%")->first();
+        $this->post = Post::where("slug", "LIKE", "%$slug%")->with('category')->first();
     }
     public function route()
     {
