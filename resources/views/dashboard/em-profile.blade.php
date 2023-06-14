@@ -1,8 +1,4 @@
-
 <div class="container">
-
-
-
     <div class="row">
         <div class="col-12">
             <!-- Page title -->
@@ -12,21 +8,13 @@
                 <h3>프로필</h3>
                 <hr>
             </div>
-
-
-
             <!-- Form START -->
             <form class="file-upload" action="javascript:alert('프로필 수정이 완료되었습니다!');" id="form">
-
-
                 <div class="row mb-5 gx-5">
                     <!-- Upload profile -->
                     <div class="col-xxl-4 ">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
-
-                                <!--		<h4 class="mb-4 mt-0 ">Upload your profile photo</h4> -->
-
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
@@ -39,15 +27,10 @@
                                     <!-- Content -->
                                     <p class="text-muted mt-3 mb-0"><span class="me-1"></span>최소 크기 300px x 300px</p>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div> <!-- Row END -->
-
-
 
                 <div class="row mb-5 gx-5">
                     <!-- Contact detail -->
@@ -58,9 +41,9 @@
                                 <!--  Name -->
                                 <div class="col-md-6">
                                     <label class="form-label">회사명 *</label>
-                                    <input type="text" class="form-control" id="companyname" placeholder=""  aria-label="First name" value="회사명 ...">
+                                    <input type="text" class="form-control" id="companyname" placeholder=""
+                                           aria-label="First name" value="회사명 ...">
                                 </div>
-
 
                                 <!-- Birthday -->
                                 <div class="col-md-6">
@@ -121,17 +104,11 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="row mb-5 gx-5">
                     <!-- Contact detail -->
                     <div class="col-xxl-8 mb-5 mb-xxl-0">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
-                                <!--			<h4 class="mb-4 mt-0">Contact detail</h4> -->
-
                                 <!--  title -->
                                 <div class="col-md-6">
                                     <label class="form-label">직원수</label>
@@ -202,9 +179,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">

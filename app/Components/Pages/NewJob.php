@@ -33,7 +33,9 @@ class NewJob extends Component
     public $email;
     public $address;
     public $description;
-    public $agreed;
+
+
+    public $agree = false;
 
 
     public function route()
@@ -45,9 +47,36 @@ class NewJob extends Component
 
     public function newJob()
     {
-        $Job = new Job();
-        $Job->user_id = Auth::user()->id;
+        $Job = Job::create([
+            'title' => $this->title,
+            'areasOfRecruitment' => $this->areasOfRecruitment,
+            'typeOfEmployment' => $this->typeOfEmployment,
+            'numberOfRecruits' => $this->numberOfRecruits,
+            'gender' => $this->gender,
+            'age' => $this->age,
+            'education' => $this->education,
+            'dayOfWeek' => $this->dayOfWeek,
+            'workingTime' => $this->workingTime,
+            'closingTime' => $this->closingTime,
+            'breakTime' => $this->breakTime,
+            'preferentialConditions' => $this->preferentialConditions,
+            'salary' => $this->salary,
+            'damdamPlaceName' => $this->damdamPlaceName,
+            'mealIncluded' => $this->mealIncluded,
+            'negotiable' => $this->negotiable,
+            'probationPeriod' => $this->probationPeriod,
+            'performancePay' => $this->performancePay,
+            'contact' => $this->contact,
+            'faxNumber' => $this->faxNumber,
+            'email' => $this->email,
+            'address' => $this->address,
+            'description' => $this->description,
+            'user_id' => Auth::user()->id,
+        ]);
+
         $Job->save();
+
+
     }
 
     public function render()

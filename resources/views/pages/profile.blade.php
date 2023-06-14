@@ -9,7 +9,7 @@
     @if(Auth::user()->role_id == 3)
         <livewire:dashboard.js-profile/>
     @endif
-    @if(Auth::user()->role_id == 4)
+    @if(Auth::user()->role_id == 4 || Auth::user()->role_id == 1)
         <livewire:dashboard.em-profile/>
     @endif
 </div>
