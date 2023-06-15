@@ -28,9 +28,13 @@ class Job extends Model
     }
 
 
-
     public function user()
     {
         return $this->belongsTo(Voyager::modelClass('User'), 'user_id', 'id');
+    }
+
+    public function Resumes()
+    {
+        return $this->hasMany(Resume::class, 'job_id', 'id');
     }
 }

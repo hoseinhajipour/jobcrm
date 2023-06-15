@@ -40,7 +40,7 @@ class NewJob extends Component
 
     public function route()
     {
-        return Route::get('/new-job')
+        return Route::get('/profile/new-job')
             ->name('NewJob')
             ->middleware('auth');
     }

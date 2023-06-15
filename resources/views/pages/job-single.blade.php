@@ -1,12 +1,5 @@
 @section('style')
-    <link href="{{asset('css/css/price_rangs.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/flaticon.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/slicknav.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/magnific-popup.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/themify-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/slick.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/nice-select.css')}}" rel="stylesheet">
+
 @endsection
 @section('title',$job->title)
 <main>
@@ -89,7 +82,14 @@
                             <li>이메일 : <span>{{$job->email}}</span></li>
                         </ul>
                         <div class="apply-btn2">
-                            <a href="#" class="btn">지원하기</a>
+                            @auth
+                                <button wire:click="SendResume" class="btn">지원하기</button>
+                            @endauth
+
+                            @guest
+                                <a href="{{route('login')}}" class="btn">지원하기</a>
+                            @endguest
+
                         </div>
                     </div>
                     <div class="post-details4  mb-50">

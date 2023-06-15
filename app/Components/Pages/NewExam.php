@@ -31,7 +31,7 @@ class NewExam extends Component
 
     public function route()
     {
-        return Route::get('/new-exam')
+        return Route::get('/profile/new-exam')
             ->name('NewExam')
             ->middleware('auth');
     }

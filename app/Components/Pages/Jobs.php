@@ -14,7 +14,6 @@ use Livewire\WithPagination;
 class Jobs extends Component
 {
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
     public $search;
 

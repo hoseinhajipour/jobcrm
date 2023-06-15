@@ -7,45 +7,54 @@
         </div>
 
         <nav class="nav-menu d-none d-lg-block">
-            @guest
+            @if(request()->is('profile*'))
+                @auth
+                    @if(Auth::user()->role->name=="employer" || Auth::user()->role->name=="Administrator")
+                        <ul>
+                            <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}">
+                                <a href="{{route('index')}}">올댓리셉션</a></li>
+                            <li class="{{ Route::currentRouteName() == 'NewJob' ? 'active' : '' }}">
+                                <a href="{{route('NewJob')}}">채용공고 등록</a></li>
+                            <li class="{{ Route::currentRouteName() == 'MyJobs' ? 'active' : '' }}">
+                                <a href="{{route('MyJobs')}}">전체 공고</a>
+                            </li>
+                            <li><a href="#">미열람 이력서</a></li>
+                            <li><a href="#">열람 이력서</a></li>
+                            <li><a href="{{route('profile')}}">프로필</a></li>
+                            <li><a href="{{route('logout')}}">로그아웃</a></li>
+                        </ul>
+                    @endif
+
+                    @if(Auth::user()->role->name=="job-seeker")
+                        <ul>
+                            <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}">
+                                <a href="{{route('index')}}">올댓리셉션</a></li>
+                            <li class="{{ Route::currentRouteName() == 'MyResumes' ? 'active' : '' }}">
+                                <a href="{{route('MyResumes')}}">이력서</a>
+                            </li>
+                            <li><a href="#">지원완료</a></li>
+                            <li class="{{ Route::currentRouteName() == 'NewExam' ? 'active' : '' }}">
+                                <a href="{{route('NewExam')}}">자가진단표</a>
+                            </li>
+                            <li><a href="#">이력서 열람</a></li>
+                            <li><a href="#">추천 직업</a></li>
+                            <li><a href="{{route('logout')}}">로그아웃</a></li>
+                        </ul>
+                    @endif
+                @endauth
+            @else
                 <ul>
                     <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                    <li> <a href="#service">서비스</a></li>
+                    <li><a href="#service">서비스</a></li>
                     <li><a href="#news">뉴스</a></li>
                     <li><a href="#mobile">APP</a></li>
                     <li><a href="#contact">회사 소개</a></li>
                     <li><a href="{{route('jobs')}}">채용</a></li>
                     <li><a href="{{route('page',["slug"=>"groups"])}}">올댓그룹</a></li>
                 </ul>
-            @endguest
-            @auth
-
-                @if(Auth::user()->role->name=="employer" || Auth::user()->role->name=="Administrator")
-                    <ul>
-                        <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                        <li><a href="{{route('NewJob')}}">채용공고 등록</a></li>
-                        <li><a href="#">전체 공고</a></li>
-                        <li><a href="#">미열람 이력서</a></li>
-                        <li><a href="#">열람 이력서</a></li>
-                        <li><a href="{{route('profile')}}">프로필</a></li>
-                        <li><a href="{{route('logout')}}">로그아웃</a></li>
-                    </ul>
-                @endif
-
-                @if(Auth::user()->role->name=="job-seeker")
-                    <ul>
-                        <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                        <li><a href="{{route('profile')}}">이력서</a></li>
-                        <li><a href="#">지원완료</a></li>
-                        <li><a href="{{route('NewExam')}}">자가진단표</a></li>
-                        <li><a href="#">이력서 열람</a></li>
-                        <li><a href="#">추천 직업</a></li>
-                        <li><a href="#">로그아웃</a></li>
+            @endif
 
 
-                    </ul>
-                @endif
-            @endauth
         </nav>
 
         <div class="header-social-links">

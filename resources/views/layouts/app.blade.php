@@ -18,6 +18,9 @@
 <!--
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 -->
+
+    <livewire:styles/>
+
     <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
@@ -25,10 +28,20 @@
     <link href="{{asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
-    <livewire:styles/>
+
+    <link href="{{asset('css/css/price_rangs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/flaticon.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/slicknav.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/magnific-popup.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/themify-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/slick.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/nice-select.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/css/style.css')}}" rel="stylesheet">
     @yield('style')
 
 

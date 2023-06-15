@@ -145,7 +145,6 @@
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <h4 class="mb-4 mt-0">최종학력</h4>
                             <div class="row g-3" id="education">
-                                <!--			<h4 class="mb-4 mt-0">Social media detail</h4>  -->
                                 <!--  Education -->
                                 <div class="col-md-4">
                                     <label class="form-label">최종학력 *</label>
@@ -211,9 +210,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
 
                 <!-- Career -->

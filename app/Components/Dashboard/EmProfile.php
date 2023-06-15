@@ -26,6 +26,25 @@ class EmProfile extends Component
     public function mount()
     {
         $this->user = Auth::user();
+
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->password = ''; // You may choose to leave the password empty for security reasons
+        $this->password_confirmation = '';
+        $this->establishment_date = $this->user->establishment_date;
+        $this->representative_name = $this->user->representative_name;
+        $this->business_number = $this->user->business_number;
+        $this->contact_person_number = $this->user->contact_person_number;
+        $this->contact_person_name = $this->user->contact_person_name;
+        $this->number_of_employees = $this->user->number_of_employees;
+        $this->business_information = $this->user->business_information;
+        $this->sectors = $this->user->sectors;
+        $this->company_website_address = $this->user->company_website_address;
+        $this->company_type = $this->user->company_type;
+        $this->take = $this->user->take;
+        $this->capital = $this->user->capital;
+        $this->Listed_or_not = $this->user->Listed_or_not;
+        $this->address = $this->user->address;
     }
 
     public function rules()
