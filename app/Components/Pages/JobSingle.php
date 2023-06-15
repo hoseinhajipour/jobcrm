@@ -10,14 +10,14 @@ class JobSingle extends Component
 {
     public $job;
 
-    public function mount($slug)
+    public function mount($id)
     {
-        $this->job = Job::where("slug", "LIKE", "%$slug%")->first();
+        $this->job = Job::where("id", $id)->with("user")->first();
     }
 
     public function route()
     {
-        return Route::get('/job/{slug}')
+        return Route::get('/job/{id}')
             ->name('job');
     }
 

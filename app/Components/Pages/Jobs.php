@@ -48,6 +48,7 @@ class Jobs extends Component
             ->when($search, function ($query) use ($search) {
                 return $query->where('title', 'LIKE', "%$search%");
             })
+            ->with('user')
             ->paginate(8);
         return view('pages.jobs', ["jobs" => $jobs]);
     }

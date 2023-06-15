@@ -239,26 +239,19 @@
                                     </select>
                                 </div>
 
-
-                                <div class="col-md-12">
-                                    <label class="form-label">자기소개서 *</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
-                                        {{setting('policy.employer')}}
-									</textarea>
-
-                                </div>
                                 <div class="col-md-12 ">
                                     <div class="bg-secondary-soft px-3 py-4 rounded">
                                         <div class="row g-3">
                                             <div class="form-check">
                                                 <input class="agree-check"
                                                        type="checkbox" wire:model="agree">
-                                                <label for="exampleCheck1">약관동의</label>
+                                                <a href="{{route('page',["slug"=>"em-policy"])}}">
+                                                    <label for="exampleCheck1">약관동의</label>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
 
 
                             </div> <!-- Row END -->

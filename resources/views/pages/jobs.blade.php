@@ -1,6 +1,5 @@
 <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-          integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+
 
     <div class="container">
 
@@ -82,27 +81,30 @@
                         <div class="container">
 
                             @foreach($jobs as $job)
-                            <div class="single-job-items mb-30">
-                                <div class="job-items">
-                                    <div class="company-img">
-                                        <a href="#"><img src="img/job-list1.png" alt=""></a>
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="#">
+                                                <img src="{{asset(Voyager::image($job->user->avatar))}}" alt=""
+                                                     width="64">
+                                            </a>
+                                        </div>
+                                        <div class="job-tittle job-tittle2">
+                                            <a href="{{route('job',["id"=>$job->id])}}">
+                                                <h4>{{$job->title}}</h4>
+                                            </a>
+                                            <ul>
+                                                <li>Creative Agency</li>
+                                                <li><i class="fas fa-map-marker-alt"></i>서울</li>
+                                                <li>{{$job->salary}}$</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="job-tittle job-tittle2">
-                                        <a href="{{route('job',["slug"=>$job->slug])}}">
-                                            <h4>Digital Marketer</h4>
-                                        </a>
-                                        <ul>
-                                            <li>Creative Agency</li>
-                                            <li><i class="fas fa-map-marker-alt"></i>서울</li>
-                                            <li>$3500 - $4000</li>
-                                        </ul>
+                                    <div class="items-link items-link2 f-right">
+                                        <a href="{{route('job',["id"=>$job->id])}}">취업</a>
+                                        <span>7 시간 전</span>
                                     </div>
                                 </div>
-                                <div class="items-link items-link2 f-right">
-                                    <a href="{{route('job',["slug"=>$job->slug])}}">취업</a>
-                                    <span>7 시간 전</span>
-                                </div>
-                            </div>
                             @endforeach
                         </div>
                     </section>

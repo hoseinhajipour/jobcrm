@@ -21,7 +21,7 @@ class SingupJs extends Component
     public $salary, $company_name, $company_department, $rank;
     public $employment_start, $employment_end;
     public $language, $o_a, $support_areas;
-
+    public $self_introduction;
     public $agree = false;
 
     public function rules()
@@ -74,6 +74,7 @@ class SingupJs extends Component
             'language' => $this->language,
             'o_a' => $this->o_a,
             'support_areas' => $this->support_areas,
+            'self_introduction' => $this->self_introduction,
             'password' => bcrypt($this->password),
         ]);
         if ($this->avatar) {

@@ -316,9 +316,10 @@
                                 <!-- cover letter -->
                                 <div class="col-md-12">
                                     <label class="form-label">자기소개서 *</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
-                                        {{setting('policy.job-seeker')}}
-									</textarea>
+                                    <textarea class="form-control"
+                                              wire:model.defer="self_introduction"
+                                              id="exampleFormControlTextarea1"
+                                              rows="5"></textarea>
 
                                 </div>
 
@@ -330,7 +331,10 @@
                                             <div class="custom-control custom-checkbox">
                                                 <input class="agree-check"
                                                        type="checkbox" wire:model="agree">
-                                                <label>약관동의</label>
+                                                <a href="{{route('page',["slug"=>"js-policy"])}}">
+                                                    <label>약관동의</label>
+                                                </a>
+
                                             </div>
                                         </div>
                                     </div>

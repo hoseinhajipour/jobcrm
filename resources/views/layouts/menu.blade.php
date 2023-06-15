@@ -10,10 +10,10 @@
             @guest
                 <ul>
                     <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                    <li><a href="{{route('service')}}">서비스</a></li>
-                    <li><a href="{{route('news')}}">뉴스</a></li>
-                    <li><a href="{{route('mobile')}}">APP</a></li>
-                    <li><a href="{{route('contact')}}">회사 소개</a></li>
+                    <li> <a href="#service">서비스</a></li>
+                    <li><a href="#news">뉴스</a></li>
+                    <li><a href="#mobile">APP</a></li>
+                    <li><a href="#contact">회사 소개</a></li>
                     <li><a href="{{route('jobs')}}">채용</a></li>
                     <li><a href="{{route('page',["slug"=>"groups"])}}">올댓그룹</a></li>
                 </ul>
