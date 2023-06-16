@@ -3,6 +3,7 @@
 namespace App\Components\Pages;
 
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
@@ -37,6 +38,21 @@ class NewJob extends Component
 
     public $agree = false;
 
+    public $employers = [];
+
+    public $currentUser;
+
+    public function mount()
+    {
+        $this->employers = User::where("role_id", 3)->get();
+
+        if (Auth::user()->role_id == 1) {
+            $this->currentUser = $this->employers[0]->id;
+        } else {
+            $this->currentUser = Auth::user()->id;
+        }
+
+    }
 
     public function route()
     {
@@ -72,7 +88,7 @@ class NewJob extends Component
             'address' => $this->address,
             'description' => $this->description,
             'agreed' => true,
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->currentUser,
         ]);
 
         $Job->save();

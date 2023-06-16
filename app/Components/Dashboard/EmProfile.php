@@ -3,11 +3,13 @@
 namespace App\Components\Dashboard;
 
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class EmProfile extends Component
 {
+    use LivewireAlert;
     use WithFileUploads;
 
     public $avatar;
@@ -18,8 +20,6 @@ class EmProfile extends Component
     public $business_information, $sectors, $company_website_address;
     public $company_type, $take, $capital, $Listed_or_not;
     public $address;
-
-    public $agree = false;
 
     public $user;
 
@@ -52,7 +52,6 @@ class EmProfile extends Component
         return [
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'confirmed'],
         ];
     }
 
@@ -62,13 +61,10 @@ class EmProfile extends Component
     }
 
 
-    public function register()
+    public function updateProfile()
     {
-        $this->validate();
 
-        if (!$this->honeyPasses()) {
-            return null;
-        }
+        //  $this->validate();
 
         $this->user->update([
             'name' => $this->name,
@@ -87,13 +83,24 @@ class EmProfile extends Component
             'capital' => $this->capital,
             'Listed_or_not' => $this->Listed_or_not,
             'address' => $this->address,
-            'password' => bcrypt($this->password),
+            //   'password' => bcrypt($this->password),
         ]);
 
         if ($this->avatar) {
-            $path = $this->avatar->store('avatars');
+            $path = $this->avatar->store('avatars','public');
             $this->user->avatar = $path;
             $this->user->save();
         }
+
+        $this->alert('success', '저장', ['position' => 'center']);
+    }
+
+    public function changeAvatar()
+    {
+        $path = $this->avatar->store('avatars');
+        $this->user->avatar = $path;
+        $this->user->save();
+        $this->alert('success', '저장', ['position' => 'center']);
+
     }
 }

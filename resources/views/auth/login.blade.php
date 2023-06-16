@@ -28,7 +28,17 @@
                 </div>
 
                 <div class="field button-field">
-                    <button type="submit">로그인</button>
+                    <button type="submit">
+                        <div wire:loading class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div wire:loading.remove>
+                            로그인
+                        </div>
+
+                    </button>
                 </div>
             </form>
 

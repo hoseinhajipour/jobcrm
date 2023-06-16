@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <!-- Page title -->
-            <br /> <br /> <br />
+            <br/> <br/> <br/>
 
             <div class="my-5">
                 <h3>채용 공고</h3>
@@ -11,6 +11,18 @@
             <!-- Form START -->
             <form class="file-upload" wire:submit.prevent="newJob" id="form">
 
+                <div class="alert alert-info">
+                    <label>원하는 업체를 선택하세요</label>
+                    @if(Auth::user()->role->name=="admin")
+                        <select wire:model.defer="currentUser" class="form-control">
+                            @foreach($employers as $employer)
+                                <option value="{{$employer->id}}">
+                                    <label>{{$employer->name}} | {{$employer->email}}</label>
+                                </option>
+                            @endforeach
+                        </select>
+                    @endif
+                </div>
                 <div class="row mb-5 gx-5">
                     <!-- Contact detail -->
                     <div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -290,9 +302,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">

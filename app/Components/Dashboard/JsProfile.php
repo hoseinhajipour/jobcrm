@@ -70,12 +70,13 @@ class JsProfile extends Component
 
     public function update()
     {
+        /*
         $this->validate();
 
         if (!$this->honeyPasses()) {
             return null;
         }
-
+*/
         $this->user->update([
             'name' => $this->name,
             'email' => $this->email,
@@ -98,10 +99,10 @@ class JsProfile extends Component
             'o_a' => $this->o_a,
             'support_areas' => $this->support_areas,
             'self_introduction' => $this->self_introduction,
-            'password' => bcrypt($this->password),
+          //  'password' => bcrypt($this->password),
         ]);
         if ($this->avatar) {
-            $path = $this->avatar->store('avatars');
+            $path = $this->avatar->store('avatars','public');
             $this->user->avatar = $path;
             $this->user->save();
         }

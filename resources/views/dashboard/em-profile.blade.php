@@ -13,7 +13,7 @@
 
 
             <!-- Form START -->
-            <form class="file-upload" wire:submit.prevent="register">
+            <form class="file-upload" wire:submit.prevent="updateProfile">
 
                 <div class="row mb-5 gx-5">
 
@@ -35,7 +35,8 @@
                                         @endif
                                     </div>
                                     <!-- Button -->
-                                    <input type="file" wire:model="avatar" id="customFile" name="file" hidden="">
+                                    <input type="file" wire:model.defer="avatar"
+                                           id="customFile" name="file" hidden="">
                                     <label class="btn btn-success-soft btn-block" for="customFile">기업 로고 업로드</label>
                                     <!-- Content -->
                                     <p class="text-muted mt-3 mb-0"><span class="me-1"></span>최소 크기 300px x 300px</p>
@@ -229,21 +230,6 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-12 ">
-                                    <div class="bg-secondary-soft px-3 py-4 rounded">
-                                        <div class="row g-3">
-                                            <div class="form-check">
-                                                <input class="agree-check"
-                                                       type="checkbox" wire:model="agree">
-                                                <a href="{{route('page',["slug"=>"em-policy"])}}">
-                                                    <label for="exampleCheck1">약관동의</label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                             </div> <!-- Row END -->
                         </div>
                     </div>
@@ -252,8 +238,7 @@
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button type="submit" {{ $agree ? '' : 'disabled' }}
-                    class="btn btn-primary btn-lg" id="emsignup">등록
+                    <button type="submit" class="btn btn-primary btn-lg" id="emsignup">등록
                     </button>
                 </div>
 

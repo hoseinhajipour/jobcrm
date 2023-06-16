@@ -81,22 +81,16 @@
 
         <div class="row">
             <div class="col-lg-6" data-aos="zoom-in">
-                <img src="{{asset('img/about.jpg')}}" class="img-fluid" id="employer-news" alt="">
+                <img src="{{Voyager::image($LastPostEmployer->image)}}" class="img-fluid" id="employer-news" alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
                 <div class="content pt-4 pt-lg-0">
                     <h2>기업 뉴스 </h2> <br />
-                    <h4>면접관을 위한 면접 진행  </h4>
+                    <h4>{{$LastPostEmployer->title}}</h4>
                     <p class="font">
-                        예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을
-                        들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다. <br/>
-                        실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이
-                        아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.
-
+                        {{$LastPostEmployer->excerpt}}
                     </p>
-
                     <br/><br/>
-
                     <div class="atr-center">
                         <a href="{{route('news')}}">
                             <button type="submit">보기</button>
@@ -118,12 +112,9 @@
                 <div class="nav nav-tabs flex-column">
                     <div class="nav-item" data-aos="fade-up">
                         <h2>구직자 뉴스 </h2> <br/>
-                        <h4>내가 하고싶은 일 찾는 방법 </h4>
+                        <h4>{{$LastPostJobSeeker->title}} </h4>
                         <p class="font">
-                            인간은 진화적으로 불확실성을 싫어한다고 합니다. 그래서 "내가 원하는 걸 나도 모르겠다."
-                            "지금 하는 일이 내가 원하는 것인지 확실하지 않다." "나만의 커리어를 찾고 싶다."
-                            등의 이야기를 하게 됩니다. 불확실성은 스트레스를 유발하고 재생산과 자손
-                            양육이라는 생명체의 본래 활동을 위축시키기 때문인데요.
+                            {{$LastPostJobSeeker->excerpt}}
 
                         </p>
 
@@ -143,7 +134,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active show" id="tab-1">
                         <figure>
-                            <img src="{{asset('img/features-1.png')}}" alt="" class="img-fluid">
+                            <img src="{{Voyager::image($LastPostJobSeeker->image)}}" alt="" class="img-fluid">
                         </figure>
                     </div>
 

@@ -11,6 +11,20 @@ class Resume extends Model
 {
     use HasFactory;
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($resume) {
+            $resume->employer_id = $resume->job->user_id;
+        });
+
+        static::updating(function ($resume) {
+            $resume->employer_id = $resume->job->user_id;
+        });
+    }
+
+
     public function job()
     {
         return $this->belongsTo(Job::class, 'job_id', 'id');

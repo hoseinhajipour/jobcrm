@@ -9,7 +9,7 @@
         <nav class="nav-menu d-none d-lg-block">
             @if(request()->is('profile*'))
                 @auth
-                    @if(Auth::user()->role->name=="employer" || Auth::user()->role->name=="Administrator")
+                    @if(Auth::user()->role->name=="employer" || Auth::user()->role->name=="admin")
                         <ul>
                             <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}">
                                 <a href="{{route('index')}}">올댓리셉션</a></li>
@@ -18,8 +18,12 @@
                             <li class="{{ Route::currentRouteName() == 'MyJobs' ? 'active' : '' }}">
                                 <a href="{{route('MyJobs')}}">전체 공고</a>
                             </li>
-                            <li><a href="#">미열람 이력서</a></li>
-                            <li><a href="#">열람 이력서</a></li>
+                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' ? 'active' : '' }}">
+                                <a href="{{route('ViewAllResumes',["status"=>"pending"])}}">미열람 이력서</a>
+                            </li>
+                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' ? 'active' : '' }}">
+                                <a href="{{route('ViewAllResumes',["status"=>"read"])}}">열람 이력서</a>
+                            </li>
                             <li><a href="{{route('profile')}}">프로필</a></li>
                             <li><a href="{{route('logout')}}">로그아웃</a></li>
                         </ul>
@@ -50,7 +54,7 @@
                     <li><a href="#mobile">APP</a></li>
                     <li><a href="#contact">회사 소개</a></li>
                     <li><a href="{{route('jobs')}}">채용</a></li>
-                    <li><a href="{{route('page',["slug"=>"groups"])}}">올댓그룹</a></li>
+                    <li><a href="#groups">올댓그룹</a></li>
                 </ul>
             @endif
 

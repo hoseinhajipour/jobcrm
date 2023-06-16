@@ -6,6 +6,14 @@
 @endsection
 
 <div>
+    @if(Auth::user()->role->name=="admin")
+        <div class="container">
+            <br/><br/><br/>
+            <div class="my-5">
+                <div class="alert alert-success">Admin Dashboard</div>
+            </div>
+        </div>
+    @endif
     @if(Auth::user()->role->name=="job-seeker")
         <livewire:dashboard.js-profile/>
     @endif

@@ -66,7 +66,7 @@
                                 <!-- Birthday -->
                                 <div class="col-md-6">
                                     <label class="form-label">생년월일 *</label>
-                                    <input type="text" wire:model.defer="birth_date"
+                                    <input type="date" wire:model.defer="birth_date"
                                            class="form-control" id="datepicker" placeholder=""
                                            aria-label="Birthday" value="1994-06-02">
                                 </div>

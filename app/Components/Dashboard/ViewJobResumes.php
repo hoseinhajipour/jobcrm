@@ -4,6 +4,7 @@ namespace App\Components\Dashboard;
 
 use App\Models\Job;
 use App\Models\Resume;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
