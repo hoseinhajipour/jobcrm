@@ -55,6 +55,12 @@
                     <li><a href="#contact">회사 소개</a></li>
                     <li><a href="{{route('jobs')}}">채용</a></li>
                     <li><a href="#groups">올댓그룹</a></li>
+                    @auth
+                        <li class="d-lg-none d-block"><a href="{{route('profile')}}" class="user"><i class="icofont-user"></i>프로필</a></li>
+                    @endauth
+                    @guest
+                        <li class="d-lg-none d-block"><a href="{{route('login')}}" class="user"><i class="icofont-user"></i>프로필</a></li>
+                    @endguest
                 </ul>
             @endif
 

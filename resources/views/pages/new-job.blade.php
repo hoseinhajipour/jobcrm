@@ -1,3 +1,7 @@
+@section('style')
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
+@endsection
 <div class="container">
     <div class="row">
         <div class="col-12">

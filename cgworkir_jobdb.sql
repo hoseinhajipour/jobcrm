@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 15, 2023 at 11:41 PM
+-- Generation Time: Jun 17, 2023 at 12:39 AM
 -- Server version: 10.3.39-MariaDB
 -- PHP Version: 8.1.16
 
@@ -42,8 +42,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, NULL, 1, 'Category 1', 'category-1', '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
-(2, NULL, 1, 'Category 2', 'category-2', '2023-06-09 12:23:52', '2023-06-09 12:23:52');
+(1, NULL, 1, '구직자 뉴스', 'job -seeker-news', '2023-06-09 12:23:52', '2023-06-16 06:09:11'),
+(2, NULL, 1, '기업 뉴스', ' employer-news', '2023-06-09 12:23:52', '2023-06-16 06:09:46');
 
 -- --------------------------------------------------------
 
@@ -181,7 +181,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (114, 14, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
 (115, 10, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 29),
 (116, 10, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:jobs,slug\"}}', 3),
-(117, 10, 'job_belongsto_user_relationship', 'relationship', 'users', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}', 30),
+(117, 10, 'job_belongsto_user_relationship', 'relationship', 'users', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 30),
 (118, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 1, '{}', 6),
 (119, 1, 'birth_date', 'timestamp', 'Birth Date', 0, 1, 1, 1, 1, 1, '{}', 12),
 (120, 1, 'gender', 'text', 'Gender', 0, 1, 1, 1, 1, 1, '{}', 13),
@@ -223,7 +223,44 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (156, 15, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 4),
 (157, 15, 'resume_belongsto_job_relationship', 'relationship', 'job', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Job\",\"table\":\"jobs\",\"type\":\"belongsTo\",\"column\":\"job_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
 (158, 15, 'resume_belongsto_user_relationship', 'relationship', 'user', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 6),
-(159, 15, 'description', 'text_area', 'Description', 0, 1, 1, 1, 1, 1, '{}', 7);
+(159, 15, 'description', 'text_area', 'Description', 0, 1, 1, 1, 1, 1, '{}', 7),
+(160, 15, 'employer_id', 'text', 'Employer Id', 0, 1, 1, 1, 1, 1, '{}', 8),
+(161, 10, 'job_belongsto_job_category_relationship', 'relationship', 'job category', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\JobCategory\",\"table\":\"job_category\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 31),
+(162, 10, 'job_belongsto_job_type_relationship', 'relationship', 'job type', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\JobType\",\"table\":\"job_type\",\"type\":\"belongsTo\",\"column\":\"jobtype_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 32),
+(163, 10, 'job_belongsto_region_relationship', 'relationship', 'region', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Region\",\"table\":\"regions\",\"type\":\"belongsTo\",\"column\":\"area_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 33),
+(164, 10, 'category_id', 'text', 'Category Id', 0, 1, 1, 1, 1, 1, '{}', 30),
+(165, 10, 'jobtype_id', 'text', 'Jobtype Id', 0, 1, 1, 1, 1, 1, '{}', 31),
+(166, 10, 'area_id', 'text', 'Area Id', 0, 1, 1, 1, 1, 1, '{}', 32),
+(167, 16, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(168, 16, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2),
+(169, 16, 'self_care', 'text', '자기관리 .이미지', 0, 1, 1, 1, 1, 1, '{}', 3),
+(170, 16, 'communicative_power', 'text', '전달력 의사', 0, 1, 1, 1, 1, 1, '{}', 4),
+(171, 16, 'reduced_ability_to_cope', 'text', '대처능력 .소', 0, 1, 1, 1, 1, 1, '{}', 5),
+(172, 16, 'ability_job', 'text', '능력 직무', 0, 1, 1, 1, 1, 1, '{}', 6),
+(173, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 0, 0, 0, 0, '{}', 7),
+(174, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
+(175, 16, 'exam_result_belongsto_user_relationship', 'relationship', 'users', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}', 9),
+(176, 17, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(177, 17, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2),
+(178, 17, 'education', 'text', 'Education', 0, 1, 1, 1, 1, 1, '{}', 4),
+(179, 17, 'school', 'text', 'School', 0, 1, 1, 1, 1, 1, '{}', 5),
+(180, 17, 'school_department', 'text', 'School Department', 0, 1, 1, 1, 1, 1, '{}', 6),
+(181, 17, 'admission_date', 'date', 'Admission Date', 0, 1, 1, 1, 1, 1, '{}', 7),
+(182, 17, 'graduation_date', 'date', 'Graduation Date', 0, 1, 1, 1, 1, 1, '{}', 8),
+(183, 17, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(184, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 10),
+(185, 17, 'education_history_belongsto_user_relationship', 'relationship', 'user', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
+(186, 18, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(187, 18, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2),
+(188, 18, 'company_name', 'text', 'Company Name', 0, 1, 1, 1, 1, 1, '{}', 4),
+(189, 18, 'company_department', 'text', 'Company Department', 0, 1, 1, 1, 1, 1, '{}', 5),
+(190, 18, 'salary', 'text', 'Salary', 0, 1, 1, 1, 1, 1, '{}', 6),
+(191, 18, 'rank', 'text', 'Rank', 0, 1, 1, 1, 1, 1, '{}', 7),
+(192, 18, 'employment_start', 'date', 'Employment Start', 0, 1, 1, 1, 1, 1, '{}', 8),
+(193, 18, 'employment_end', 'date', 'Employment End', 0, 1, 1, 1, 1, 1, '{}', 9),
+(194, 18, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 10),
+(195, 18, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 11),
+(196, 18, 'work_history_belongsto_user_relationship', 'relationship', 'user', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
 
 -- --------------------------------------------------------
 
@@ -261,12 +298,40 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2023-06-09 12:23:52', '2023-06-13 16:36:28'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2023-06-09 12:23:52', '2023-06-09 12:23:52'),
 (9, 'job_category', 'job-category', 'Job Category', 'Job Categories', NULL, 'App\\Models\\JobCategory', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-09 13:14:26', '2023-06-09 13:15:58'),
-(10, 'jobs', 'jobs', 'Job', 'Jobs', NULL, 'App\\Models\\Job', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-12 01:58:24', '2023-06-15 01:48:00'),
+(10, 'jobs', 'jobs', 'Job', 'Jobs', NULL, 'App\\Models\\Job', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-12 01:58:24', '2023-06-16 08:21:51'),
 (11, 'job_type', 'job-type', 'Job Type', 'Job Types', NULL, 'App\\Models\\JobType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-12 16:24:53', '2023-06-12 16:26:52'),
 (12, 'regions', 'regions', 'Region', 'Regions', NULL, 'App\\Models\\Region', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-12 16:31:15', '2023-06-12 16:32:38'),
 (13, 'questions', 'questions', 'Question', 'Questions', NULL, 'App\\Models\\Question', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-14 14:46:52', '2023-06-14 14:47:15'),
 (14, 'exams', 'exams', 'Exam', 'Exams', NULL, 'App\\Models\\Exam', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2023-06-14 15:15:40', '2023-06-14 15:15:40'),
-(15, 'resumes', 'resumes', 'Resume', 'Resumes', NULL, 'App\\Models\\Resume', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-15 13:55:48', '2023-06-15 14:13:12');
+(15, 'resumes', 'resumes', 'Resume', 'Resumes', NULL, 'App\\Models\\Resume', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-15 13:55:48', '2023-06-16 06:54:27'),
+(16, 'exam_results', 'exam-results', 'Exam Result', 'Exam Results', NULL, 'App\\Models\\ExamResult', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-16 09:52:18', '2023-06-16 09:52:52'),
+(17, 'education_histories', 'education-histories', 'Education History', 'Education Histories', NULL, 'App\\Models\\EducationHistory', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-16 16:42:48', '2023-06-16 16:43:26'),
+(18, 'work_histories', 'work-histories', 'Work History', 'Work Histories', NULL, 'App\\Models\\WorkHistory', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2023-06-16 16:44:08', '2023-06-16 16:45:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education_histories`
+--
+
+CREATE TABLE `education_histories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `education` varchar(255) DEFAULT NULL,
+  `school` varchar(255) DEFAULT NULL,
+  `school_department` varchar(255) DEFAULT NULL,
+  `admission_date` date DEFAULT NULL,
+  `graduation_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `education_histories`
+--
+
+INSERT INTO `education_histories` (`id`, `user_id`, `education`, `school`, `school_department`, `admission_date`, `graduation_date`, `created_at`, `updated_at`) VALUES
+(5, 3, '3', 'df', 'dsdf', '2023-06-17', '2023-06-17', '2023-06-16 17:37:33', '2023-06-16 17:37:47');
 
 -- --------------------------------------------------------
 
@@ -288,15 +353,15 @@ CREATE TABLE `exams` (
 --
 
 INSERT INTO `exams` (`id`, `user_id`, `question_id`, `value`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 3, '2023-06-14 15:36:12', '2023-06-14 15:36:29'),
-(2, 3, 2, 1, '2023-06-14 15:36:12', '2023-06-15 02:35:52'),
+(1, 3, 1, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
+(2, 3, 2, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (3, 3, 3, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(4, 3, 4, 3, '2023-06-14 15:36:12', '2023-06-14 15:36:29'),
-(5, 3, 5, 5, '2023-06-14 15:36:12', '2023-06-15 02:36:08'),
+(4, 3, 4, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
+(5, 3, 5, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (6, 3, 6, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (7, 3, 7, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (8, 3, 8, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(9, 3, 9, 1, '2023-06-14 15:36:12', '2023-06-14 15:36:29'),
+(9, 3, 9, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (10, 3, 10, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (11, 3, 11, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (12, 3, 12, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
@@ -306,28 +371,45 @@ INSERT INTO `exams` (`id`, `user_id`, `question_id`, `value`, `created_at`, `upd
 (16, 3, 16, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (17, 3, 17, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (18, 3, 18, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(19, 3, 19, 3, '2023-06-14 15:36:12', '2023-06-15 02:35:52'),
+(19, 3, 19, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (20, 3, 20, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (21, 3, 21, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(22, 3, 22, 1, '2023-06-14 15:36:12', '2023-06-15 02:35:52'),
+(22, 3, 22, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (23, 3, 23, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(24, 3, 24, 1, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
+(24, 3, 24, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (25, 3, 25, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (26, 3, 26, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (27, 3, 27, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (28, 3, 28, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (29, 3, 29, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(30, 3, 30, 5, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
+(30, 3, 30, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (31, 3, 31, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (32, 3, 32, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (33, 3, 33, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (34, 3, 34, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
-(35, 3, 35, 1, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
+(35, 3, 35, 0, '2023-06-14 15:36:12', '2023-06-16 09:50:02'),
 (36, 3, 36, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (37, 3, 37, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (38, 3, 38, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (39, 3, 39, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12'),
 (40, 3, 40, 0, '2023-06-14 15:36:12', '2023-06-14 15:36:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_results`
+--
+
+CREATE TABLE `exam_results` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `self_care` int(11) DEFAULT NULL,
+  `communicative_power` int(11) DEFAULT NULL,
+  `reduced_ability_to_cope` int(11) DEFAULT NULL,
+  `ability_job` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -380,15 +462,18 @@ CREATE TABLE `jobs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `slug` varchar(255) DEFAULT NULL
+  `slug` varchar(255) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `jobtype_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `title`, `areas_of_recruitment`, `type_of_employment`, `number_of_recruits`, `gender`, `age`, `education`, `day_of_the_week`, `working_time`, `closing_time`, `break_time`, `preferential_conditions`, `salary`, `damdam_place_name`, `meal_included`, `negotiable`, `probation_period`, `performance_pay`, `contact`, `fax_number`, `email`, `address`, `description`, `agreed`, `created_at`, `updated_at`, `user_id`, `slug`) VALUES
-(1, '공고제목', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1500', NULL, 1, 1, 1, 1, 'Contact  info', '+1555244', 'contact@test.com', 'seoul', '창업 후 올댓모델은 인재를 원하는 기업과 인재를 연결하는 징검다리가 되어 보다 정교한 취업 모델을 완성하여, 국내 유일의 리셉셔니스트 전문 에이전시로 업계에 명성을 쌓으며 영향력을 넓혀 나가고 있습니다.\r\n\r\n모집분야 : text\r\n우대조건 : text\r\n사전질문 : text', 1, '2023-06-15 01:38:00', '2023-06-15 02:06:32', 4, '공고제목');
+INSERT INTO `jobs` (`id`, `title`, `areas_of_recruitment`, `type_of_employment`, `number_of_recruits`, `gender`, `age`, `education`, `day_of_the_week`, `working_time`, `closing_time`, `break_time`, `preferential_conditions`, `salary`, `damdam_place_name`, `meal_included`, `negotiable`, `probation_period`, `performance_pay`, `contact`, `fax_number`, `email`, `address`, `description`, `agreed`, `created_at`, `updated_at`, `user_id`, `slug`, `category_id`, `jobtype_id`, `area_id`) VALUES
+(1, '공고제목', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1500', NULL, 1, 1, 1, 1, 'Contact  info', '+1555244', 'contact@test.com', 'seoul', '창업 후 올댓모델은 인재를 원하는 기업과 인재를 연결하는 징검다리가 되어 보다 정교한 취업 모델을 완성하여, 국내 유일의 리셉셔니스트 전문 에이전시로 업계에 명성을 쌓으며 영향력을 넓혀 나가고 있습니다.\r\n\r\n모집분야 : text\r\n우대조건 : text\r\n사전질문 : text', 1, '2023-06-15 01:38:00', '2023-06-15 02:06:32', 4, '공고제목', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -409,9 +494,9 @@ CREATE TABLE `job_category` (
 --
 
 INSERT INTO `job_category` (`id`, `title`, `icon`, `created_at`, `updated_at`) VALUES
-(1, '모두', NULL, '2023-06-09 13:16:42', '2023-06-09 13:16:42'),
-(2, '리셉션', NULL, '2023-06-09 13:16:51', '2023-06-09 13:16:51'),
-(3, '비서', NULL, '2023-06-09 13:16:58', '2023-06-09 13:16:58');
+(4, '리셉션', NULL, '2023-06-16 08:02:26', '2023-06-16 08:02:26'),
+(5, '프리랜서', NULL, '2023-06-16 08:02:39', '2023-06-16 08:02:39'),
+(6, '비서', NULL, '2023-06-16 08:02:52', '2023-06-16 08:02:52');
 
 -- --------------------------------------------------------
 
@@ -431,9 +516,9 @@ CREATE TABLE `job_type` (
 --
 
 INSERT INTO `job_type` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, '취업', '2023-06-12 16:27:43', '2023-06-12 16:27:43'),
-(2, '아르바이트', '2023-06-12 16:27:52', '2023-06-12 16:27:52'),
-(3, '프리랜서', '2023-06-12 16:28:02', '2023-06-12 16:28:02');
+(7, '취업', '2023-06-16 08:04:36', '2023-06-16 08:04:36'),
+(8, '아르바이트', '2023-06-16 08:05:00', '2023-06-16 08:05:00'),
+(9, '프리랜서', '2023-06-16 08:05:14', '2023-06-16 08:05:14');
 
 -- --------------------------------------------------------
 
@@ -495,15 +580,19 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, 17, 4, '2023-06-09 12:23:52', '2023-06-12 16:13:49', 'voyager.categories.index', NULL),
 (12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 17, 2, '2023-06-09 12:23:52', '2023-06-12 16:13:49', 'voyager.posts.index', NULL),
 (13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, 17, 3, '2023-06-09 12:23:52', '2023-06-12 16:13:49', 'voyager.pages.index', NULL),
-(15, 1, 'Job Categories', '', '_self', NULL, NULL, NULL, 6, '2023-06-09 13:14:26', '2023-06-12 16:13:53', 'voyager.job-category.index', NULL),
-(16, 1, 'Jobs', '', '_self', NULL, NULL, NULL, 7, '2023-06-12 01:58:24', '2023-06-12 16:13:53', 'voyager.jobs.index', NULL),
+(15, 1, 'Job Categories', '', '_self', NULL, NULL, 24, 1, '2023-06-09 13:14:26', '2023-06-16 07:59:44', 'voyager.job-category.index', NULL),
+(16, 1, 'Jobs', '', '_self', NULL, NULL, NULL, 7, '2023-06-12 01:58:24', '2023-06-16 16:45:47', 'voyager.jobs.index', NULL),
 (17, 1, 'Blog Management', '', '_self', 'voyager-window-list', '#000000', NULL, 3, '2023-06-12 16:12:56', '2023-06-12 16:14:35', NULL, ''),
 (18, 1, 'User Management', '', '_self', 'voyager-people', '#000000', NULL, 2, '2023-06-12 16:13:40', '2023-06-12 16:14:16', NULL, ''),
-(19, 1, 'Job Types', '', '_self', NULL, NULL, NULL, 8, '2023-06-12 16:24:53', '2023-06-12 16:24:53', 'voyager.job-type.index', NULL),
-(20, 1, 'Regions', '', '_self', NULL, NULL, NULL, 9, '2023-06-12 16:31:15', '2023-06-12 16:31:15', 'voyager.regions.index', NULL),
-(21, 1, 'Questions', '', '_self', NULL, NULL, NULL, 10, '2023-06-14 14:46:52', '2023-06-14 14:46:52', 'voyager.questions.index', NULL),
-(22, 1, 'Exams', '', '_self', NULL, NULL, NULL, 11, '2023-06-14 15:15:40', '2023-06-14 15:15:40', 'voyager.exams.index', NULL),
-(23, 1, 'Resumes', '', '_self', NULL, NULL, NULL, 12, '2023-06-15 13:55:48', '2023-06-15 13:55:48', 'voyager.resumes.index', NULL);
+(19, 1, 'Job Types', '', '_self', NULL, NULL, 24, 2, '2023-06-12 16:24:53', '2023-06-16 07:59:47', 'voyager.job-type.index', NULL),
+(20, 1, 'Regions', '', '_self', NULL, NULL, 24, 3, '2023-06-12 16:31:15', '2023-06-16 07:59:53', 'voyager.regions.index', NULL),
+(21, 1, 'Questions', '', '_self', NULL, NULL, NULL, 8, '2023-06-14 14:46:52', '2023-06-16 16:45:47', 'voyager.questions.index', NULL),
+(22, 1, 'Exams', '', '_self', NULL, NULL, NULL, 9, '2023-06-14 15:15:40', '2023-06-16 16:45:47', 'voyager.exams.index', NULL),
+(23, 1, 'Resumes', '', '_self', NULL, NULL, NULL, 10, '2023-06-15 13:55:48', '2023-06-16 16:45:47', 'voyager.resumes.index', NULL),
+(24, 1, 'job filter', '', '_self', NULL, '#000000', NULL, 6, '2023-06-16 07:59:31', '2023-06-16 16:45:47', NULL, ''),
+(25, 1, 'Exam Results', '', '_self', NULL, NULL, NULL, 11, '2023-06-16 09:52:18', '2023-06-16 16:45:47', 'voyager.exam-results.index', NULL),
+(26, 1, 'Education Histories', '', '_self', NULL, NULL, 18, 4, '2023-06-16 16:42:49', '2023-06-16 16:45:47', 'voyager.education-histories.index', NULL),
+(27, 1, 'Work Histories', '', '_self', NULL, NULL, 18, 3, '2023-06-16 16:44:08', '2023-06-16 16:45:44', 'voyager.work-histories.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -686,7 +775,22 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (77, 'read_resumes', 'resumes', '2023-06-15 13:55:48', '2023-06-15 13:55:48'),
 (78, 'edit_resumes', 'resumes', '2023-06-15 13:55:48', '2023-06-15 13:55:48'),
 (79, 'add_resumes', 'resumes', '2023-06-15 13:55:48', '2023-06-15 13:55:48'),
-(80, 'delete_resumes', 'resumes', '2023-06-15 13:55:48', '2023-06-15 13:55:48');
+(80, 'delete_resumes', 'resumes', '2023-06-15 13:55:48', '2023-06-15 13:55:48'),
+(81, 'browse_exam_results', 'exam_results', '2023-06-16 09:52:18', '2023-06-16 09:52:18'),
+(82, 'read_exam_results', 'exam_results', '2023-06-16 09:52:18', '2023-06-16 09:52:18'),
+(83, 'edit_exam_results', 'exam_results', '2023-06-16 09:52:18', '2023-06-16 09:52:18'),
+(84, 'add_exam_results', 'exam_results', '2023-06-16 09:52:18', '2023-06-16 09:52:18'),
+(85, 'delete_exam_results', 'exam_results', '2023-06-16 09:52:18', '2023-06-16 09:52:18'),
+(86, 'browse_education_histories', 'education_histories', '2023-06-16 16:42:48', '2023-06-16 16:42:48'),
+(87, 'read_education_histories', 'education_histories', '2023-06-16 16:42:48', '2023-06-16 16:42:48'),
+(88, 'edit_education_histories', 'education_histories', '2023-06-16 16:42:48', '2023-06-16 16:42:48'),
+(89, 'add_education_histories', 'education_histories', '2023-06-16 16:42:49', '2023-06-16 16:42:49'),
+(90, 'delete_education_histories', 'education_histories', '2023-06-16 16:42:49', '2023-06-16 16:42:49'),
+(91, 'browse_work_histories', 'work_histories', '2023-06-16 16:44:08', '2023-06-16 16:44:08'),
+(92, 'read_work_histories', 'work_histories', '2023-06-16 16:44:08', '2023-06-16 16:44:08'),
+(93, 'edit_work_histories', 'work_histories', '2023-06-16 16:44:08', '2023-06-16 16:44:08'),
+(94, 'add_work_histories', 'work_histories', '2023-06-16 16:44:08', '2023-06-16 16:44:08'),
+(95, 'delete_work_histories', 'work_histories', '2023-06-16 16:44:08', '2023-06-16 16:44:08');
 
 -- --------------------------------------------------------
 
@@ -778,7 +882,22 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (77, 1),
 (78, 1),
 (79, 1),
-(80, 1);
+(80, 1),
+(81, 1),
+(82, 1),
+(83, 1),
+(84, 1),
+(85, 1),
+(86, 1),
+(87, 1),
+(88, 1),
+(89, 1),
+(90, 1),
+(91, 1),
+(92, 1),
+(93, 1),
+(94, 1),
+(95, 1);
 
 -- --------------------------------------------------------
 
@@ -829,10 +948,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`, `url`, `customer`) VALUES
-(1, 2, 2, 'Lorem Ipsum Post', '', 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>', 'posts/post1.jpg', 'lorem-ipsum-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2023-06-09 12:23:52', '2023-06-13 16:40:20', 'aa.com', 'test'),
-(2, 0, NULL, 'My Sample Post', NULL, 'This is the excerpt for the sample Post', '<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>', 'posts/post2.jpg', 'my-sample-post', 'Meta Description for sample post', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2023-06-09 12:23:52', '2023-06-09 12:23:52', '', ''),
-(3, 0, NULL, 'Latest Post', NULL, 'This is the excerpt for the latest post', '<p>This is the body for the latest post</p>', 'posts/post3.jpg', 'latest-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2023-06-09 12:23:52', '2023-06-09 12:23:52', '', ''),
-(4, 0, NULL, 'Yarr Post', NULL, 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', 'posts/post4.jpg', 'yarr-post', 'this be a meta descript', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2023-06-09 12:23:52', '2023-06-09 12:23:52', '', '');
+(5, 2, 2, '면접관을 위한 면접 진행', '', '예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을 들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다.\n실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이 아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.', '<p>예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을 들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다.<br>실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이 아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.</p>', 'posts/June2023/xaPudcIOTpu6v8ieehaw.jpg', '면접관을 위한 면접 진행', '', '', 'PUBLISHED', 0, '2023-06-16 06:10:56', '2023-06-16 06:11:46', 'https://allthatreception.com/', 'Customer'),
+(6, 2, 1, '내가 하고싶은 일 찾는 방법', '', '인간은 진화적으로 불확실성을 싫어한다고 합니다. 그래서 \"내가 원하는 걸 나도 모르겠다.\" \"지금 하는 일이 내가 원하는 것인지 확실하지 않다.\" \"나만의 커리어를 찾고 싶다.\" 등의 이야기를 하게 됩니다. 불확실성은 스트레스를 유발하고 재생산과 자손 양육이라는 생명체의 본래 활동을 위축시키기 때문인데요.', '<p>인간은 진화적으로 불확실성을 싫어한다고 합니다. 그래서 \"내가 원하는 걸 나도 모르겠다.\" \"지금 하는 일이 내가 원하는 것인지 확실하지 않다.\" \"나만의 커리어를 찾고 싶다.\" 등의 이야기를 하게 됩니다. 불확실성은 스트레스를 유발하고 재생산과 자손 양육이라는 생명체의 본래 활동을 위축시키기 때문인데요.</p>', 'posts/June2023/ClNMKWtoDyEzGpLevKmZ.png', '내가 하고싶은 일 찾는 방법', '', '', 'PUBLISHED', 0, '2023-06-16 06:12:51', '2023-06-16 06:12:51', 'https://allthatreception.com/', 'Customer');
 
 -- --------------------------------------------------------
 
@@ -942,15 +1059,16 @@ CREATE TABLE `resumes` (
   `status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `description` text DEFAULT NULL
+  `description` text DEFAULT NULL,
+  `employer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `resumes`
 --
 
-INSERT INTO `resumes` (`id`, `job_id`, `user_id`, `status`, `created_at`, `updated_at`, `description`) VALUES
-(1, 1, 3, 'pending', '2023-06-15 14:01:00', '2023-06-15 15:09:21', NULL);
+INSERT INTO `resumes` (`id`, `job_id`, `user_id`, `status`, `created_at`, `updated_at`, `description`, `employer_id`) VALUES
+(1, 1, 3, 'pending', '2023-06-15 14:01:00', '2023-06-16 06:55:00', 'asdas', 4);
 
 -- --------------------------------------------------------
 
@@ -1096,12 +1214,6 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (47, 'data_rows', 'display_name', 41, 'en', 'Updated At', '2023-06-13 16:36:28', '2023-06-13 16:36:28'),
 (48, 'data_types', 'display_name_singular', 5, 'en', 'Post', '2023-06-13 16:36:28', '2023-06-13 16:36:28'),
 (49, 'data_types', 'display_name_plural', 5, 'en', 'Posts', '2023-06-13 16:36:28', '2023-06-13 16:36:28'),
-(50, 'posts', 'title', 1, 'en', 'Lorem Ipsum Post', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
-(51, 'posts', 'excerpt', 1, 'en', 'This is the excerpt for the Lorem Ipsum Post', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
-(52, 'posts', 'body', 1, 'en', '<p>This is the body of the lorem ipsum post</p>', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
-(53, 'posts', 'slug', 1, 'en', 'lorem-ipsum-post', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
-(54, 'posts', 'meta_description', 1, 'en', 'This is the meta description', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
-(55, 'posts', 'meta_keywords', 1, 'en', 'keyword1, keyword2, keyword3', '2023-06-13 16:40:20', '2023-06-13 16:40:20'),
 (56, 'data_rows', 'display_name', 105, 'en', 'Id', '2023-06-14 14:47:15', '2023-06-14 14:47:15'),
 (57, 'data_rows', 'display_name', 106, 'en', 'Title', '2023-06-14 14:47:15', '2023-06-14 14:47:15'),
 (58, 'data_rows', 'display_name', 107, 'en', 'Created At', '2023-06-14 14:47:15', '2023-06-14 14:47:15'),
@@ -1162,7 +1274,54 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (113, 'data_rows', 'display_name', 157, 'en', 'jobs', '2023-06-15 13:57:01', '2023-06-15 13:57:01'),
 (114, 'data_rows', 'display_name', 158, 'en', 'users', '2023-06-15 13:57:01', '2023-06-15 13:57:01'),
 (115, 'data_types', 'display_name_singular', 15, 'en', 'Resume', '2023-06-15 13:57:01', '2023-06-15 13:57:01'),
-(116, 'data_types', 'display_name_plural', 15, 'en', 'Resumes', '2023-06-15 13:57:01', '2023-06-15 13:57:01');
+(116, 'data_types', 'display_name_plural', 15, 'en', 'Resumes', '2023-06-15 13:57:01', '2023-06-15 13:57:01'),
+(117, 'categories', 'name', 1, 'en', 'Category 1', '2023-06-16 06:09:11', '2023-06-16 06:09:11'),
+(118, 'categories', 'slug', 1, 'en', 'category-1', '2023-06-16 06:09:11', '2023-06-16 06:09:11'),
+(119, 'categories', 'name', 2, 'en', 'Category 2', '2023-06-16 06:09:46', '2023-06-16 06:09:46'),
+(120, 'categories', 'slug', 2, 'en', 'category-2', '2023-06-16 06:09:46', '2023-06-16 06:09:46'),
+(121, 'posts', 'title', 5, 'en', '면접관을 위한 면접 진행', '2023-06-16 06:11:46', '2023-06-16 06:11:46'),
+(122, 'posts', 'excerpt', 5, 'en', '예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을 들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다.\n실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이 아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.', '2023-06-16 06:11:46', '2023-06-16 06:11:46'),
+(123, 'posts', 'body', 5, 'en', '<p>예측 가능하고 구조화된 질문에 의존하기 보다 다음 단계의 생각이 필요한 답변을 들었을 때, 지원자에게 특히 적합한 인터뷰 질문을 할 수 있습니다.<br>실제 사람을 보고있다는 만족감이 들때까지 들은 내용을 명확하게 하여 단순한 질문 및 답변이 아닌 진정한 대화형 대화를 나누는 시간을 갖도록 합니다.</p>', '2023-06-16 06:11:46', '2023-06-16 06:11:46'),
+(124, 'data_rows', 'display_name', 159, 'en', 'Description', '2023-06-16 06:54:27', '2023-06-16 06:54:27'),
+(125, 'data_rows', 'display_name', 117, 'en', 'users', '2023-06-16 08:21:51', '2023-06-16 08:21:51'),
+(126, 'data_rows', 'display_name', 161, 'en', 'job_category', '2023-06-16 08:21:51', '2023-06-16 08:21:51'),
+(127, 'data_rows', 'display_name', 162, 'en', 'job_type', '2023-06-16 08:21:51', '2023-06-16 08:21:51'),
+(128, 'data_rows', 'display_name', 163, 'en', 'regions', '2023-06-16 08:21:51', '2023-06-16 08:21:51'),
+(129, 'data_rows', 'display_name', 167, 'en', 'Id', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(130, 'data_rows', 'display_name', 168, 'en', 'User Id', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(131, 'data_rows', 'display_name', 169, 'en', 'Self Care', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(132, 'data_rows', 'display_name', 170, 'en', 'Communicative Power', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(133, 'data_rows', 'display_name', 171, 'en', 'Reduced Ability To Cope', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(134, 'data_rows', 'display_name', 172, 'en', 'Ability Job', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(135, 'data_rows', 'display_name', 173, 'en', 'Created At', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(136, 'data_rows', 'display_name', 174, 'en', 'Updated At', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(137, 'data_types', 'display_name_singular', 16, 'en', 'Exam Result', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(138, 'data_types', 'display_name_plural', 16, 'en', 'Exam Results', '2023-06-16 09:52:52', '2023-06-16 09:52:52'),
+(139, 'data_rows', 'display_name', 176, 'en', 'Id', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(140, 'data_rows', 'display_name', 177, 'en', 'User Id', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(141, 'data_rows', 'display_name', 178, 'en', 'Education', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(142, 'data_rows', 'display_name', 179, 'en', 'School', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(143, 'data_rows', 'display_name', 180, 'en', 'School Department', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(144, 'data_rows', 'display_name', 181, 'en', 'Admission Date', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(145, 'data_rows', 'display_name', 182, 'en', 'Graduation Date', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(146, 'data_rows', 'display_name', 183, 'en', 'Created At', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(147, 'data_rows', 'display_name', 184, 'en', 'Updated At', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(148, 'data_rows', 'display_name', 185, 'en', 'users', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(149, 'data_types', 'display_name_singular', 17, 'en', 'Education History', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(150, 'data_types', 'display_name_plural', 17, 'en', 'Education Histories', '2023-06-16 16:43:26', '2023-06-16 16:43:26'),
+(151, 'data_rows', 'display_name', 186, 'en', 'Id', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(152, 'data_rows', 'display_name', 187, 'en', 'User Id', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(153, 'data_rows', 'display_name', 188, 'en', 'Company Name', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(154, 'data_rows', 'display_name', 189, 'en', 'Company Department', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(155, 'data_rows', 'display_name', 190, 'en', 'Salary', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(156, 'data_rows', 'display_name', 191, 'en', 'Rank', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(157, 'data_rows', 'display_name', 192, 'en', 'Employment Start', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(158, 'data_rows', 'display_name', 193, 'en', 'Employment End', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(159, 'data_rows', 'display_name', 194, 'en', 'Created At', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(160, 'data_rows', 'display_name', 195, 'en', 'Updated At', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(161, 'data_rows', 'display_name', 196, 'en', 'users', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(162, 'data_types', 'display_name_singular', 18, 'en', 'Work History', '2023-06-16 16:45:01', '2023-06-16 16:45:01'),
+(163, 'data_types', 'display_name_plural', 18, 'en', 'Work Histories', '2023-06-16 16:45:01', '2023-06-16 16:45:01');
 
 -- --------------------------------------------------------
 
@@ -1221,9 +1380,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `birth_date`, `gender`, `phone`, `address`, `education`, `school`, `school_department`, `admission_date`, `graduation_date`, `salary`, `company_name`, `company_department`, `rank`, `employment_start`, `employment_end`, `language`, `o_a`, `support_areas`, `establishment_date`, `representative_name`, `business_number`, `contact_person_number`, `contact_person_name`, `number_of_employees`, `business_information`, `sectors`, `company_website_address`, `company_type`, `take`, `capital`, `Listed_or_not`, `self_introduction`) VALUES
-(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', 's9PZgqfZCpEMtfx31z5o1qKQXfJeCCjFx9rWzBRFQSARkd3yxIOcP19ibWhv', NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', 'F4ccya5edG24WEyJmW0sMNBkQvd8U8z590aJznH7JctQb9Unzlaysa40mVDE', NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 4, 'js', 'js@test.com', 'users/default.png', NULL, '$2y$10$Ik4rv5hBS9wkgWJmglSMyOh8ckYZCDqUZ/Vk1HbXxTZoPkvHw0LAW', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:28', '2023-06-10 15:49:28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 3, 'em', 'em@test.com', 'users/June2023/RJIY6n56whb8VMAowYU4.png', NULL, '$2y$10$KgZD03HmQBGzxjncEo6yGuw.lI5lthCjICl4ENrZnTL.3UE8oAfKu', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:45', '2023-06-15 02:12:56', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 3, 'em', 'em@test.com', 'avatars/1uqrYjBBmFPuoUoKY8uUCdJewsILGFD7goPExHel.jpg', NULL, '$2y$10$KgZD03HmQBGzxjncEo6yGuw.lI5lthCjICl4ENrZnTL.3UE8oAfKu', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:45', '2023-06-16 05:10:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1235,6 +1394,32 @@ CREATE TABLE `user_roles` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `work_histories`
+--
+
+CREATE TABLE `work_histories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `company_name` varchar(255) DEFAULT NULL,
+  `company_department` varchar(255) DEFAULT NULL,
+  `salary` varchar(255) DEFAULT NULL,
+  `rank` varchar(255) DEFAULT NULL,
+  `employment_start` date DEFAULT NULL,
+  `employment_end` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `work_histories`
+--
+
+INSERT INTO `work_histories` (`id`, `user_id`, `company_name`, `company_department`, `salary`, `rank`, `employment_start`, `employment_end`, `created_at`, `updated_at`) VALUES
+(1, 3, 'fsdf', 'sdfsdf', 'sdfds', 'sdfsd', '1986-06-06', '2010-06-29', '2023-06-16 17:08:40', '2023-06-16 17:36:31');
 
 --
 -- Indexes for dumped tables
@@ -1264,9 +1449,21 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
+-- Indexes for table `education_histories`
+--
+ALTER TABLE `education_histories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `exams`
 --
 ALTER TABLE `exams`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exam_results`
+--
+ALTER TABLE `exam_results`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1419,6 +1616,12 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
+-- Indexes for table `work_histories`
+--
+ALTER TABLE `work_histories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1432,19 +1635,31 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `education_histories`
+--
+ALTER TABLE `education_histories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `exam_results`
+--
+ALTER TABLE `exam_results`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1462,13 +1677,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `job_category`
 --
 ALTER TABLE `job_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `job_type`
 --
 ALTER TABLE `job_type`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1480,7 +1695,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1498,7 +1713,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1510,7 +1725,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `questions`
@@ -1552,13 +1767,19 @@ ALTER TABLE `spammers`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `work_histories`
+--
+ALTER TABLE `work_histories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
