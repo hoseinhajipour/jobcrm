@@ -1,22 +1,8 @@
 @section('style')
-    <!-- Vendor CSS Files -->
-    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
-    <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
-
-
-    <!-- Load Tempalte CSS -->
-    <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
 @endsection
 
@@ -59,12 +45,12 @@
             @else
                 <form class="file-upload" id="form" wire:submit.prevent="SendNewExam">
 
-                    <div class="col-xxl-6">
+                    <div class="col-xxl-12">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
                                 @foreach($questions as $question)
                                     <div class="col-md-12">
-                                        <div class="bg-secondary-soft px-4 py-3 rounded">
+                                        <div class="{{$loop->index % 2==0?"bg-secondary-soft":""}}  px-4 py-3 rounded">
                                             <div class="row g-3">
                                                 <label for="exampleInputPassword3" class="form-label">
                                                     <h5>{{$question->id}}. {{$question->title}}</h5></label>
