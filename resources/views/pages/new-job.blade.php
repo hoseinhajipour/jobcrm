@@ -10,10 +10,10 @@
             </div>
             <!-- Form START -->
             <form class="file-upload" wire:submit.prevent="newJob" id="form">
+                @if(Auth::user()->role->name=="admin")
+                    <div class="alert alert-info">
+                        <label>원하는 업체를 선택하세요</label>
 
-                <div class="alert alert-info">
-                    <label>원하는 업체를 선택하세요</label>
-                    @if(Auth::user()->role->name=="admin")
                         <select wire:model.defer="currentUser" class="form-control">
                             @foreach($employers as $employer)
                                 <option value="{{$employer->id}}">
@@ -21,8 +21,9 @@
                                 </option>
                             @endforeach
                         </select>
-                    @endif
-                </div>
+
+                    </div>
+                @endif
                 <div class="row mb-5 gx-5">
                     <!-- Contact detail -->
                     <div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -39,12 +40,34 @@
                                 <div class="col-md-6">
                                     <label class="form-label">모집분야 *</label>
 
-                                    <select wire:model.defer="areasOfRecruitment"
-                                            class="custom-select" id="areasofrecruitment">
+                                    <select wire:model.defer="category_id"
+                                            class="custom-select" >
                                         <option selected>선택...</option>
-                                        <option class="form-control" value="1">리셉션</option>
-                                        <option class="form-control" value="2">프리랜서</option>
-                                        <option class="form-control" value="3">비서</option>
+                                        @foreach($categories as $category)
+                                            <option class="form-control" value="{{$category->id}}">{{$category->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label">근무형태</label>
+                                    <select wire:model.defer="jobtype_id" class="custom-select">
+                                        <option selected>선택</option>
+                                        @foreach($jobTypes as $type)
+                                            <option class="form-control" value="{{$type->id}}">{{$type->title}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">지역</label>
+                                    <select wire:model.defer="area_id" class="custom-select">
+                                        <option selected>선택</option>
+                                        @foreach($regions as $region)
+                                            <option class="form-control"
+                                                    value="{{$region->id}}">{{$region->title}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -196,18 +219,22 @@
 
                                 </div>
 
+
+
                                 <!-- salary -->
                                 <div class="col-md-6">
-                                    <label class="form-label">급여  *</label>
+                                    <label class="form-label">급여 *</label>
                                     <input type="text" wire:model.defer="salary"
-                                           class="form-control" id="salary" placeholder="" aria-label="salary" value="---,---,--- 원">
+                                           class="form-control" id="salary" placeholder="" aria-label="salary"
+                                           value="---,---,--- 원">
                                 </div>
 
                                 <!-- Damdam place name -->
                                 <div class="col-md-6">
-                                    <label class="form-label">담담지명  *</label>
+                                    <label class="form-label">담담지명 *</label>
                                     <input type="text" wire:model.defer="damdamplacename"
-                                           class="form-control" id="damdamplacename" placeholder="" aria-label="salary" value="담담지명...">
+                                           class="form-control" id="damdamplacename" placeholder="" aria-label="salary"
+                                           value="담담지명...">
                                 </div>
 
                                 <!-- pick -->
@@ -297,7 +324,6 @@
                                 </div>
 
 
-
                             </div> <!-- Row END -->
                         </div>
                     </div>
@@ -306,10 +332,12 @@
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
                     <!--	<button type="button" class="btn btn-danger btn-lg">Delete profile</button> -->
-                    <button type="submit" {{ $agree ? '' : 'disabled' }} id="registration" class="btn btn-primary btn-lg">등록</button>
+                    <button type="submit" {{ $agree ? '' : 'disabled' }} id="registration"
+                            class="btn btn-primary btn-lg">등록
+                    </button>
                 </div>
 
-                <br /> <br /> <br />
+                <br/> <br/> <br/>
 
             </form>
             <!-- Form END -->

@@ -14,6 +14,7 @@ use Livewire\WithPagination;
 class Jobs extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
     public $search;
 
@@ -21,6 +22,10 @@ class Jobs extends Component
     public $jobTypes = [];
     public $regions = [];
 
+
+    public $category_id;
+    public $jobtype_id;
+    public $area_id;
 
     public function mount(Request $request)
     {
@@ -43,9 +48,22 @@ class Jobs extends Component
     public function render()
     {
         $search = $this->search;
+        $category_id = $this->category_id;
+        $jobtype_id = $this->jobtype_id;
+        $area_id = $this->area_id;
+
         $jobs = Job::where('agreed', true)
             ->when($search, function ($query) use ($search) {
-                return $query->where('title', 'LIKE', "%$search%");
+                return $query->OrWhere('title', 'LIKE', "%$search%");
+            })
+            ->when($category_id, function ($query) use ($category_id) {
+                return $query->where('category_id', $category_id);
+            })
+            ->when($jobtype_id, function ($query) use ($jobtype_id) {
+                return $query->where('jobtype_id', $jobtype_id);
+            })
+            ->when($area_id, function ($query) use ($area_id) {
+                return $query->where('area_id', $area_id);
             })
             ->with('user')
             ->paginate(8);

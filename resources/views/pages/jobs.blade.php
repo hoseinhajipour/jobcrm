@@ -1,9 +1,5 @@
 <div>
-
-
     <div class="container">
-
-
         <div class="row">
             <div class="col-12">
                 <!-- Page title -->
@@ -14,8 +10,6 @@
                     <h1>채용정보</h1>
                     <hr>
                 </div>
-
-
                 <!-- Form START -->
                 <form class="file-upload">
 
@@ -29,7 +23,7 @@
                                 <div class="col-md-4">
                                     <label class="form-label">작업 범주</label>
 
-                                    <select class="custom-select">
+                                    <select wire:model="category_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($categories as $category)
                                             <option class="form-control" value="{{$category->id}}">{{$category->title}}</option>
@@ -38,12 +32,9 @@
 
                                 </div>
 
-
-                                <!--  -->
                                 <div class="col-md-4">
                                     <label class="form-label">근무형태</label>
-
-                                    <select class="custom-select">
+                                    <select wire:model="jobtype_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($jobTypes as $type)
                                             <option class="form-control" value="{{$type->id}}">{{$type->title}}</option>
@@ -51,18 +42,14 @@
                                     </select>
 
                                 </div>
-
-                                <!--  -->
                                 <div class="col-md-4">
                                     <label class="form-label">지역</label>
-
-                                    <select class="custom-select">
+                                    <select wire:model="area_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($regions as $region)
                                             <option class="form-control" value="{{$region->id}}">{{$region->title}}</option>
                                         @endforeach
                                     </select>
-
                                 </div>
 
 
@@ -80,7 +67,7 @@
                     <section class="featured-job-area">
                         <div class="container">
 
-                            @foreach($jobs as $job)
+                            @forelse($jobs as $job)
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
@@ -105,7 +92,9 @@
                                         <span>7 시간 전</span>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <p class="alert alert-warning">아무것도 찾을 수 없음</p>
+                            @endforelse
                         </div>
                     </section>
                     <!-- Featured_job_end -->
@@ -115,7 +104,7 @@
     </div>
     <!-- Job List Area End -->
     <!--Pagination Start  -->
-    <div class="my-2" >
+    <div class="my-2">
         {{ $jobs->links() }}
     </div>
     <!--Pagination End  -->

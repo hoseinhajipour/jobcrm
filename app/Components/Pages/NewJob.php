@@ -3,6 +3,9 @@
 namespace App\Components\Pages;
 
 use App\Models\Job;
+use App\Models\JobCategory;
+use App\Models\JobType;
+use App\Models\Region;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +42,16 @@ class NewJob extends Component
     public $agree = false;
 
     public $employers = [];
-
     public $currentUser;
+
+
+    public $categories = [];
+    public $jobTypes = [];
+    public $regions = [];
+
+    public $category_id;
+    public $jobtype_id;
+    public $area_id;
 
     public function mount()
     {
@@ -51,7 +62,9 @@ class NewJob extends Component
         } else {
             $this->currentUser = Auth::user()->id;
         }
-
+        $this->categories = JobCategory::all();
+        $this->jobTypes = JobType::all();
+        $this->regions = Region::all();
     }
 
     public function route()
@@ -89,6 +102,9 @@ class NewJob extends Component
             'description' => $this->description,
             'agreed' => true,
             'user_id' => $this->currentUser,
+            'category_id' => $this->category_id,
+            'jobtype_id' => $this->jobtype_id,
+            'area_id' => $this->area_id,
         ]);
 
         $Job->save();

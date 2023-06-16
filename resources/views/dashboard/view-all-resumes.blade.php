@@ -11,6 +11,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th scope="col">Job</th>
                 <th scope="col">name</th>
                 <th scope="col">email</th>
                 <th scope="col">status</th>
@@ -20,6 +21,10 @@
             <tbody>
             @foreach($resumes as $resume)
                 <tr>
+                    <td>
+                        <img src="{{asset(Voyager::image($resume->job->user->avatar))}}" width="32">
+                        {{$resume->job->title}}
+                    </td>
                     <td>
                         <img src="{{asset(Voyager::image($resume->user->avatar))}}" width="32">
                         {{$resume->user->name}}
