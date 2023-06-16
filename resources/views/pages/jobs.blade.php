@@ -1,3 +1,10 @@
+@section('title','jobs')
+
+@section('style')
+    <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/css/style.css')}}">
+@endsection
+
 <div>
     <div class="container">
         <div class="row">
@@ -11,11 +18,8 @@
                     <hr>
                 </div>
                 <!-- Form START -->
-                <form class="file-upload">
-
-
-                    <!-- Contact detail -->
-                    <div class="col-xxl-8 mb-5 mb-xxl-0">
+                <div class="file-upload w-100">
+                    <div class="col-xxl-12 mb-5 mb-xxl-0">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
 
@@ -53,12 +57,10 @@
                                 </div>
 
 
-                            </div> <!-- Row END -->
+                            </div>
                         </div>
                     </div>
-
-
-                </form> <!-- Form END -->
+                </div>
 
 
                 <!-- Right content -->

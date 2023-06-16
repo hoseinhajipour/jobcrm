@@ -1,13 +1,16 @@
-@section('style')
-
-@endsection
 @section('title',$job->title)
+
+@section('style')
+    <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/css/style.css')}}">
+@endsection
+
 <main>
 
     <!-- Hero Area Start-->
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-             data-background="img/allthatreception_b.png">
+             style="background-image: url({{asset('img/allthatreception_b.png')}});">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -30,7 +33,7 @@
                     <div class="single-job-items mb-50">
                         <div class="job-items">
                             <div class="company-img company-img-details">
-                                <a href="#"><img src="{{asset(Voyager::image($job->user->avatar))}}" alt=""></a>
+                                <a href="#"><img src="{{asset(Voyager::image($job->user->avatar))}}" width="128"></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#">

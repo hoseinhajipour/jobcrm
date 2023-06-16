@@ -15,33 +15,24 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
-<!--
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
--->
 
     <livewire:styles/>
-
-    <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
     <link href="{{asset('vendor/icofont/icofont.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
-
+    <!-- Template Main CSS File -->
+    <link href="{{asset('css/style.css?v=1.0')}}" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
     <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
-    <link href="{{asset('css/css/price_rangs.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/flaticon.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/slicknav.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/magnific-popup.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/themify-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/slick.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/nice-select.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
+
     @yield('style')
 
 
@@ -50,11 +41,11 @@
 
 @include('layouts.menu')
 <main id="main">
-
     {{ $slot }}
 </main>
 
 @include('layouts.footer')
+
 <livewire:scripts/>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

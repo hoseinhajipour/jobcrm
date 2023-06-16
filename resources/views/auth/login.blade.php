@@ -31,7 +31,6 @@
                     <button type="submit">
                         <div wire:loading class="text-center">
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
                         <div wire:loading.remove>
