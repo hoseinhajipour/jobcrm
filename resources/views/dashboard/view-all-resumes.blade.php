@@ -31,7 +31,7 @@
                     </td>
                     <td>{{$resume->email}}</td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn">View</a></td>
+                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">View</a></td>
                 </tr>
             @endforeach
             </tbody>

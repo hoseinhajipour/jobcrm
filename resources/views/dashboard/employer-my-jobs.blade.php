@@ -24,9 +24,11 @@
                         {{$job->Resumes->count()}}
                     </td>
                     <td>
-                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn">View Resumes</a>
+                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">View Resumes</a>
+                        <!--
                         <a href="#" class="btn">Edit</a>
                         <a href="#" class="btn">Remove</a>
+                        -->
                     </td>
                 </tr>
             @endforeach

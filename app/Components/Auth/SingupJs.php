@@ -2,7 +2,9 @@
 
 namespace App\Components\Auth;
 
+use App\Models\EducationHistory;
 use App\Models\User;
+use App\Models\WorkHistory;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,12 +26,34 @@ class SingupJs extends Component
     public $self_introduction;
     public $agree = false;
 
+    public $EducationHistories = [];
+    public $WorkHistories = [];
+
+    public function mount()
+    {
+        $this->addEducationHistory();
+        $this->addWorkHistory();
+    }
+
     public function rules()
     {
         return [
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed'],
+
+            'EducationHistories.*.education' => '',
+            'EducationHistories.*.school' => '',
+            'EducationHistories.*.school_department' => '',
+            'EducationHistories.*.admission_date' => '',
+            'EducationHistories.*.graduation_date' => '',
+
+            'WorkHistories.*.salary' => '',
+            'WorkHistories.*.company_name' => '',
+            'WorkHistories.*.company_department' => '',
+            'WorkHistories.*.rank' => '',
+            'WorkHistories.*.employment_start' => '',
+            'WorkHistories.*.employment_end' => '',
         ];
     }
 
@@ -60,17 +84,6 @@ class SingupJs extends Component
             'gender' => $this->gender,
             'phone' => $this->phone,
             'address' => $this->address,
-            'education' => $this->education,
-            'school' => $this->school,
-            'school_department' => $this->school_department,
-            'admission_date' => $this->admission_date,
-            'graduation_date' => $this->graduation_date,
-            'salary' => $this->salary,
-            'company_name' => $this->company_name,
-            'company_department' => $this->company_department,
-            'rank' => $this->rank,
-            'employment_start' => $this->employment_start,
-            'employment_end' => $this->employment_end,
             'language' => $this->language,
             'o_a' => $this->o_a,
             'support_areas' => $this->support_areas,
@@ -82,8 +95,46 @@ class SingupJs extends Component
             $user->avatar = $path;
             $user->save();
         }
+
+        if ($user->id) {
+            foreach ($this->EducationHistories as $EducationHistory) {
+                $EducationHistory->user_id = $user->id;
+                $EducationHistory->save();
+            }
+            foreach ($this->WorkHistories as $WorkHistory) {
+                $WorkHistory->user_id = $user->id;
+                $WorkHistory->save();
+            }
+        }
+
+
         Auth::login($user, true);
 
         return redirect()->to(RouteServiceProvider::profile);
+    }
+
+
+    public function addEducationHistory()
+    {
+        $newEducationHistory = new EducationHistory();
+        $this->EducationHistories [] = $newEducationHistory;
+    }
+
+    public function RemoveEducationHistory($index)
+    {
+
+        unset($this->EducationHistories[$index]);
+    }
+
+    public function addWorkHistory()
+    {
+        $newWorkHistory = new WorkHistory();
+
+        $this->WorkHistories [] = $newWorkHistory;
+    }
+
+    public function RemoveWorkHistory($index)
+    {
+        unset($this->WorkHistories[$index]);
     }
 }

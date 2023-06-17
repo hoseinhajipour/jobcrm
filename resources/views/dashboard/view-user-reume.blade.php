@@ -39,32 +39,38 @@
             </div>
 
             <hr/>
-            <div class="row">
-                <div class="col-6">
-                    <label>학력: {{$resume->user->education}}</label><br/>
-                    <label>학교: {{$resume->user->school}}</label><br/>
+            @foreach($EducationHistories as $index => $EducationHistory)
+                <div class="row">
+                    <div class="col-6">
+                        <label>학력: {{$EducationHistory->education}}</label><br/>
+                        <label>학교: {{$EducationHistory->school}}</label><br/>
+                    </div>
+                    <div class="col-6">
+                        <label>학과: {{$EducationHistory->school_department}}</label><br/>
+                        <label>입학일: {{$EducationHistory->admission_date}}</label><br/>
+                        <label>졸업일: {{$EducationHistory->graduation_date}}</label>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <label>학과: {{$resume->user->school_department}}</label><br/>
-                    <label>입학일: {{$resume->user->admission_date}}</label><br/>
-                    <label>졸업일: {{$resume->user->graduation_date}}</label>
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-6">
-                    <label>연봉: {{$resume->user->salary}}$</label><br/>
-                    <label>회사 이름: {{$resume->user->company_name}}</label><br/>
-                    <label>회사 부서: {{$resume->user->company_department}}</label><br/>
-                </div>
-                <div class="col-6">
-                    <label>직급: {{$resume->user->rank}}</label><br/>
-                    <label>고용 시작일: {{$resume->user->employment_start}}</label><br/>
-                    <label>고용 종료일: {{$resume->user->employment_end}}</label><br/>
-                </div>
-            </div>
+                <hr/>
+            @endforeach
 
-            <hr/>
+
+            @foreach($WorkHistories as $index02 => $Work)
+                <div class="row">
+                    <div class="col-6">
+                        <label>연봉: {{$Work->salary}}$</label><br/>
+                        <label>회사 이름: {{$Work->company_name}}</label><br/>
+                        <label>회사 부서: {{$Work->company_department}}</label><br/>
+                    </div>
+                    <div class="col-6">
+                        <label>직급: {{$Work->rank}}</label><br/>
+                        <label>고용 시작일: {{$Work->employment_start}}</label><br/>
+                        <label>고용 종료일: {{$Work->employment_end}}</label><br/>
+                    </div>
+                </div>
+                <hr/>
+            @endforeach
+
             <div class="row">
                 <div class="col-6">
                     <label>언어: {{$resume->user->language}}</label><br/>

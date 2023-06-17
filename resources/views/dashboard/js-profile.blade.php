@@ -1,10 +1,6 @@
-@section('script')
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{asset('js/exam-chart.js')}}"></script>
-    -->
+@section('style')
+    <link rel="stylesheet" href="{{asset('css/js-profile.css')}}">
 @endsection
-
 
 <div class="container">
     <div class="row">
@@ -193,7 +189,7 @@
                     </div>
                 @endforeach
                 <div class="row mb-5 gx-5">
-                    <button wire:click="addEducationHistory" class="btn btn-primary">학력 추가</button>
+                    <button wire:click.prevent="addEducationHistory" class="btn btn-primary">학력 추가</button>
                 </div>
 
 
@@ -203,7 +199,7 @@
                         <div class="col-xxl-6 mb-5 mb-xxl-0">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <h4 class="mb-4 mt-0">경력사항
-                                    <button wire:click="RemoveWorkHistory({{$Work->id}})"
+                                    <button wire:click="RemoveWorkHistory({{$index02}})"
                                             class="btn btn-danger float-right"><span class="fa fa-trash"></span>
                                     </button>
                                 </h4>
@@ -272,7 +268,7 @@
                     </div>
                 @endforeach
                 <div class="row mb-5 gx-5">
-                    <button wire:click="addWorkHistory" class="btn btn-primary">작업 이력 추가</button>
+                    <button wire:click.prevent="addWorkHistory" class="btn btn-primary">작업 이력 추가</button>
                 </div>
 
                 <!-- detail -->

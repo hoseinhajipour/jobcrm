@@ -28,7 +28,7 @@
 
 .login-type {
   margin-top: 20px;
-  
+
 }
 
  .login-option, .ltype {
@@ -37,25 +37,25 @@
   column-gap: 50px;
   flex-wrap: wrap;
   justify-content: space-between;
-  
-   
+
+
 }
 .ltype {
   column-gap: 5px;
- 
-  
+
+
 }
 .ltype input {
   accent-color: rgb(1, 113, 211);
-  
+
 }
 .ltype input, .ltype label {
   cursor: pointer;
-  
+
 }
 .ltype label {
   color: #707070;
-  
+
 }
 
 .form.signup{
@@ -115,12 +115,12 @@ form{
 }
 .field button{
     color: #fff;
-    background-color: #0171d3;
+    background-color: #3D2462;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 .field button:hover{
-    background-color: #016dcb;
+    background-color: #96368B;
 }
 .form-link{
     text-align: center;
@@ -214,5 +214,5 @@ a.naver span{
     .form{
         padding: 20px 10px;
     }
-    
+
 }

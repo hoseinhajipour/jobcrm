@@ -1,3 +1,7 @@
+@section('style')
+    <link rel="stylesheet" href="{{asset('css/js-profile.css')}}">
+@endsection
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -39,7 +43,7 @@
                                 <div class=" text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
-                                        <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                        <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
                                     </div>
                                     <!-- Button -->
                                     <input type="file" wire:model="avatar" id="customFile" name="customFile" hidden="">
@@ -140,141 +144,176 @@
                 </div>
 
                 <!-- Education detail -->
-                <div class="row mb-5 gx-5">
-                    <div class="col-xxl-6 mb-5 mb-xxl-0">
-                        <div class="bg-secondary-soft px-4 py-5 rounded">
-                            <h4 class="mb-4 mt-0">최종학력</h4>
-                            <div class="row g-3" id="education">
-                                <!--  Education -->
-                                <div class="col-md-4">
-                                    <label class="form-label">최종학력 *</label>
-                                    <select wire:model.defer="education" class="custom-select" id="schooltype">
-                                        <option selected>선택</option>
-                                        <option class="form-control" value="1">고등학교</option>
-                                        <option class="form-control" value="2">대학 (2,3)년제</option>
-                                        <option class="form-control" value="3">대학교 (4년)제</option>
-                                        <option class="form-control" value="4">대학원</option>
-                                    </select>
-                                </div>
-                                <!-- Education -->
-                                <div class="col-md-4">
-                                    <label class="form-label">학교 *</label>
-                                    <input type="text" wire:model.defer="school" class="form-control" id="school"
-                                           placeholder="" aria-label="Education" value="학교 ">
-                                </div>
+                @foreach($EducationHistories as $index => $EducationHistory)
+                    <div class="row mb-5 gx-5">
+                        <div class="col-xxl-6 mb-5 mb-xxl-0">
+
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <h4 class="mb-4 mt-0 d-block">최종학력
+                                    <button wire:click="RemoveEducationHistory({{$index}})"
+                                            class="btn btn-danger float-right"><span class="fa fa-trash"></span>
+                                    </button>
+                                </h4>
+
+                                <div class="row g-3" id="education">
+                                    <!--  Education -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">최종학력 *</label>
+                                        <select wire:model.defer="EducationHistories.{{ $index }}.education"
+                                                class="custom-select"
+                                                id="schooltype">
+                                            <option selected>선택</option>
+                                            <option class="form-control" value="1">고등학교</option>
+                                            <option class="form-control" value="2">대학 (2,3)년제</option>
+                                            <option class="form-control" value="3">대학교 (4년)제</option>
+                                            <option class="form-control" value="4">대학원</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Education -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">학교 *</label>
+                                        <input type="text" wire:model.defer="EducationHistories.{{ $index }}.school"
+                                               class="form-control" id="school"
+                                               placeholder="" aria-label="Education" value="학교 ">
+                                    </div>
 
 
-                                <!-- 학과 -->
-                                <div class="col-md-4">
-                                    <label class="form-label">학과 *</label>
-                                    <input type="text" wire:model.defer="school_department" class="form-control"
-                                           id="department" placeholder="" aria-label="Career" value="학과">
-                                </div>
+                                    <!-- 학과 -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">학과 *</label>
+                                        <input type="text"
+                                               wire:model.defer="EducationHistories.{{ $index }}.school_department"
+                                               class="form-control"
+                                               id="department" placeholder="" aria-label="Career" value="학과">
+                                    </div>
 
-                                <!-- 입학 날짜 -->
-                                <div class="col-md-4">
-                                    <label for="date" class="form-label">입학 날짜 *</label>
+                                    <!-- 입학 날짜 -->
+                                    <div class="col-md-4">
+                                        <label for="date" class="form-label">입학 날짜 *</label>
 
-                                    <div class="input-group date" id="date-own">
+                                        <div class="input-group date" id="date-own">
 
-                                        <input type="text" wire:model.defer="admission_date" class="form-control">
+                                            <input type="date"
+                                                   wire:model.defer="EducationHistories.{{ $index }}.admission_date"
+                                                   class="form-control">
 
-                                        <span class="input-group-append">
+                                            <span class="input-group-append">
                                         <span class="input-group-text bg-white">
                                          <i class="fa fa-calendar"></i>
                                         </span>
                                      </span>
+                                        </div>
+
                                     </div>
 
-                                </div>
+                                    <!-- 졸업 날짜 -->
+                                    <div class="col-md-4">
+                                        <label for="date" class="form-label">졸업 날짜 *</label>
 
-                                <!-- 졸업 날짜 -->
-                                <div class="col-md-4">
-                                    <label for="date" class="form-label">졸업 날짜 *</label>
+                                        <div class="input-group date" id="date-own2">
 
-                                    <div class="input-group date" id="date-own2">
+                                            <input type="date"
+                                                   wire:model.defer="EducationHistories.{{ $index }}.graduation_date"
+                                                   class="form-control">
 
-                                        <input type="text" wire:model.defer="graduation_date" class="form-control">
-
-                                        <span class="input-group-append">
+                                            <span class="input-group-append">
                                         <span class="input-group-text bg-white">
                                          <i class="fa fa-calendar"></i>
                                         </span>
                                      </span>
+                                        </div>
+
                                     </div>
 
-                                </div>
 
+                                </div> <!-- Row END -->
+                            </div>
 
-                            </div> <!-- Row END -->
                         </div>
                     </div>
+                @endforeach
+                <div class="row mb-5 gx-5">
+                    <button wire:click="addEducationHistory" class="btn btn-primary">학력 추가</button>
                 </div>
 
 
                 <!-- Career -->
-                <div class="row mb-5 gx-5">
-                    <div class="col-xxl-6 mb-5 mb-xxl-0">
-                        <div class="bg-secondary-soft px-4 py-5 rounded">
-                            <h4 class="mb-4 mt-0">경력사항</h4>
-                            <div class="row g-3" id="job">
+                @foreach($WorkHistories as $index02 => $Work)
+                    <div class="row mb-5 gx-5">
+                        <div class="col-xxl-6 mb-5 mb-xxl-0">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <h4 class="mb-4 mt-0">경력사항
+                                    <button wire:click="RemoveWorkHistory($Work)"
+                                            class="btn btn-danger float-right"><span class="fa fa-trash"></span>
+                                    </button>
+                                </h4>
+
+                                <div class="row g-3" id="job">
 
 
-                                <!-- Salary -->
-                                <div class="col-md-4">
-                                    <label class="form-label">연봉 *</label>
-                                    <input type="text" class="form-control"
-                                           wire:model.defer="salary"
-                                           id="salary" placeholder="" aria-label="Education" value="____원 ">
-                                </div>
-
-
-                                <!-- Company Name -->
-                                <div class="col-md-4">
-                                    <label class="form-label">회사명 *</label>
-                                    <input type="text" wire:model.defer="company_name" class="form-control"
-                                           id="companyname" placeholder="" aria-label="Career" value="회사명...">
-                                </div>
-
-
-                                <!-- department -->
-                                <div class="col-md-4">
-                                    <label class="form-label">부서 *</label>
-                                    <input type="text" wire:model.defer="company_department" class="form-control"
-                                           id="jobdepartment" placeholder="" aria-label="Career" value="부서...">
-                                </div>
-                                <!-- rank -->
-                                <div class="col-md-4">
-                                    <label class="form-label">직급 *</label>
-                                    <input type="text" class="form-control"
-                                           wire:model.defer="rank"
-                                           id="rank" placeholder="" aria-label="Career"
-                                           value="직급...">
-                                </div>
-
-
-                                <!-- 근무기간 -->
-                                <div class="col-md-4">
-                                    <label for="date" class="form-label" id="employmentperiod">근무기간 *</label>
-
-                                    <div class="input-group input-daterange">
-                                        <input type="date"
-                                               wire:model.defer="employment_start"
-                                               class="form-control" value="2012-04-05">
-                                        <div class="input-group-addon">
-                                            <h2>~</h2>
-                                        </div>
-                                        <input type="date"
-                                               wire:model.defer="employment_end"
-                                               class="form-control" value="2012-04-19">
+                                    <!-- Salary -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">연봉 *</label>
+                                        <input type="text" class="form-control"
+                                               wire:model.defer="WorkHistories.{{ $index02 }}.salary"
+                                               id="salary" placeholder="" aria-label="Education" value="____원 ">
                                     </div>
 
-                                </div>
+
+                                    <!-- Company Name -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">회사명 *</label>
+                                        <input type="text" wire:model.defer="WorkHistories.{{ $index02 }}.company_name"
+                                               class="form-control"
+                                               id="companyname" placeholder="" aria-label="Career" value="회사명...">
+                                    </div>
 
 
-                            </div> <!-- Row END -->
+                                    <!-- department -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">부서 *</label>
+                                        <input type="text"
+                                               wire:model.defer="WorkHistories.{{ $index02 }}.company_department"
+                                               class="form-control"
+                                               id="jobdepartment" placeholder="" aria-label="Career" value="부서...">
+                                    </div>
+                                    <!-- rank -->
+                                    <div class="col-md-4">
+                                        <label class="form-label">직급 *</label>
+                                        <input type="text" class="form-control"
+                                               wire:model.defer="WorkHistories.{{ $index02 }}.rank"
+                                               id="rank" placeholder="" aria-label="Career"
+                                               value="직급...">
+                                    </div>
+
+
+                                    <!-- 근무기간 -->
+                                    <div class="col-md-4">
+                                        <label for="date" class="form-label" id="employmentperiod">근무기간 *</label>
+
+                                        <div class="input-group input-daterange">
+                                            <input type="date"
+                                                   wire:model.defer="WorkHistories.{{ $index02 }}.employment_start"
+                                                   class="form-control" value="2012-04-05">
+                                            <div class="input-group-addon">
+                                                <h2>~</h2>
+                                            </div>
+                                            <input type="date"
+                                                   wire:model.defer="WorkHistories.{{ $index02 }}.employment_end"
+                                                   class="form-control" value="2012-04-19">
+                                        </div>
+
+                                    </div>
+
+
+                                </div> <!-- Row END -->
+                            </div>
                         </div>
                     </div>
+                @endforeach
+                <div class="row mb-5 gx-5">
+                    <button wire:click="addWorkHistory" class="btn btn-primary">작업 이력 추가</button>
                 </div>
 
 

@@ -26,7 +26,7 @@
                         {{$resume->job->title}}
                     </td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="#" class="btn">View</a></td>
+                    <td><a href="#" class="btn btn-primary">View</a></td>
                 </tr>
             @endforeach
             </tbody>

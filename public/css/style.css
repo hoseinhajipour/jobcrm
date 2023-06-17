@@ -1498,8 +1498,9 @@ margin-left: 50%;
 }
 
 #footer .copyright {
-  text-align: left;
+    text-align: left;
 }
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -1508,10 +1509,29 @@ margin-left: 50%;
 .pagination li {
     display: block;
 }
-.invalid-input{
+
+.invalid-input {
     display: block;
     width: 100%;
     margin-top: 0.25rem;
     font-size: 80%;
     color: #dc3545;
 }
+
+.btn-primary {
+    background-color: #3D2462;
+    border-color: #3D2462;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #96368B;
+    border-color: #96368B;
+    color: white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #3D2462;
+    border-color: #3D2462;
+}
+

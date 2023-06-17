@@ -1,11 +1,12 @@
+@section('style')
+    <link rel="stylesheet" href="{{asset('css/js-profile.css')}}">
+@endsection
+
 <div class="container">
-
-
-
     <div class="row">
         <div class="col-12">
             <!-- Page title -->
-            <br /> <br /> <br />
+            <br/> <br/> <br/>
 
             <div class="my-5">
                 <h3>회원가입</h3>
@@ -14,7 +15,7 @@
 
 
             <!-- Form START -->
-            <form class="file-upload" wire:submit.prevent="register">
+            <div class="file-upload" >
 
 
                 <div class="col-xxl-12 px-4 py-3 rounded ">
@@ -43,7 +44,7 @@
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
-                                        <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                        <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
                                     </div>
                                     <!-- Button -->
                                     <input type="file" wire:model="avatar" id="customFile" name="file" hidden="">
@@ -57,8 +58,6 @@
                         </div>
                     </div>
                 </div> <!-- Row END -->
-
-
 
 
                 <!-- Contact detail -->
@@ -161,12 +160,6 @@
                 </div>
 
 
-
-
-
-
-
-
                 <div class="row mb-5 gx-5">
                     <!-- Contact detail -->
                     <div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -262,13 +255,13 @@
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button type="submit" {{ $agree ? '' : 'disabled' }}
+                    <button wire:click.prevent="register" {{ $agree ? '' : 'disabled' }}
                     class="btn btn-primary btn-lg" id="emsignup">등록</button>
                 </div>
 
                 <br/> <br/> <br/>
 
-            </form>
+            </div>
             <!-- Form END -->
         </div>
     </div>
