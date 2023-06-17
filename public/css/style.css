@@ -9,8 +9,10 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
+    font-family: source-han-sans-korean, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #444444;
 }
 
 a {

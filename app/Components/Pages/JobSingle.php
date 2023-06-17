@@ -17,7 +17,10 @@ class JobSingle extends Component
 
     public function mount($id)
     {
-        $this->job = Job::where("id", $id)->with("user")->first();
+        $this->job = Job::where("id", $id)
+            ->with("user")
+            ->with("WorkType")
+            ->first();
     }
 
     public function route()

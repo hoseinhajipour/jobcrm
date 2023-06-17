@@ -72,15 +72,28 @@
                         </div>
                         <ul>
                             <li>업직종 : <span>12 Aug 2019</span></li>
-                            <li>고용형태 : <span>New York</span></li>
-                            <li>근무요일 : <span>02</span></li>
-                            <li>근무시간 : <span>Full time</span></li>
-                            <li>급여 : <span>$7,800 yearly</span></li>
-                            <li>성별 . 연령 . 학력 : <span>12 Sep 2020</span></li>
-                            <li>모집인원 : <span>12 Sep 2020</span></li>
+                            <li>고용형태 : <span>{{$job->type_of_employment}}</span></li>
+                            <li>근무요일 : <span>{{$job->day_of_the_week}}</span></li>
+                            <li>근무시간 : <span>{{$job->WorkType->title??""}}</span></li>
+                            <li>급여 : <span>${{$job->salary}} yearly</span></li>
+                            <li>성별 . 연령 . 학력 : <span>{{$job->gender}},{{$job->age}},{{$job->education}}</span></li>
+                            <li>모집인원 : <span>{{$job->areas_of_recruitment}}</span></li>
+
+                            @if($job->meal_included)
+                                <li>식대포함 : <span class="fa fa-check"></span></li>
+                            @endif
+                            @if($job->negotiable)
+                                <li>협의가능 : <span class="fa fa-check"></span></li>
+                            @endif
+                            @if($job->probation_period)
+                                <li>수습기간 있음 : <span class="fa fa-check"></span></li>
+                            @endif
+                            @if($job->performance_pay)
+                                <li>성과급 : <span class="fa fa-check"></span></li>
+                            @endif
                             <li>복리후생 : <span>12 Sep 2020</span></li>
                             <li>접수방법 : <span>12 Sep 2020</span></li>
-                            <li>담담지명 : <span>12 Sep 2020</span></li>
+                            <li>담담지명 : <span>{{$job->damdam_place_name}}</span></li>
                             <li>연락처 : <span>{{$job->contact}}</span></li>
                             <li>이메일 : <span>{{$job->email}}</span></li>
                         </ul>
@@ -102,10 +115,10 @@
                         </div>
 
                         <ul>
-                            <li>회사명: <span>Colorlib </span></li>
-                            <li>근무지 주소 : <span> colorlib.com</span></li>
-                            <li>Email: <span>carrier.colorlib@gmail.com</span></li>
-                            <li>FAX : <span> colorlib.com</span></li>
+                            <li>회사명: <span>{{$job->user->name}} </span></li>
+                            <li>근무지 주소 : <span> {{$job->user->company_website_address}}</span></li>
+                            <li>Email: <span>{{$job->user->email}}</span></li>
+                            <li>FAX : <span> {{$job->fax_number}}</span></li>
                         </ul>
                     </div>
                 </div>

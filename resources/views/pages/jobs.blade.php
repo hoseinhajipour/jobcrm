@@ -28,7 +28,7 @@
                                     <label class="form-label">작업 범주</label>
 
                                     <select wire:model="category_id" class="custom-select">
-                                        <option selected>선택</option>
+                                        <option value="">선택</option>
                                         @foreach($categories as $category)
                                             <option class="form-control" value="{{$category->id}}">{{$category->title}}</option>
                                         @endforeach
@@ -39,7 +39,7 @@
                                 <div class="col-md-4">
                                     <label class="form-label">근무형태</label>
                                     <select wire:model="jobtype_id" class="custom-select">
-                                        <option selected>선택</option>
+                                        <option value="">선택</option>
                                         @foreach($jobTypes as $type)
                                             <option class="form-control" value="{{$type->id}}">{{$type->title}}</option>
                                         @endforeach
@@ -49,7 +49,7 @@
                                 <div class="col-md-4">
                                     <label class="form-label">지역</label>
                                     <select wire:model="area_id" class="custom-select">
-                                        <option selected>선택</option>
+                                        <option value="">선택</option>
                                         @foreach($regions as $region)
                                             <option class="form-control" value="{{$region->id}}">{{$region->title}}</option>
                                         @endforeach
