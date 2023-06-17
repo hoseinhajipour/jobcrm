@@ -11,22 +11,20 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Job</th>
-                <th scope="col">status</th>
-                <th scope="col">action</th>
+                <th scope="col">직업</th>
+                <th scope="col">상태</th>
+                <th scope="col">행동</th>
             </tr>
             </thead>
             <tbody>
             @foreach($resumes as $resume)
                 <tr>
-                    <th scope="row">{{$resume->id}}</th>
                     <td>
                         <img src="{{asset(Voyager::image($resume->job->user->avatar))}}" width="64">
                         {{$resume->job->title}}
                     </td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="#" class="btn btn-primary">View</a></td>
+                    <td><a href="#" class="btn btn-primary">보다</a></td>
                 </tr>
             @endforeach
             </tbody>

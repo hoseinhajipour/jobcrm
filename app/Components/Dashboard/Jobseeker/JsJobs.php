@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Pages;
+namespace App\Components\Dashboard\Jobseeker;
 
 use App\Models\Job;
 use App\Models\JobCategory;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Jobs extends Component
+class JsJobs extends Component
 {
     use WithPagination;
 
@@ -41,7 +41,7 @@ class Jobs extends Component
 
     public function route()
     {
-      return Route::get('/jobs')->name('jobs');
+        return Route::get('/profile/jobs')->name('profile.jobs');
     }
 
 

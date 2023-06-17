@@ -24,7 +24,9 @@
                             <li class="{{ Route::currentRouteName() == 'ViewAllResumes' ? 'active' : '' }}">
                                 <a href="{{route('ViewAllResumes',["status"=>"read"])}}">열람 이력서</a>
                             </li>
-                            <li><a href="{{route('profile')}}">프로필</a></li>
+                            <li class="{{ Route::currentRouteName() == 'profile' ? 'active' : '' }}">
+                                <a href="{{route('profile')}}">프로필</a>
+                            </li>
                             <li><a href="{{route('logout')}}">로그아웃</a></li>
                         </ul>
                     @endif
@@ -33,15 +35,21 @@
                         <ul>
                             <li class="{{ Route::currentRouteName() == 'index' ? 'active' : '' }}">
                                 <a href="{{route('index')}}">올댓리셉션</a></li>
-                            <li class="{{ Route::currentRouteName() == 'MyResumes' ? 'active' : '' }}">
-                                <a href="{{route('MyResumes')}}">이력서</a>
+                            <li class="{{ Route::currentRouteName() == 'profile' ? 'active' : '' }}">
+                                <a href="{{route('profile')}}">이력서</a>
                             </li>
-                            <li><a href="#">지원완료</a></li>
+                            <li class="{{ Route::currentRouteName() == 'MyResumes' && request()->status == 'pending' ? 'active' : '' }}">
+                                <a href="{{route('MyResumes',["status"=>"pending"])}}">지원완료</a>
+                            </li>
                             <li class="{{ Route::currentRouteName() == 'NewExam' ? 'active' : '' }}">
                                 <a href="{{route('NewExam')}}">자가진단표</a>
                             </li>
-                            <li><a href="#">이력서 열람</a></li>
-                            <li><a href="#">추천 직업</a></li>
+                            <li class="{{ Route::currentRouteName() == 'MyResumes' && request()->status == 'read' ? 'active' : '' }}">
+                                <a href="{{route('MyResumes',["status"=>"read"])}}">이력서 열람</a>
+                            </li>
+                            <li class="{{ Route::currentRouteName() == 'profile.jobs' ? 'active' : '' }}">
+                                <a href="{{route('profile.jobs')}}">추천 직업</a>
+                            </li>
                             <li><a href="{{route('logout')}}">로그아웃</a></li>
                         </ul>
                     @endif
