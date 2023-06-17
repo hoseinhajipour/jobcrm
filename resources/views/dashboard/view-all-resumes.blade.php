@@ -11,11 +11,11 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">Job</th>
-                <th scope="col">name</th>
-                <th scope="col">email</th>
-                <th scope="col">status</th>
-                <th scope="col">action</th>
+                <th scope="col">직업</th>
+                <th scope="col">이름</th>
+                <th scope="col">이메일</th>
+                <th scope="col">상태</th>
+                <th scope="col">상태</th>
             </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                     </td>
                     <td>{{$resume->email}}</td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">View</a></td>
+                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">보다</a></td>
                 </tr>
             @endforeach
             </tbody>

@@ -147,6 +147,10 @@ return [
             'TCG\\Voyager\\Widgets\\UserDimmer',
             'TCG\\Voyager\\Widgets\\PostDimmer',
             'TCG\\Voyager\\Widgets\\PageDimmer',
+            'App\Widgets\\JobSeekrDimmer',
+            'App\Widgets\\EmployerDimmer',
+            'App\Widgets\\JobsDimmer',
+            'App\Widgets\\ResumesDimmer',
         ],
 
     ],

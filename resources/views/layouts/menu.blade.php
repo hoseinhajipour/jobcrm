@@ -18,10 +18,11 @@
                             <li class="{{ Route::currentRouteName() == 'MyJobs' ? 'active' : '' }}">
                                 <a href="{{route('MyJobs')}}">전체 공고</a>
                             </li>
-                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' ? 'active' : '' }}">
+
+                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' && request()->status == 'pending' ? 'active' : '' }}">
                                 <a href="{{route('ViewAllResumes',["status"=>"pending"])}}">미열람 이력서</a>
                             </li>
-                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' ? 'active' : '' }}">
+                            <li class="{{ Route::currentRouteName() == 'ViewAllResumes' && request()->status == 'read' ? 'active' : '' }}">
                                 <a href="{{route('ViewAllResumes',["status"=>"read"])}}">열람 이력서</a>
                             </li>
                             <li class="{{ Route::currentRouteName() == 'profile' ? 'active' : '' }}">

@@ -11,9 +11,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">title</th>
-                <th scope="col">Resumes</th>
-                <th scope="col">action</th>
+                <th scope="col">제목</th>
+                <th scope="col">이력서</th>
+                <th scope="col">행동</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                         {{$job->Resumes->count()}}
                     </td>
                     <td>
-                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">View Resumes</a>
+                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">이력서 보기</a>
                         <!--
                         <a href="#" class="btn">Edit</a>
                         <a href="#" class="btn">Remove</a>
