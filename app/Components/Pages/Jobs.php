@@ -65,6 +65,7 @@ class Jobs extends Component
             ->when($area_id, function ($query) use ($area_id) {
                 return $query->where('area_id', $area_id);
             })
+            ->latest()
             ->with('user')
             ->paginate(8);
         return view('pages.jobs', ["jobs" => $jobs]);

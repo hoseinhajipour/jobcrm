@@ -10,6 +10,7 @@ use Livewire\WithFileUploads;
 class EmProfile extends Component
 {
     use LivewireAlert;
+
     use WithFileUploads;
 
     public $avatar;

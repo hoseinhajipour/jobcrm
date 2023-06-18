@@ -24,7 +24,7 @@
                         <img src="{{asset(Voyager::image($resume->user->avatar))}}" width="32">
                         {{$resume->user->name}}
                     </td>
-                    <td>{{$resume->email}}</td>
+                    <td>{{$resume->user->email}}</td>
                     <td>{{$resume->status}}</td>
                     <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">보기</a></td>
                 </tr>
