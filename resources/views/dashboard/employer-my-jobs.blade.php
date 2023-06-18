@@ -27,8 +27,12 @@
                         <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">보기</a>
                         <!--
                         <a href="#" class="btn">Edit</a>
-                        <a href="#" class="btn">Remove</a>
                         -->
+                        <button wire:click="Remove({{$job->id}})"
+                                class="btn btn-danger">
+                            <span class="fa fa-trash"></span>
+                        </button>
+
                     </td>
                 </tr>
             @endforeach

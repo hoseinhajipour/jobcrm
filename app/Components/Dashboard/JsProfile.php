@@ -38,9 +38,14 @@ class JsProfile extends Component
 
 
         $this->WorkHistories = $this->user->WorkHistories;
+
+        if (count($this->WorkHistories) == 0) {
+            $this->addWorkHistory();
+        }
         $this->EducationHistories = $this->user->EducationHistories;
-
-
+        if (count($this->EducationHistories) == 0) {
+            $this->addEducationHistory();
+        }
         $this->name = $this->user->name;
         $this->email = $this->user->email;
         $this->password = $this->user->password;

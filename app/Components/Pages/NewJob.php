@@ -9,10 +9,13 @@ use App\Models\Region;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class NewJob extends Component
 {
+
+    use LivewireAlert;
 
     public $title;
     public $areasOfRecruitment;
@@ -27,7 +30,7 @@ class NewJob extends Component
     public $breakTime;
     public $preferentialConditions;
     public $salary;
-    public $damdamPlaceName;
+    public $damdamPlaceName = "";
     public $mealIncluded;
     public $negotiable;
     public $probationPeriod;
@@ -109,7 +112,9 @@ class NewJob extends Component
 
         $Job->save();
 
+        $this->alert('success', '성공적으로 등록되었습니다', ['position' => 'center']);
 
+        return redirect()->route('MyJobs');
     }
 
     public function render()

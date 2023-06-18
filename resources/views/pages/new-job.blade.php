@@ -1,5 +1,4 @@
 @section('style')
-    <link href="{{asset('css/style.css?v=1.0')}}" rel="stylesheet">
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
 @endsection
 <div class="container">
@@ -18,7 +17,7 @@
                     <div class="alert alert-info">
                         <label>원하는 업체를 선택하세요</label>
 
-                        <select wire:model.defer="currentUser" class="form-control">
+                        <select wire:model="currentUser" class="form-control">
                             @foreach($employers as $employer)
                                 <option value="{{$employer->id}}">
                                     <label>{{$employer->name}} | {{$employer->email}}</label>
@@ -36,16 +35,17 @@
                                 <!--  Notice title -->
                                 <div class="col-md-6">
                                     <label class="form-label">공고제목 *</label>
-                                    <input type="text" wire:model.defer="title" class="form-control"
-                                           id="createjob" placeholder="" aria-label="title" value="공고제목...">
+                                    <input type="text" wire:model="title" class="form-control"
+                                           placeholder="공고제목..."
+                                           aria-label="title">
                                 </div>
 
                                 <!-- areas of recruitment -->
                                 <div class="col-md-6">
                                     <label class="form-label">모집분야 *</label>
 
-                                    <select wire:model.defer="category_id"
-                                            class="custom-select" >
+                                    <select wire:model="category_id"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         @foreach($categories as $category)
                                             <option class="form-control" value="{{$category->id}}">{{$category->title}}</option>
@@ -56,7 +56,7 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label">근무형태</label>
-                                    <select wire:model.defer="jobtype_id" class="custom-select">
+                                    <select wire:model="jobtype_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($jobTypes as $type)
                                             <option class="form-control" value="{{$type->id}}">{{$type->title}}</option>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">지역</label>
-                                    <select wire:model.defer="area_id" class="custom-select">
+                                    <select wire:model="area_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($regions as $region)
                                             <option class="form-control"
@@ -80,7 +80,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">고용형태 *</label>
 
-                                    <select wire:model.defer="typeOfEmployment"
+                                    <select wire:model="typeOfEmployment"
                                             class="custom-select" id="typeofemployment">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">파견</option>
@@ -95,8 +95,10 @@
                                 <div class="col-md-6">
                                     <label class="form-label">모집인원 *</label>
                                     <input type="text"
-                                           wire:model.defer="numberOfRecruits"
-                                           class="form-control" id="numberofrecruits" placeholder="" aria-label="title" value="____ 명">
+                                           wire:model="numberOfRecruits"
+                                           class="form-control"
+                                           placeholder="____ 명"
+                                           aria-label="title">
                                 </div>
 
 
@@ -104,7 +106,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">성별 *</label>
 
-                                    <select wire:model.defer="gender"
+                                    <select wire:model="gender"
                                             class="custom-select" id="gender">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">여성</option>
@@ -119,7 +121,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">연령 *</label>
 
-                                    <select wire:model.defer="age"
+                                    <select wire:model="age"
                                             class="custom-select" id="age">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">20세~29세</option>
@@ -133,7 +135,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">학력 *</label>
 
-                                    <select wire:model.defer="education"
+                                    <select wire:model="education"
                                             class="custom-select" id="Education">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">고등학교 졸업 이상</option>
@@ -146,12 +148,11 @@
                                 </div>
 
 
-
                                 <!-- Day of the week -->
                                 <div class="col-md-6">
                                     <label class="form-label">요일 *</label>
 
-                                    <select wire:model.defer="dayOfWeek"
+                                    <select wire:model="dayOfWeek"
                                             class="custom-select" id="dayoftheweek">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">주 1일</option>
@@ -168,7 +169,6 @@
                                 </div>
 
 
-
                                 <!-- working time -->
                                 <div class=" col-md-6">
                                     <div class="field item form-group ">
@@ -176,8 +176,9 @@
                                         <label class="col-form-label   label-align">출근시간<span class="required">*</span></label>
 
                                         <input class="form-control"
-                                               wire:model.defer="workingTime"
-                                               id="workingtime" class='time' type="time" name="time" required='required'>
+                                               wire:model="workingTime"
+                                               id="workingtime" class='time' type="time" name="time"
+                                               required='required'>
 
                                     </div>
                                 </div>
@@ -185,10 +186,13 @@
                                 <div class=" col-md-6">
                                     <div class="field item form-group ">
 
-                                        <label class="col-form-label   label-align">퇴근시간<span class="required">*</span></label>
+                                        <label class="col-form-label label-align">퇴근시간<span class="required">*</span></label>
 
-                                        <input wire:model.defer="closingTime"
-                                               class="form-control" id="workingtime1" class='time' type="time" name="time" required='required'>
+                                        <input wire:model="closingTime"
+                                               class="form-control"
+                                               class='time'
+                                               type="time"
+                                               name="time">
 
                                     </div>
                                 </div>
@@ -197,7 +201,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">휴게시간 </label>
 
-                                    <select wire:model.defer="breakTime"
+                                    <select wire:model="breakTime"
                                             class="custom-select" id="breaktime">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">없음</option>
@@ -213,7 +217,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">우대조건</label>
 
-                                    <select wire:model.defer="preferentialConditions"
+                                    <select wire:model="preferentialConditions"
                                             class="custom-select" id="preferentialconditions">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">경력자</option>
@@ -224,21 +228,20 @@
                                 </div>
 
 
-
                                 <!-- salary -->
                                 <div class="col-md-6">
                                     <label class="form-label">급여 *</label>
-                                    <input type="text" wire:model.defer="salary"
-                                           class="form-control" id="salary" placeholder="" aria-label="salary"
-                                           value="---,---,--- 원">
+                                    <input type="text" wire:model="salary"
+                                           class="form-control" placeholder="---,---,--- 원"
+                                           aria-label="salary">
                                 </div>
 
                                 <!-- Damdam place name -->
                                 <div class="col-md-6">
                                     <label class="form-label">담담지명 *</label>
-                                    <input type="text" wire:model.defer="damdamplacename"
-                                           class="form-control" id="damdamplacename" placeholder="" aria-label="salary"
-                                           value="담담지명...">
+                                    <input type="text" wire:model="damdamPlaceName"
+                                           class="form-control" placeholder="담담지명..."
+                                           aria-label="salary">
                                 </div>
 
                                 <!-- pick -->
@@ -248,26 +251,26 @@
 
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model.defer="mealIncluded"
-                                                       type="checkbox" id="inlineCheckbox1" value="option1">
+                                                       wire:model="mealIncluded"
+                                                       type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox1">식대포함</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model.defer="negotiable"
-                                                       type="checkbox" id="inlineCheckbox2" value="option2">
+                                                       wire:model="negotiable"
+                                                       type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox2">협의가능</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model.defer="probationPeriod"
-                                                       type="checkbox" id="inlineCheckbox3" value="option3">
+                                                       wire:model="probationPeriod"
+                                                       type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox3">수습기간 있음</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model.defer="performancePay"
-                                                       type="checkbox" id="inlineCheckbox4" value="option4">
+                                                       wire:model="performancePay"
+                                                       type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox4">성과급</label>
                                             </div>
 
@@ -278,40 +281,43 @@
                                 <!-- Phone number -->
                                 <div class="col-md-6">
                                     <label class="form-label">연락처 *</label>
-                                    <input type="text"  wire:model.defer="contact"
-                                           class="form-control" id="contact" placeholder="" aria-label="Phone number" value="예: +82 10 1234 5678">
+                                    <input type="text" wire:model="contact"
+                                           class="form-control" placeholder="예: +82 10 1234 5678"
+                                           aria-label="Phone number">
                                 </div>
 
                                 <!-- fax number -->
                                 <div class="col-md-6">
                                     <label class="form-label">팩스번호</label>
-                                    <input type="text" wire:model.defer="faxNumber"
-                                           class="form-control" id="faxNumber" placeholder="" aria-label="Phone number" value="예: +82 2 123 4567">
+                                    <input type="text" wire:model="faxNumber"
+                                           class="form-control" placeholder="예: +82 2 123 4567"
+                                           aria-label="Phone number">
                                 </div>
 
                                 <!-- Email -->
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">E-mail 주소 *</label>
-                                    <input type="email" wire:model.defer="email"
-                                           class="form-control" id="email" value="예: ATR@allthatreception.com">
+                                    <input type="email" wire:model="email"
+                                           placeholder="예: ATR@allthatreception.com"
+                                           class="form-control">
                                 </div>
                                 <!-- Address -->
                                 <div class="col-md-6">
                                     <label class="form-label">근무지 주소 *</label>
-                                    <input type="text" wire:model.defer="address"
-                                           class="form-control" id="address" placeholder="" aria-label="Address" value="예: 06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층">
+                                    <input type="text" wire:model="address"
+                                           class="form-control"
+                                           placeholder="예: 06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층"
+                                           aria-label="Address">
                                 </div>
 
                                 <!-- cover letter -->
                                 <div class="col-md-12">
                                     <label class="form-label">자세한 내용 *</label>
-                                    <textarea class="form-control"  wire:model.defer="description"
-                                              id="exampleFormControlTextarea1" rows="5">자세한 내용 ...</textarea>
+                                    <textarea class="form-control" wire:model="description"
+                                              placeholder="자세한 내용 ..."
+                                              rows="5"></textarea>
 
                                 </div>
-
-
-
 
 
                                 <div class="col-md-12 ">
@@ -337,7 +343,15 @@
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
                     <!--	<button type="button" class="btn btn-danger btn-lg">Delete profile</button> -->
                     <button type="submit" {{ $agree ? '' : 'disabled' }} id="registration"
-                            class="btn btn-primary btn-lg">등록
+                            class="btn btn-primary btn-lg">
+
+                        <div wire:loading class="text-center">
+                            <div class="spinner-border" role="status">
+                            </div>
+                        </div>
+                        <div wire:loading.remove>
+                            등록
+                        </div>
                     </button>
                 </div>
 

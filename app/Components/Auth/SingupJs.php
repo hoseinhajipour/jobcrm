@@ -8,12 +8,17 @@ use App\Models\WorkHistory;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Lukeraymonddowning\Honey\Traits\WithHoney;
 
 class SingupJs extends Component
 {
     use WithFileUploads;
+    use WithHoney;
+    use LivewireAlert;
 
     public $avatar;
 
@@ -71,46 +76,52 @@ class SingupJs extends Component
 
     public function register()
     {
-        $this->validate();
+        try {
+            $this->validate();
+            /*
+                    if (!$this->honeyPasses()) {
+                        return null;
+                    }
+            */
 
-        if (!$this->honeyPasses()) {
-            return null;
-        }
-
-        $user = User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'birth_date' => $this->birth_date,
-            'gender' => $this->gender,
-            'phone' => $this->phone,
-            'address' => $this->address,
-            'language' => $this->language,
-            'o_a' => $this->o_a,
-            'support_areas' => $this->support_areas,
-            'self_introduction' => $this->self_introduction,
-            'password' => bcrypt($this->password),
-        ]);
-        if ($this->avatar) {
-            $path = $this->avatar->store('avatars');
-            $user->avatar = $path;
+            $user = User::create([
+                'role_id' => 4,
+                'name' => $this->name,
+                'email' => $this->email,
+                'birth_date' => $this->birth_date,
+                'gender' => $this->gender,
+                'phone' => $this->phone,
+                'address' => $this->address,
+                'language' => $this->language,
+                'o_a' => $this->o_a,
+                'support_areas' => $this->support_areas,
+                'self_introduction' => $this->self_introduction,
+                'password' => bcrypt($this->password),
+            ]);
+            if ($this->avatar) {
+                $path = $this->avatar->store('avatars');
+                $user->avatar = $path;
+            }
             $user->save();
-        }
 
-        if ($user->id) {
-            foreach ($this->EducationHistories as $EducationHistory) {
-                $EducationHistory->user_id = $user->id;
-                $EducationHistory->save();
+            if ($user->id) {
+                foreach ($this->EducationHistories as $EducationHistory) {
+                    $EducationHistory->user_id = $user->id;
+                    $EducationHistory->save();
+                }
+                foreach ($this->WorkHistories as $WorkHistory) {
+                    $WorkHistory->user_id = $user->id;
+                    $WorkHistory->save();
+                }
             }
-            foreach ($this->WorkHistories as $WorkHistory) {
-                $WorkHistory->user_id = $user->id;
-                $WorkHistory->save();
-            }
+
+
+            Auth::login($user, true);
+
+            return redirect()->to(RouteServiceProvider::profile);
+        } catch (ValidationException $exception) {
+            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
         }
-
-
-        Auth::login($user, true);
-
-        return redirect()->to(RouteServiceProvider::profile);
     }
 
 

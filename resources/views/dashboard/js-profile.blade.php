@@ -56,41 +56,41 @@
                                 <!--  Name -->
                                 <div class="col-md-6">
                                     <label class="form-label">성명 *</label>
-                                    <input type="text" wire:model.defer="name" class="form-control" id="username" placeholder=""
+                                    <input type="text" wire:model="name" class="form-control" id="username" placeholder=""
                                            aria-label="First name" value="성명...">
                                 </div>
                                 <!-- Birthday -->
                                 <div class="col-md-6">
                                     <label class="form-label">생년월일 *</label>
-                                    <input type="date" wire:model.defer="birth_date"
+                                    <input type="date" wire:model="birth_date"
                                            class="form-control" id="datepicker" placeholder=""
                                            aria-label="Birthday" value="1994-06-02">
                                 </div>
                                 <!-- Gender -->
                                 <div class="col-md-6">
                                     <label class="form-label">성별 *</label>
-                                    <input type="text" wire:model.defer="gender"
+                                    <input type="text" wire:model="gender"
                                            class="form-control" id="gender" placeholder=""
                                            aria-label="Gender" value="여성">
                                 </div>
                                 <!-- Phone number -->
                                 <div class="col-md-6">
                                     <label class="form-label">휴대폰번호 *</label>
-                                    <input type="text" wire:model.defer="phone"
+                                    <input type="text" wire:model="phone"
                                            class="form-control" id="phonenumber" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
                                 </div>
                                 <!-- Email -->
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">E-mail 주소 *</label>
                                     <input type="email"
-                                           wire:model.defer="email"
+                                           wire:model="email"
                                            class="form-control" id="email" value="name@example.com">
                                 </div>
                                 <!-- Address -->
                                 <div class="col-md-6">
                                     <label class="form-label">주소 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model.defer="address"
+                                           wire:model="address"
                                            id="address" placeholder="" aria-label="Address"
                                            value="06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층">
                                 </div>
@@ -114,7 +114,7 @@
                                     <!--  Education -->
                                     <div class="col-md-4">
                                         <label class="form-label">최종학력 *</label>
-                                        <select wire:model.defer="EducationHistories.{{ $index }}.education"
+                                        <select wire:model="EducationHistories.{{ $index }}.education"
                                                 class="custom-select"
                                                 id="schooltype">
                                             <option selected>선택</option>
@@ -128,7 +128,7 @@
                                     <!-- Education -->
                                     <div class="col-md-4">
                                         <label class="form-label">학교 *</label>
-                                        <input type="text" wire:model.defer="EducationHistories.{{ $index }}.school"
+                                        <input type="text" wire:model="EducationHistories.{{ $index }}.school"
                                                class="form-control" id="school"
                                                placeholder="" aria-label="Education" value="학교 ">
                                     </div>
@@ -138,7 +138,7 @@
                                     <div class="col-md-4">
                                         <label class="form-label">학과 *</label>
                                         <input type="text"
-                                               wire:model.defer="EducationHistories.{{ $index }}.school_department"
+                                               wire:model="EducationHistories.{{ $index }}.school_department"
                                                class="form-control"
                                                id="department" placeholder="" aria-label="Career" value="학과">
                                     </div>
@@ -150,7 +150,7 @@
                                         <div class="input-group date" id="date-own">
 
                                             <input type="date"
-                                                   wire:model.defer="EducationHistories.{{ $index }}.admission_date"
+                                                   wire:model="EducationHistories.{{ $index }}.admission_date"
                                                    class="form-control">
 
                                             <span class="input-group-append">
@@ -169,7 +169,7 @@
                                         <div class="input-group date" id="date-own2">
 
                                             <input type="date"
-                                                   wire:model.defer="EducationHistories.{{ $index }}.graduation_date"
+                                                   wire:model="EducationHistories.{{ $index }}.graduation_date"
                                                    class="form-control">
 
                                             <span class="input-group-append">
@@ -211,7 +211,7 @@
                                     <div class="col-md-4">
                                         <label class="form-label">연봉 *</label>
                                         <input type="text" class="form-control"
-                                               wire:model.defer="WorkHistories.{{ $index02 }}.salary"
+                                               wire:model="WorkHistories.{{ $index02 }}.salary"
                                                id="salary" placeholder="" aria-label="Education" value="____원 ">
                                     </div>
 
@@ -219,7 +219,7 @@
                                     <!-- Company Name -->
                                     <div class="col-md-4">
                                         <label class="form-label">회사명 *</label>
-                                        <input type="text" wire:model.defer="WorkHistories.{{ $index02 }}.company_name"
+                                        <input type="text" wire:model="WorkHistories.{{ $index02 }}.company_name"
                                                class="form-control"
                                                id="companyname" placeholder="" aria-label="Career" value="회사명...">
                                     </div>
@@ -229,7 +229,7 @@
                                     <div class="col-md-4">
                                         <label class="form-label">부서 *</label>
                                         <input type="text"
-                                               wire:model.defer="WorkHistories.{{ $index02 }}.company_department"
+                                               wire:model="WorkHistories.{{ $index02 }}.company_department"
                                                class="form-control"
                                                id="jobdepartment" placeholder="" aria-label="Career" value="부서...">
                                     </div>
@@ -237,7 +237,7 @@
                                     <div class="col-md-4">
                                         <label class="form-label">직급 *</label>
                                         <input type="text" class="form-control"
-                                               wire:model.defer="WorkHistories.{{ $index02 }}.rank"
+                                               wire:model="WorkHistories.{{ $index02 }}.rank"
                                                id="rank" placeholder="" aria-label="Career"
                                                value="직급...">
                                     </div>
@@ -249,13 +249,13 @@
 
                                         <div class="input-group input-daterange">
                                             <input type="date"
-                                                   wire:model.defer="WorkHistories.{{ $index02 }}.employment_start"
+                                                   wire:model="WorkHistories.{{ $index02 }}.employment_start"
                                                    class="form-control" value="2012-04-05">
                                             <div class="input-group-addon">
                                                 <h2>~</h2>
                                             </div>
                                             <input type="date"
-                                                   wire:model.defer="WorkHistories.{{ $index02 }}.employment_end"
+                                                   wire:model="WorkHistories.{{ $index02 }}.employment_end"
                                                    class="form-control" value="2012-04-19">
                                         </div>
 
@@ -281,14 +281,14 @@
                                 <div class="col-md-4">
                                     <label class="form-label">언어 </label>
                                     <input type="text" class="form-control" id="language" placeholder=""
-                                           wire:model.defer="language"
+                                           wire:model="language"
                                            aria-label="language" value="예: 영어, 한국어, 중국어">
                                 </div>
                                 <!-- O/A -->
                                 <div class="col-md-4">
                                     <label class="form-label">O/A </label>
                                     <input type="text"
-                                           wire:model.defer="o_a"
+                                           wire:model="o_a"
                                            class="form-control" id="O/A" placeholder="" aria-label="O/A"
                                            value="예: 마이크로 소프트 오피스">
                                 </div>
@@ -297,7 +297,7 @@
                                 <div class="col-md-4">
                                     <label class="form-label">지원분야 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model.defer="support_areas"
+                                           wire:model="support_areas"
                                            id="supportareas" placeholder=""
                                            aria-label="Support Areas" value="리셉션">
                                 </div>
@@ -305,7 +305,7 @@
                                 <div class="col-md-12">
                                     <label class="form-label">자기소개서 *</label>
                                     <textarea class="form-control"
-                                              wire:model.defer="self_introduction"
+                                              wire:model="self_introduction"
                                               id="exampleFormControlTextarea1"
                                               rows="5"></textarea>
 
@@ -325,13 +325,13 @@
                                 <!-- New password -->
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword2" class="form-label">새 비밀번호</label>
-                                    <input type="password"  wire:model.defer="password"
+                                    <input type="password"  wire:model="password"
                                            class="form-control" id="exampleInputPassword2">
                                 </div>
                                 <!-- Confirm password -->
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword3" class="form-label">새 비밀번호 재입력</label>
-                                    <input type="password" wire:model.defer="password_confirmation"
+                                    <input type="password" wire:model="password_confirmation"
                                            class="form-control" id="exampleInputPassword3">
                                 </div>
                             </div>

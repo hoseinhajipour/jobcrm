@@ -1532,7 +1532,10 @@ margin-left: 50%;
     border-color: #96368B;
     color: white;
 }
-
+.btn-primary.disabled, .btn-primary:disabled{
+    background-color: #96368B;
+    border-color: #96368B;
+}
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #3D2462;
     border-color: #3D2462;

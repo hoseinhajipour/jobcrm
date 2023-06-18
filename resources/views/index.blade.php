@@ -218,7 +218,7 @@
             </div>
 
 
-            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
+            <div id="groups" class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
                 <form action="#" method="post" role="form" class="php-email-form">
                     <div class="form-row">
                         <div class="form-group col-md-12  ">

@@ -3,16 +3,16 @@
 namespace App\Components\Dashboard;
 
 use App\Models\Job;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class EmployerMyJobs extends Component
 {
     use WithPagination;
-
+    use LivewireAlert;
     protected $paginationTheme = 'bootstrap';
 
 
@@ -25,8 +25,6 @@ class EmployerMyJobs extends Component
 
     public function render()
     {
-
-
         if (Auth::user()->role_id == 1) {
             $jobs = Job::with("Resumes")
                 ->paginate(8);
@@ -37,5 +35,11 @@ class EmployerMyJobs extends Component
         }
 
         return view('dashboard.employer-my-jobs', ["jobs" => $jobs]);
+    }
+
+    public function Remove($id)
+    {
+        Job::find($id)->delete();
+        $this->alert('success', '성공적으로 등록되었습니다', ['position' => 'center']);
     }
 }

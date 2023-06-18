@@ -394,7 +394,7 @@ hr {
 }
 
 .btn {
-  background: #fb246a;
+  background: #3D2462;
   -moz-user-select: none;
   text-transform: capitalize;
   color: #fff;
@@ -424,7 +424,7 @@ hr {
   top: 0;
   width: 101%;
   height: 101%;
-  background: #da2461;
+  background: #96368B;
   z-index: 1;
   border-radius: 5px;
   transition: transform 0.5s;
