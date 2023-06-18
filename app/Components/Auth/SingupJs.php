@@ -105,13 +105,16 @@ class SingupJs extends Component
             $user->save();
 
             if ($user->id) {
-                foreach ($this->EducationHistories as $EducationHistory) {
-                    $EducationHistory->user_id = $user->id;
-                    $EducationHistory->save();
+
+                foreach ($this->EducationHistories as $EducationData) {
+                    $newEducationHistory = new EducationHistory($EducationData);
+                    $newEducationHistory->user_id = $user->id;
+                    $newEducationHistory->save();
                 }
-                foreach ($this->WorkHistories as $WorkHistory) {
-                    $WorkHistory->user_id = $user->id;
-                    $WorkHistory->save();
+                foreach ($this->WorkHistories as $Workdata) {
+                    $newWorkHistory = new WorkHistory($Workdata);
+                    $newWorkHistory->user_id = $user->id;
+                    $newWorkHistory->save();
                 }
             }
 
