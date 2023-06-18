@@ -155,21 +155,26 @@
                     <br/>
                     <h2 style="color:white;">모바일 앱 플랫폼 </h2> <br/><br/>
 
+
                     <p style="color:white;" class="font-italic">
+                        <!--
                         모바일 애플리케이션을 다운로드하여 더 쉽게 서비스를 이용하세요 !
+                        -->
                         <br/><br/><br/><br/>
 
                     <div class="app-icons">
-                        <a href="https://apps.apple.com/app/id1551353775">
+                        <a href="#">
                             <img
                                 class="apple"
                                 src="{{asset('img/appstore.png')}}"
+                                width="164"
                                 alt="Download on the App Store">
                         </a>
-                        <a href='https://play.google.com/store/apps/details?id=com.stagescycling.stages'>
+                        <a href='#'>
                             <img
                                 class="android"
                                 alt='Get it on Google Play'
+                                width="164"
                                 src='{{asset('img/googleplay.png')}}'/>
                         </a>
                     </div>

@@ -58,12 +58,12 @@
             @else
                 <ul>
                     <li class="active"><a href="{{route('index')}}">올댓리셉션</a></li>
-                    <li><a href="#service">서비스</a></li>
-                    <li><a href="#news">뉴스</a></li>
-                    <li><a href="#mobile">APP</a></li>
-                    <li><a href="#contact">회사 소개</a></li>
+                    <li><a href="{{route('index')}}#service">서비스</a></li>
+                    <li><a href="{{route('index')}}#news">뉴스</a></li>
+                    <li><a href="{{route('index')}}#mobile">APP</a></li>
+                    <li><a href="{{route('index')}}#contact">회사 소개</a></li>
                     <li><a href="{{route('jobs')}}">채용</a></li>
-                    <li><a href="#groups">올댓그룹</a></li>
+                    <li><a href="{{route('index')}}#groups">올댓그룹</a></li>
                     @auth
                         <li class="d-lg-none d-block"><a href="{{route('profile')}}" class="user"><i class="icofont-user"></i>프로필</a></li>
                     @endauth

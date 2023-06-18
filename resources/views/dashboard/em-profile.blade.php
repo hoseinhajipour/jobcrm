@@ -7,7 +7,7 @@
             <br/> <br/> <br/>
 
             <div class="my-5">
-                <h3>회원가입</h3>
+                <h3>프로필</h3>
                 <hr>
             </div>
 

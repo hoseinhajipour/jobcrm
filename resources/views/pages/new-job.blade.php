@@ -1,5 +1,5 @@
 @section('style')
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css?v=1.0')}}" rel="stylesheet">
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
 @endsection
 <div class="container">
@@ -9,7 +9,7 @@
             <br/> <br/> <br/>
 
             <div class="my-5">
-                <h3>채용 공고</h3>
+                <h3>채용공고 등록</h3>
                 <hr>
             </div>
             <!-- Form START -->

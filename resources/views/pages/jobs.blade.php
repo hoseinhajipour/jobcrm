@@ -2,7 +2,7 @@
 
 @section('style')
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/css/style.css?v=1.0')}}">
 @endsection
 
 <div>
@@ -83,7 +83,7 @@
                                                 <h4>{{$job->title}}</h4>
                                             </a>
                                             <ul>
-                                                <li>Creative Agency</li>
+                                                <li>{{$job->user->name}}</li>
                                                 <li><i class="fas fa-map-marker-alt"></i>서울</li>
                                                 <li>{{$job->salary}}$</li>
                                             </ul>
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="items-link items-link2 f-right">
                                         <a href="{{route('job',["id"=>$job->id])}}">취업</a>
-                                        <span>7 시간 전</span>
+                                        <span>{{$job->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>
                             @empty

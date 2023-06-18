@@ -12,10 +12,10 @@
             <select wire:model.defer="status"
                     wire:change="updateStatus"
                     class="form-control">
-                <option value="pending">보류 중</option>
-                <option value="read">본</option>
-                <option value="confirmation_for_interview">면접확인</option>
-                <option value="complete">완벽한</option>
+                <option value="pending">확인 중</option>
+                <option value="read">확인했음</option>
+                <option value="confirmation_for_interview">면접</option>
+                <option value="complete">완료</option>
             </select>
         </div>
         <div class="card-body">

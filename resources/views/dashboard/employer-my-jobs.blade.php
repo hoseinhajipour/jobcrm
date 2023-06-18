@@ -3,7 +3,7 @@
     <br/> <br/> <br/>
 
     <div class="my-5">
-        <h3>내 직업</h3>
+        <h3>전체 공고</h3>
         <hr>
     </div>
 
@@ -13,7 +13,7 @@
             <tr>
                 <th scope="col">제목</th>
                 <th scope="col">이력서</th>
-                <th scope="col">행동</th>
+                <th scope="col">액션</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                         {{$job->Resumes->count()}}
                     </td>
                     <td>
-                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">이력서 보기</a>
+                        <a href="{{route('ViewJobResumes',["id"=>$job->id])}}" class="btn btn-primary">보기</a>
                         <!--
                         <a href="#" class="btn">Edit</a>
                         <a href="#" class="btn">Remove</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 17, 2023 at 12:39 AM
+-- Generation Time: Jun 17, 2023 at 11:24 PM
 -- Server version: 10.3.39-MariaDB
 -- PHP Version: 8.1.16
 
@@ -473,7 +473,7 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `title`, `areas_of_recruitment`, `type_of_employment`, `number_of_recruits`, `gender`, `age`, `education`, `day_of_the_week`, `working_time`, `closing_time`, `break_time`, `preferential_conditions`, `salary`, `damdam_place_name`, `meal_included`, `negotiable`, `probation_period`, `performance_pay`, `contact`, `fax_number`, `email`, `address`, `description`, `agreed`, `created_at`, `updated_at`, `user_id`, `slug`, `category_id`, `jobtype_id`, `area_id`) VALUES
-(1, '공고제목', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1500', NULL, 1, 1, 1, 1, 'Contact  info', '+1555244', 'contact@test.com', 'seoul', '창업 후 올댓모델은 인재를 원하는 기업과 인재를 연결하는 징검다리가 되어 보다 정교한 취업 모델을 완성하여, 국내 유일의 리셉셔니스트 전문 에이전시로 업계에 명성을 쌓으며 영향력을 넓혀 나가고 있습니다.\r\n\r\n모집분야 : text\r\n우대조건 : text\r\n사전질문 : text', 1, '2023-06-15 01:38:00', '2023-06-15 02:06:32', 4, '공고제목', NULL, NULL, NULL);
+(1, '공고제목', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1500', NULL, 1, 1, 1, 1, 'Contact  info', '+1555244', 'contact@test.com', 'seoul', '창업 후 올댓모델은 인재를 원하는 기업과 인재를 연결하는 징검다리가 되어 보다 정교한 취업 모델을 완성하여, 국내 유일의 리셉셔니스트 전문 에이전시로 업계에 명성을 쌓으며 영향력을 넓혀 나가고 있습니다.\r\n\r\n모집분야 : text\r\n우대조건 : text\r\n사전질문 : text', 1, '2023-06-15 01:38:00', '2023-06-17 15:36:09', 4, '공고제목', 4, 8, 5);
 
 -- --------------------------------------------------------
 
@@ -1380,9 +1380,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `birth_date`, `gender`, `phone`, `address`, `education`, `school`, `school_department`, `admission_date`, `graduation_date`, `salary`, `company_name`, `company_department`, `rank`, `employment_start`, `employment_end`, `language`, `o_a`, `support_areas`, `establishment_date`, `representative_name`, `business_number`, `contact_person_number`, `contact_person_name`, `number_of_employees`, `business_information`, `sectors`, `company_website_address`, `company_type`, `take`, `capital`, `Listed_or_not`, `self_introduction`) VALUES
-(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', 'F4ccya5edG24WEyJmW0sMNBkQvd8U8z590aJznH7JctQb9Unzlaysa40mVDE', NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$61F5TGcqzyzKIRCadPEhyupTuVVEE2fEmbNXKFJ8OFjQc5dUGzghy', 'R9swMjfFvchD2qHSpC10xCjhzccSWZGRTkVxqKQ2dcwwfT63YMckQgaS0pzh', NULL, '2023-06-09 12:24:16', '2023-06-09 12:24:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 4, 'js', 'js@test.com', 'users/default.png', NULL, '$2y$10$Ik4rv5hBS9wkgWJmglSMyOh8ckYZCDqUZ/Vk1HbXxTZoPkvHw0LAW', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:28', '2023-06-10 15:49:28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 3, 'em', 'em@test.com', 'avatars/1uqrYjBBmFPuoUoKY8uUCdJewsILGFD7goPExHel.jpg', NULL, '$2y$10$KgZD03HmQBGzxjncEo6yGuw.lI5lthCjICl4ENrZnTL.3UE8oAfKu', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:45', '2023-06-16 05:10:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 3, 'em', 'em@test.com', 'avatars/1uqrYjBBmFPuoUoKY8uUCdJewsILGFD7goPExHel.jpg', NULL, '$2y$10$KgZD03HmQBGzxjncEo6yGuw.lI5lthCjICl4ENrZnTL.3UE8oAfKu', NULL, '{\"locale\":\"en\"}', '2023-06-10 15:49:45', '2023-06-17 15:27:05', NULL, NULL, NULL, 'address  test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-06-16', 'asdas', '34234', '12312', 'Contact person name ', 12, 'Contact person name ', '3', 'Company.com', 'free', '1', '1', '1', NULL);
 
 -- --------------------------------------------------------
 

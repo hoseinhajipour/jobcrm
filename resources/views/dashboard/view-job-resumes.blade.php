@@ -11,10 +11,10 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">name</th>
+                <th scope="col">이름</th>
                 <th scope="col">email</th>
-                <th scope="col">status</th>
-                <th scope="col">action</th>
+                <th scope="col">상태</th>
+                <th scope="col">액션</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     </td>
                     <td>{{$resume->email}}</td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">View</a></td>
+                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">보기</a></td>
                 </tr>
             @endforeach
             </tbody>

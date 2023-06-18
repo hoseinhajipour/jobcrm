@@ -3,7 +3,7 @@
     <br/> <br/> <br/>
 
     <div class="my-5">
-        <h3>일일</h3>
+        <h3>미열람 이력서</h3>
         <hr>
     </div>
 
@@ -15,7 +15,7 @@
                 <th scope="col">이름</th>
                 <th scope="col">이메일</th>
                 <th scope="col">상태</th>
-                <th scope="col">상태</th>
+                <th scope="col">액션</th>
             </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                     </td>
                     <td>{{$resume->email}}</td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">보다</a></td>
+                    <td><a href="{{route('ViewResume',["id"=>$resume->id])}}" class="btn btn-primary">보기</a></td>
                 </tr>
             @endforeach
             </tbody>

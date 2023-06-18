@@ -3,7 +3,7 @@
     <br/> <br/> <br/>
 
     <div class="my-5">
-        <h3>제출된 이력서</h3>
+        <h3>지원완료</h3>
         <hr>
     </div>
 
@@ -13,7 +13,7 @@
             <tr>
                 <th scope="col">직업</th>
                 <th scope="col">상태</th>
-                <th scope="col">행동</th>
+                <th scope="col">액션</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                         {{$resume->job->title}}
                     </td>
                     <td>{{$resume->status}}</td>
-                    <td><a href="#" class="btn btn-primary">보다</a></td>
+                    <td><a href="#" class="btn btn-primary">보기</a></td>
                 </tr>
             @endforeach
             </tbody>

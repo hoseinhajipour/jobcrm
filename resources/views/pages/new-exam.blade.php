@@ -1,6 +1,6 @@
 @section('style')
 
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css?v=1.0')}}" rel="stylesheet">
 
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
 

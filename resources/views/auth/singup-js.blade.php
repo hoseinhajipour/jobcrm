@@ -313,7 +313,7 @@
                     </div>
                 @endforeach
                 <div class="row mb-5 gx-5">
-                    <button wire:click="addWorkHistory" class="btn btn-primary">작업 이력 추가</button>
+                    <button wire:click="addWorkHistory" class="btn btn-primary">경력 추가</button>
                 </div>
 
 

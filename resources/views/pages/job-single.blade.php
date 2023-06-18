@@ -2,7 +2,7 @@
 
 @section('style')
     <link href="{{asset('css/js-profile.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/css/style.css?v=1.0')}}">
 @endsection
 
 <main>

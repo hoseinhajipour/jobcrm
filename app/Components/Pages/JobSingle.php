@@ -50,6 +50,6 @@ class JobSingle extends Component
         } else {
             $this->alert('warning', '이력서가 이미 제출되었습니다.', ['position' => 'center']);
         }
-        return redirect()->route('MyResumes');
+        return redirect()->route('MyResumes', ["status" => "pending"]);
     }
 }

@@ -766,7 +766,8 @@ section {
 }
 
 .android {
-  width: 200px;
+    width: 164px;
+    margin-left: 20px;
 }
 .apple {
   width: 164px;

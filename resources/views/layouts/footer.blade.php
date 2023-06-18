@@ -28,10 +28,10 @@
                     <h4>링크</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="{{route('index')}}">올댓리셉션</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('service')}}">서비스</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#news">뉴스</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#mobile">APP</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#contact">회사 소개</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('index')}}#service">서비스</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('index')}}#news">뉴스</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('index')}}#mobile">APP</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href={{route('index')}}"#contact">회사 소개</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links">

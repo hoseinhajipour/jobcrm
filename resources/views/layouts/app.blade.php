@@ -26,11 +26,11 @@
     <link href="{{asset('vendor/venobox/venobox.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <!-- Template Main CSS File -->
-    <link href="{{asset('css/style.css?v=1.2')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css?v=1.3')}}" rel="stylesheet">
     <!-- Load Tempalte CSS -->
     <link rel="stylesheet" href="{{asset('css/templatemo.css')}}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css?v=1.0')}}">
 
     <link href="{{asset('css/font-awesome.min.css')}} " rel="stylesheet">
 
