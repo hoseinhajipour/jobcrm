@@ -43,6 +43,7 @@ class SingupJs extends Component
     public function rules()
     {
         return [
+            'avatar' => 'image|max:1024',
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed'],
@@ -78,11 +79,11 @@ class SingupJs extends Component
     {
         try {
             $this->validate();
-            /*
-                    if (!$this->honeyPasses()) {
-                        return null;
-                    }
-            */
+
+            if (!$this->honeyPasses()) {
+                return null;
+            }
+
 
             $user = User::create([
                 'role_id' => 4,

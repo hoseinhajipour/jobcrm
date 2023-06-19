@@ -15,7 +15,7 @@
 
 
             <!-- Form START -->
-            <div class="file-upload" >
+            <form wire:submit.prevent="register" class="file-upload" >
 
 
                 <div class="col-xxl-12 px-4 py-3 rounded ">
@@ -39,18 +39,29 @@
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
 
-                                <!--		<h4 class="mb-4 mt-0 ">Upload your profile photo</h4> -->
-
                                 <div class="text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
-                                        <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
+                                        @if($avatar)
+                                            <img src="{{ $avatar->temporaryUrl() }}" width="200">
+                                        @else
+                                            <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
+                                        @endif
                                     </div>
                                     <!-- Button -->
-                                    <input type="file" wire:model="avatar" id="customFile" name="file" hidden="">
-                                    <label class="btn btn-success-soft btn-block" for="customFile">기업 로고 업로드</label>
+                                    <input type="file" wire:model.defer="avatar" id="customFile" name="file" hidden="">
+                                    <label class="btn btn-success-soft btn-block" for="customFile">
+                                        <div wire:loading class="text-center" wire:target="avatar">
+                                            <div class="spinner-border" role="status">
+                                            </div>
+                                        </div>
+                                        <div wire:loading.remove>
+                                            사진 업로드
+                                        </div>
+                                    </label>
                                     <!-- Content -->
                                     <p class="text-muted mt-3 mb-0"><span class="me-1"></span>최소 크기 300px x 300px</p>
+                                    @error('avatar') <span class="error">{{ $message }}</span> @enderror
                                 </div>
 
 
@@ -69,9 +80,9 @@
                                 <!--  Name -->
                                 <div class="col-md-6">
                                     <label class="form-label">회사명 *</label>
-                                    <input type="text" wire:model="name"
-                                           class="form-control" id="companyname"
-                                           placeholder="" aria-label="First name" value="회사명 ...">
+                                    <input type="text" wire:model.defer="name"
+                                           class="form-control"
+                                           placeholder="회사명 ..." aria-label="First name">
                                     @error('name') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
 
@@ -79,13 +90,14 @@
                                 <!-- New password -->
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword1" class="form-label"> 비밀번호</label>
-                                    <input type="password" wire:model="password" class="form-control" id="exampleInputPassword1">
+                                    <input type="password" wire:model.defer="password" class="form-control">
                                     @error('password') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
                                 <!-- Confirm password -->
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword2" class="form-label"> 비밀번호 재입력</label>
-                                    <input type="password" wire:model="password_confirmation" class="form-control" id="exampleInputPassword2">
+                                    <input type="password" wire:model.defer="password_confirmation"
+                                           class="form-control">
                                     @error('password_confirmation') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
 
@@ -94,9 +106,9 @@
                                 <div class="col-md-6">
                                     <label for="date" class="form-label">설립일 *</label>
 
-                                    <div class="input-group date" id="datepicker">
+                                    <div class="input-group date">
 
-                                        <input type="date" wire:model="establishment_date" class="form-control">
+                                        <input type="date" wire:model.defer="establishment_date" class="form-control">
 
                                         <span class="input-group-append">
                                       <span class="input-group-text bg-white">
@@ -109,9 +121,9 @@
                                 <!--  representative name -->
                                 <div class="col-md-6">
                                     <label class="form-label">대표자명 *</label>
-                                    <input type="text" wire:model="representative_name"
-                                           class="form-control" id="representativename"
-                                           placeholder="" aria-label="First name" value="대표자명 ...">
+                                    <input type="text" wire:model.defer="representative_name"
+                                           class="form-control"
+                                           placeholder="대표자명 ..." aria-label="representative name">
                                 </div>
 
 
@@ -119,39 +131,44 @@
                                 <div class="col-md-6">
                                     <label class="form-label">사업자번호 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="business_number"
-                                           id="businessnumber" placeholder="" aria-label="Phone number" value="000 000 00000">
+                                           wire:model.defer="business_number"
+                                           placeholder="000 000 00000"
+                                           aria-label="Phone number">
                                 </div>
                                 <!-- Email -->
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">E-mail 주소 *</label>
                                     <input type="email"
-                                           wire:model="email"
-                                           class="form-control" id="email" value="예: ATR@allthatreception.com">
+                                           wire:model.defer="email"
+                                           placeholder="예: ATR@allthatreception.com"
+                                           class="form-control">
                                 </div>
 
                                 <!-- Address -->
                                 <div class="col-md-6">
                                     <label class="form-label">주소 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="address"
-                                           id="address" placeholder="" aria-label="Address" value="예: 06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층">
+                                           wire:model.defer="address"
+                                           placeholder="예: 06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층"
+                                           aria-label="Address">
                                 </div>
 
                                 <!-- contact number -->
                                 <div class="col-md-6">
                                     <label class="form-label">담당자번호 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="contact_person_number"
-                                           id="contactnumber" placeholder="" aria-label="Phone number" value="+82 10 1234 5678">
+                                           wire:model.defer="contact_person_number"
+                                           placeholder="+82 10 1234 5678"
+                                           aria-label="Phone number">
                                 </div>
 
                                 <!--  Name of person in charge -->
                                 <div class="col-md-6">
                                     <label class="form-label">담당자명 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="contact_person_name"
-                                           id="nameofpersonincharge" placeholder="" aria-label="First name" value="담당자명 ...">
+                                           wire:model.defer="contact_person_name"
+                                           placeholder="담당자명 ..."
+                                           aria-label="First name">
                                 </div>
 
                             </div> <!-- Row END -->
@@ -165,49 +182,51 @@
                     <div class="col-xxl-8 mb-5 mb-xxl-0">
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="row g-3">
-                                <!--			<h4 class="mb-4 mt-0">Contact detail</h4> -->
 
                                 <!--  number of employees -->
                                 <div class="col-md-6">
                                     <label class="form-label">직원수</label>
                                     <input type="text" class="form-control"
-                                           wire:model="number_of_employees"
-                                           id="numberofemployees" placeholder="" aria-label="title" value="____ 명">
+                                           wire:model.defer="number_of_employees"
+                                           placeholder="____ 명"
+                                           aria-label="title">
                                 </div>
                                 <!--  business information -->
                                 <div class="col-md-6">
                                     <label class="form-label">사업내용 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="business_information"
-                                           id="businessinformation" placeholder="" aria-label="title" value="예: 서비스">
+                                           wire:model.defer="business_information"
+                                           placeholder="예: 서비스"
+                                           aria-label="businessinformation">
                                 </div>
                                 <!--  Sectors -->
                                 <div class="col-md-6">
                                     <label class="form-label">업종 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="sectors"
-                                           id="sectors" placeholder="" aria-label="title" value="예: 서비스">
+                                           wire:model.defer="sectors"
+                                           placeholder="예: 서비스" aria-label="title">
                                 </div>
                                 <!--  home page -->
                                 <div class="col-md-6">
                                     <label class="form-label">기업 홈페이지 주소 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="company_website_address"
-                                           id="homepage" placeholder="" aria-label="title" value="예: http://www.allthatmodel.co.kr">
+                                           wire:model.defer="company_website_address"
+                                           placeholder="예: http://www.allthatmodel.co.kr"
+                                           aria-label="company_website_address" value="">
                                 </div>
                                 <!--  business type -->
                                 <div class="col-md-6">
                                     <label class="form-label">기업형태 *</label>
                                     <input type="text" class="form-control"
-                                           wire:model="company_type"
-                                           id="businesstype" placeholder="" aria-label="title" value="...">
+                                           wire:model.defer="company_type"
+                                           placeholder="..." aria-label="company type">
                                 </div>
                                 <!--  sales -->
                                 <div class="col-md-6">
                                     <label class="form-label">매출액</label>
                                     <input type="text" class="form-control"
-                                           wire:model="take"
-                                           id="sales" placeholder="" aria-label="title" value="____ 억">
+                                           wire:model.defer="take"
+                                           placeholder="____ 억" aria-label="sales">
                                 </div>
 
 
@@ -215,8 +234,10 @@
                                 <div class="col-md-6">
                                     <label class="form-label">자본금</label>
                                     <input type="text"
-                                           wire:model="capital"
-                                           class="form-control" id="capital" placeholder="" aria-label="title" value="____ 억">
+                                           wire:model.defer="capital"
+                                           class="form-control"
+                                           placeholder="____ 억"
+                                           aria-label="title">
                                 </div>
 
 
@@ -224,7 +245,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">상장여부</label>
 
-                                    <select wire:model="Listed_or_not" class="custom-select" id="crape">
+                                    <select wire:model.defer="Listed_or_not" class="custom-select" id="crape">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">상장</option>
                                         <option class="form-control" value="2">비상장</option>
@@ -238,7 +259,7 @@
                                             <div class="form-check">
                                                 <input class="agree-check"
                                                        type="checkbox" wire:model="agree">
-                                                <a href="{{route('page',["slug"=>"em-policy"])}}">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <label for="exampleCheck1">약관동의</label>
                                                 </a>
                                             </div>
@@ -252,10 +273,11 @@
                     </div>
                 </div>
 
+                <x-honey/>
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <button wire:click.prevent="register" {{ $agree ? '' : 'disabled' }}
+                    <button type="submit" {{ $agree ? '' : 'disabled' }}
                     class="btn btn-primary btn-lg" id="emsignup">
 
                         <div wire:loading class="text-center">
@@ -271,8 +293,29 @@
 
                 <br/> <br/> <br/>
 
-            </div>
+            </form>
             <!-- Form END -->
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div wire:ignore class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body limit_y">
+                    {!! setting('policy.employer') !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫다</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

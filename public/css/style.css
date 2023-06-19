@@ -1541,3 +1541,7 @@ margin-left: 50%;
     border-color: #3D2462;
 }
 
+.limit_y {
+    height: 60vh;
+    overflow-y: auto;
+}

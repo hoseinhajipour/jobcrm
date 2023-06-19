@@ -15,8 +15,7 @@
 
 
             <!-- Form START -->
-            <form class="file-upload"
-                  wire:submit.prevent="register">
+            <form wire:submit.prevent="register" class="file-upload">
 
                 <div class="col-xxl-12 px-4 py-3 rounded ">
 
@@ -38,18 +37,34 @@
                         <div class="bg-secondary-soft px-4 py-5 rounded">
                             <div class="form-group row g-3">
 
-                                <!--		<h4 class="mb-4 mt-0 ">Upload your profile photo</h4> -->
+                                <!--<h4 class="mb-4 mt-0 ">Upload your profile photo</h4> -->
 
                                 <div class=" text-center">
                                     <!-- Image upload -->
                                     <div class="square position-relative display-2 mb-3">
-                                        <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
+                                        @if($avatar)
+                                            <img src="{{ $avatar->temporaryUrl() }}" width="200">
+                                        @else
+                                            <i class="icofont-user top-50 start-50 translate-middle text-secondary"></i>
+                                        @endif
+
                                     </div>
                                     <!-- Button -->
                                     <input type="file" wire:model="avatar" id="customFile" name="customFile" hidden="">
-                                    <label class="btn btn-success-soft btn-block" for="customFile">사진 업로드</label>
+                                    <label class="btn btn-success-soft btn-block" for="customFile">
+                                        <div wire:loading class="text-center" wire:target="avatar">
+                                            <div class="spinner-border" role="status">
+                                            </div>
+                                        </div>
+                                        <div wire:loading.remove>
+                                            사진 업로드
+                                        </div>
+
+                                    </label>
                                     <!-- Content -->
                                     <p class="text-muted mt-3 mb-0"><span class="me-1"></span>최소 크기 300px x 300px</p>
+
+                                    @error('avatar') <span class="error">{{ $message }}</span> @enderror
                                 </div>
 
                             </div>
@@ -67,8 +82,8 @@
                                 <!--  Name -->
                                 <div class="form-group col-md-6">
                                     <label for="username" class="form-label">성명 *</label>
-                                    <input type="text" wire:model="name" class="form-control"
-                                           placeholder="이름을 입력하세요." aria-label="First name" value="">
+                                    <input type="text" wire:model.defer="name" class="form-control"
+                                           placeholder="이름을 입력하세요." aria-label="First name">
                                     @error('name') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
 
@@ -76,13 +91,13 @@
                                 <!-- New password -->
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1" class="form-label"> 비밀번호</label>
-                                    <input type="password" wire:model="password" class="form-control">
+                                    <input type="password" wire:model.defer="password" class="form-control">
                                     @error('password') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
                                 <!-- Confirm password -->
                                 <div class=" form-group col-md-6">
                                     <label for="exampleInputPassword2" class="form-label"> 비밀번호 재입력</label>
-                                    <input type="password" wire:model="password_confirmation"
+                                    <input type="password" wire:model.defer="password_confirmation"
                                            class="form-control">
                                     @error('password_confirmation') <span class="invalid-input">{{ $message }}</span> @enderror
                                 </div>
@@ -94,7 +109,7 @@
 
                                     <div class="input-group date" id="datepicker">
 
-                                        <input type="date" wire:model="birth_date"
+                                        <input type="date" wire:model.defer="birth_date"
                                                class="form-control" id="date" name="date">
 
                                         <span class="input-group-append">
@@ -110,7 +125,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">성별 *</label>
 
-                                    <select wire:model="gender" class="custom-select" id="gender">
+                                    <select wire:model.defer="gender" class="custom-select" id="gender">
                                         <option selected>선택</option>
                                         <option class="form-control" value="1">여성</option>
                                         <option class="form-control" value="2">남성</option>
@@ -122,21 +137,21 @@
                                 <!-- Phone number -->
                                 <div class="col-md-6">
                                     <label class="form-label">휴대폰번호 *</label>
-                                    <input type="text" wire:model="phone" class="form-control" id="phonenumber"
-                                           placeholder="" aria-label="Phone number" value="+82 10 1234 5678">
+                                    <input type="text" wire:model.defer="phone" class="form-control" id="phonenumber"
+                                           placeholder="+82 10 1234 5678" aria-label="Phone number">
                                 </div>
                                 <!-- Email -->
                                 <div class=" form-group col-md-6">
                                     <label for="email" class="form-label">E-mail 주소 *</label>
-                                    <input type="email" wire:model="email" class="form-control"
-                                           placeholder="name@example.com" id="email" name="email" value="">
+                                    <input type="email" wire:model.defer="email" class="form-control"
+                                           placeholder="name@example.com" id="email" name="email">
                                 </div>
                                 <!-- Address -->
                                 <div class=" form-group col-md-6">
                                     <label class="form-label">주소 *</label>
-                                    <input type="text" class="form-control" wire:model="address" id="address"
-                                           placeholder="" aria-label="Address"
-                                           value="06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층">
+                                    <input type="text" class="form-control" wire:model.defer="address"
+                                           placeholder="06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층"
+                                           aria-label="Address">
                                 </div>
                             </div> <!-- Row END -->
                         </div>
@@ -366,7 +381,7 @@
                                             <div class="custom-control custom-checkbox">
                                                 <input class="agree-check"
                                                        type="checkbox" wire:model="agree">
-                                                <a href="{{route('page',["slug"=>"js-policy"])}}">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <label>약관동의</label>
                                                 </a>
 
@@ -381,10 +396,10 @@
                     </div>
                 </div>
 
+                <x-honey/>
 
                 <!-- button -->
                 <div class="form-group gap-3 d-md-flex justify-content-md-end text-center">
-                    <!--	<button type="button" class="btn btn-danger btn-lg">Delete profile</button> -->
                     <button type="submit"
                             {{ $agree ? '' : 'disabled' }}
                             class="btn btn-primary btn-lg">
@@ -401,7 +416,30 @@
 
                 <br/> <br/> <br/>
 
-            </form> <!-- Form END -->
+            </form>
+
         </div>
     </div>
+
+    <!-- Modal -->
+    <div wire:ignore class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body limit_y">
+                    {!! setting('policy.job-seeker') !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫다</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

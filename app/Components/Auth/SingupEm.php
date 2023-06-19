@@ -55,16 +55,11 @@ class SingupEm extends Component
         try {
             $this->validate();
 
-            /*
-            if ($validator->fails()) {
-                dd($validator->errors());
-            }
-            */
-            /*
+
             if (!$this->honeyPasses()) {
                 return null;
             }
-    */
+
             $user = User::create([
                 'role_id' => 3,
                 'name' => $this->name,
