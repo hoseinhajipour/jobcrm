@@ -24,11 +24,16 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            @if($user->avatar)
-                                                <img src="{{asset(Voyager::image($user->avatar))}}" alt=""
+                                            @if($avatar)
+                                                <img src="{{$avatar->temporaryUrl()}}" alt=""
                                                      width="200">
                                             @else
-                                                <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                                @if($user->avatar)
+                                                    <img src="{{Voyager::image($user->avatar)}}" alt=""
+                                                         width="200">
+                                                @else
+                                                    <i class="icofont-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+                                                @endif
                                             @endif
                                         </div>
                                         <!-- Button -->
