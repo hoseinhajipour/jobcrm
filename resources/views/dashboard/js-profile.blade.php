@@ -39,7 +39,7 @@
                                         <!-- Button -->
                                         <input type="file" wire:model.defer="avatar" id="customFile"
                                                name="file" hidden="">
-                                        <label class="btn w-100 btn-success-soft btn-block" for="customFile">사진
+                                        <label class="btn w-100 btn-success-soft btn-block" for="customFile">
                                             <div wire:loading class="text-center" wire:target="avatar">
                                                 <div class="spinner-border" role="status">
                                                 </div>
