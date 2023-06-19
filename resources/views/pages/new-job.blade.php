@@ -12,12 +12,12 @@
                 <hr>
             </div>
             <!-- Form START -->
-            <form class="file-upload" wire:submit.prevent="newJob" id="form">
+            <form class="file-upload" wire:submit.prevent="newJob">
                 @if(Auth::user()->role->name=="admin")
                     <div class="alert alert-info">
                         <label>원하는 업체를 선택하세요</label>
 
-                        <select wire:model="currentUser" class="form-control">
+                        <select wire:model.defer="currentUser" class="form-control">
                             @foreach($employers as $employer)
                                 <option value="{{$employer->id}}">
                                     <label>{{$employer->name}} | {{$employer->email}}</label>
@@ -35,7 +35,7 @@
                                 <!--  Notice title -->
                                 <div class="col-md-6">
                                     <label class="form-label">공고제목 *</label>
-                                    <input type="text" wire:model="title" class="form-control"
+                                    <input type="text" wire:model.defer="title" class="form-control"
                                            placeholder="공고제목..."
                                            aria-label="title">
                                 </div>
@@ -44,7 +44,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">모집분야 *</label>
 
-                                    <select wire:model="category_id"
+                                    <select wire:model.defer="category_id"
                                             class="custom-select">
                                         <option selected>선택...</option>
                                         @foreach($categories as $category)
@@ -56,7 +56,7 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label">근무형태</label>
-                                    <select wire:model="jobtype_id" class="custom-select">
+                                    <select wire:model.defer="jobtype_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($jobTypes as $type)
                                             <option class="form-control" value="{{$type->id}}">{{$type->title}}</option>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">지역</label>
-                                    <select wire:model="area_id" class="custom-select">
+                                    <select wire:model.defer="area_id" class="custom-select">
                                         <option selected>선택</option>
                                         @foreach($regions as $region)
                                             <option class="form-control"
@@ -80,8 +80,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">고용형태 *</label>
 
-                                    <select wire:model="typeOfEmployment"
-                                            class="custom-select" id="typeofemployment">
+                                    <select wire:model.defer="typeOfEmployment"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">파견</option>
                                         <option class="form-control" value="2">도급</option>
@@ -95,7 +95,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">모집인원 *</label>
                                     <input type="text"
-                                           wire:model="numberOfRecruits"
+                                           wire:model.defer="numberOfRecruits"
                                            class="form-control"
                                            placeholder="____ 명"
                                            aria-label="title">
@@ -106,8 +106,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">성별 *</label>
 
-                                    <select wire:model="gender"
-                                            class="custom-select" id="gender">
+                                    <select wire:model.defer="gender"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">여성</option>
                                         <option class="form-control" value="2">남성</option>
@@ -121,8 +121,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">연령 *</label>
 
-                                    <select wire:model="age"
-                                            class="custom-select" id="age">
+                                    <select wire:model.defer="age"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">20세~29세</option>
                                         <option class="form-control" value="2">30세~39세</option>
@@ -135,8 +135,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">학력 *</label>
 
-                                    <select wire:model="education"
-                                            class="custom-select" id="Education">
+                                    <select wire:model.defer="education"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">고등학교 졸업 이상</option>
                                         <option class="form-control" value="2">대학 (2,3)년제 졸업 이상</option>
@@ -152,8 +152,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">요일 *</label>
 
-                                    <select wire:model="dayOfWeek"
-                                            class="custom-select" id="dayoftheweek">
+                                    <select wire:model.defer="dayOfWeek"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">주 1일</option>
                                         <option class="form-control" value="2">주 2일</option>
@@ -176,8 +176,8 @@
                                         <label class="col-form-label   label-align">출근시간<span class="required">*</span></label>
 
                                         <input class="form-control"
-                                               wire:model="workingTime"
-                                               id="workingtime" class='time' type="time" name="time"
+                                               wire:model.defer="workingTime"
+                                               class='time' type="time" name="time"
                                                required='required'>
 
                                     </div>
@@ -188,7 +188,7 @@
 
                                         <label class="col-form-label label-align">퇴근시간<span class="required">*</span></label>
 
-                                        <input wire:model="closingTime"
+                                        <input wire:model.defer="closingTime"
                                                class="form-control"
                                                class='time'
                                                type="time"
@@ -201,8 +201,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">휴게시간 </label>
 
-                                    <select wire:model="breakTime"
-                                            class="custom-select" id="breaktime">
+                                    <select wire:model.defer="breakTime"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">없음</option>
                                         <option class="form-control" value="2">30분</option>
@@ -217,8 +217,8 @@
                                 <div class="col-md-6">
                                     <label class="form-label">우대조건</label>
 
-                                    <select wire:model="preferentialConditions"
-                                            class="custom-select" id="preferentialconditions">
+                                    <select wire:model.defer="preferentialConditions"
+                                            class="custom-select">
                                         <option selected>선택...</option>
                                         <option class="form-control" value="1">경력자</option>
                                         <option class="form-control" value="2">장기근무 가능자</option>
@@ -231,7 +231,7 @@
                                 <!-- salary -->
                                 <div class="col-md-6">
                                     <label class="form-label">급여 *</label>
-                                    <input type="text" wire:model="salary"
+                                    <input type="text" wire:model.defer="salary"
                                            class="form-control" placeholder="---,---,--- 원"
                                            aria-label="salary">
                                 </div>
@@ -239,7 +239,7 @@
                                 <!-- Damdam place name -->
                                 <div class="col-md-6">
                                     <label class="form-label">담담지명 *</label>
-                                    <input type="text" wire:model="damdamPlaceName"
+                                    <input type="text" wire:model.defer="damdamPlaceName"
                                            class="form-control" placeholder="담담지명..."
                                            aria-label="salary">
                                 </div>
@@ -251,25 +251,25 @@
 
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model="mealIncluded"
+                                                       wire:model.defer="mealIncluded"
                                                        type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox1">식대포함</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model="negotiable"
+                                                       wire:model.defer="negotiable"
                                                        type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox2">협의가능</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model="probationPeriod"
+                                                       wire:model.defer="probationPeriod"
                                                        type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox3">수습기간 있음</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input"
-                                                       wire:model="performancePay"
+                                                       wire:model.defer="performancePay"
                                                        type="checkbox" value="1">
                                                 <label class="form-check-label" for="inlineCheckbox4">성과급</label>
                                             </div>
@@ -281,7 +281,7 @@
                                 <!-- Phone number -->
                                 <div class="col-md-6">
                                     <label class="form-label">연락처 *</label>
-                                    <input type="text" wire:model="contact"
+                                    <input type="text" wire:model.defer="contact"
                                            class="form-control" placeholder="예: +82 10 1234 5678"
                                            aria-label="Phone number">
                                 </div>
@@ -289,7 +289,7 @@
                                 <!-- fax number -->
                                 <div class="col-md-6">
                                     <label class="form-label">팩스번호</label>
-                                    <input type="text" wire:model="faxNumber"
+                                    <input type="text" wire:model.defer="faxNumber"
                                            class="form-control" placeholder="예: +82 2 123 4567"
                                            aria-label="Phone number">
                                 </div>
@@ -297,14 +297,14 @@
                                 <!-- Email -->
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">E-mail 주소 *</label>
-                                    <input type="email" wire:model="email"
+                                    <input type="email" wire:model.defer="email"
                                            placeholder="예: ATR@allthatreception.com"
                                            class="form-control">
                                 </div>
                                 <!-- Address -->
                                 <div class="col-md-6">
                                     <label class="form-label">근무지 주소 *</label>
-                                    <input type="text" wire:model="address"
+                                    <input type="text" wire:model.defer="address"
                                            class="form-control"
                                            placeholder="예: 06682,서울시 서초구 방배로19길 17 (방배동) 서울빌딩 3층"
                                            aria-label="Address">
@@ -313,7 +313,7 @@
                                 <!-- cover letter -->
                                 <div class="col-md-12">
                                     <label class="form-label">자세한 내용 *</label>
-                                    <textarea class="form-control" wire:model="description"
+                                    <textarea class="form-control" wire:model.defer="description"
                                               placeholder="자세한 내용 ..."
                                               rows="5"></textarea>
 
@@ -325,7 +325,7 @@
                                         <div class="row g-3">
                                             <div class="form-check">
                                                 <input class="agree-check"
-                                                       type="checkbox" wire:model="agree">
+                                                       type="checkbox" wire:model.defer="agree">
                                                 <label for="exampleCheck1">당사는 본 채용건과 관련하여 사실임을 증영합니다!</label>
                                             </div>
                                         </div>
@@ -341,7 +341,6 @@
 
                 <!-- button -->
                 <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                    <!--	<button type="button" class="btn btn-danger btn-lg">Delete profile</button> -->
                     <button type="submit" {{ $agree ? '' : 'disabled' }} id="registration"
                             class="btn btn-primary btn-lg">
 

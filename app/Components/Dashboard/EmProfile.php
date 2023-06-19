@@ -32,8 +32,6 @@ class EmProfile extends Component
 
         $this->name = $this->user->name;
         $this->email = $this->user->email;
-        $this->password = ''; // You may choose to leave the password empty for security reasons
-        $this->password_confirmation = '';
         $this->establishment_date = $this->user->establishment_date;
         $this->representative_name = $this->user->representative_name;
         $this->business_number = $this->user->business_number;

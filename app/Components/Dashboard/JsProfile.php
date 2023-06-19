@@ -41,7 +41,7 @@ class JsProfile extends Component
 
 
         $this->WorkHistories = $this->user->WorkHistories;
-        $this->avatar = $this->user->avatar;
+
         if (count($this->WorkHistories) == 0) {
             $this->addWorkHistory();
         }
@@ -51,8 +51,6 @@ class JsProfile extends Component
         }
         $this->name = $this->user->name;
         $this->email = $this->user->email;
-        $this->password = $this->user->password;
-        $this->password_confirmation = $this->user->password_confirmation;
         $this->birth_date = $this->user->birth_date;
         $this->gender = $this->user->gender;
         $this->phone = $this->user->phone;
