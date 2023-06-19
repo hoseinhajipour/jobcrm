@@ -202,7 +202,7 @@
                         <div class="col-xxl-6 mb-5 mb-xxl-0">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <h4 class="mb-4 mt-0">경력사항
-                                    <button wire:click.prevent="RemoveWorkHistory({{$index02}})"
+                                    <button wire:click.prevent="RemoveWorkHistory({{$Work->id}})"
                                             class="btn btn-danger float-right"><span class="fa fa-trash"></span>
                                     </button>
                                 </h4>
