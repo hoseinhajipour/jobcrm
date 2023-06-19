@@ -93,7 +93,8 @@ class SingupEm extends Component
 
             return redirect()->to(RouteServiceProvider::profile);
         } catch (ValidationException $exception) {
-            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
+            $errors = implode('<br>', $exception->validator->errors()->all());
+            $this->alert('error',$errors, ['position' => 'center']);
         }
     }
 }

@@ -130,7 +130,8 @@ class JsProfile extends Component
 
             $this->alert('success', '성공한 것', ['position' => 'center']);
         } catch (ValidationException $exception) {
-            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
+            $errors = implode('<br>', $exception->validator->errors()->all());
+            $this->alert('error',$errors, ['position' => 'center']);
         }
     }
 

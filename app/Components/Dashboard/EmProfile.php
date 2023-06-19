@@ -102,8 +102,8 @@ class EmProfile extends Component
             $this->user->save();
             $this->alert('success', '저장', ['position' => 'center']);
         } catch (ValidationException $exception) {
-            dd($exception->validator->errors());
-            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
+            $errors = implode('<br>', $exception->validator->errors()->all());
+            $this->alert('error',$errors, ['position' => 'center']);
         }
     }
 
