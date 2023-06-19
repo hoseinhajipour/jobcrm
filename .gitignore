@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Except for the following directory
+!vendor/tcg/voyager/publishable/lang/ko

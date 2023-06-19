@@ -22,7 +22,7 @@ class EmployerDimmer extends BaseDimmer
     {
         $count = User::where("role_id", 4)->count();
 
-        $text = "<p>all Employer $count</p>";
+        $text = "<p>모든 고용주 $count</p>";
 
 
         return view('voyager::dimmer', array_merge($this->config, [
@@ -30,7 +30,7 @@ class EmployerDimmer extends BaseDimmer
             'title' => "{$count} ",
             'text' => $text,
             'button' => [
-                'text' => 'View All Users',
+                'text' => '모든 사용자 보기',
                 'link' => route('voyager.users.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),

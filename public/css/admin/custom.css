@@ -1,0 +1,19 @@
+.btn-primary {
+    background-color: #3D2462 !important;
+    border-color: #3D2462 !important;;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #96368B !important;;
+    border-color: #96368B !important;;
+    color: white;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #96368B !important;;
+    border-color: #96368B !important;;
+}
+.voyager .alert.alert-info{
+    background-color: #3D2462 !important;
+}

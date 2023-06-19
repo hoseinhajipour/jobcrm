@@ -22,7 +22,7 @@ class JobsDimmer extends BaseDimmer
     {
         $count = Job::all()->count();
 
-        $text = "<p>all Jobs $count</p>";
+        $text = "<p>모든 작업 $count</p>";
 
 
         return view('voyager::dimmer', array_merge($this->config, [
@@ -30,7 +30,7 @@ class JobsDimmer extends BaseDimmer
             'title' => "{$count} ",
             'text' => $text,
             'button' => [
-                'text' => 'View All jobs',
+                'text' => '모든 작업 보기',
                 'link' => route('voyager.jobs.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),

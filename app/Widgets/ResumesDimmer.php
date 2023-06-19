@@ -22,7 +22,7 @@ class ResumesDimmer extends BaseDimmer
     {
         $count = Resume::all()->count();
 
-        $text = "<p>all Resume $count</p>";
+        $text = "<p>모든 이력서 $count</p>";
 
 
         return view('voyager::dimmer', array_merge($this->config, [
@@ -30,7 +30,7 @@ class ResumesDimmer extends BaseDimmer
             'title' => "{$count} ",
             'text' => $text,
             'button' => [
-                'text' => 'View All Resume',
+                'text' => '모든 이력서 보기',
                 'link' => route('ViewAllResumes', ["status" => "pending"]),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
