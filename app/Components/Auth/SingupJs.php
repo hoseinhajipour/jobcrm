@@ -33,7 +33,7 @@ class SingupJs extends Component
 
     public $EducationHistories = [];
     public $WorkHistories = [];
-
+    public $listeners = ["addEducationHistory", "addWorkHistory"];
     public function mount()
     {
         $this->addEducationHistory();
@@ -100,7 +100,7 @@ class SingupJs extends Component
                 'password' => bcrypt($this->password),
             ]);
             if ($this->avatar) {
-                $path = $this->avatar->store('avatars');
+                $path = $this->avatar->store('avatars', 'public');
                 $user->avatar = $path;
             }
             $user->save();
@@ -131,13 +131,18 @@ class SingupJs extends Component
 
     public function addEducationHistory()
     {
-        $newEducationHistory = new EducationHistory();
+        $newEducationHistory = [
+            'education' => 0,
+            'school' => "",
+            'school_department' => "",
+            'admission_date' => null,
+            'graduation_date' => null,
+        ];
         $this->EducationHistories [] = $newEducationHistory;
     }
 
     public function RemoveEducationHistory($index)
     {
-
         unset($this->EducationHistories[$index]);
     }
 

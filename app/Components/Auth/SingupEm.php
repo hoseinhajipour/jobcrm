@@ -78,10 +78,14 @@ class SingupEm extends Component
                 'capital' => $this->capital,
                 'Listed_or_not' => $this->Listed_or_not,
                 'address' => $this->address,
-                'password' => bcrypt($this->password),
             ]);
+
+            if ($this->password == $this->password_confirmation) {
+                $user->password = bcrypt($this->password);
+            }
+
             if ($this->avatar) {
-                $path = $this->avatar->store('avatars');
+                $path = $this->avatar->store('avatars', 'public');
                 $user->avatar = $path;
             }
             $user->save();

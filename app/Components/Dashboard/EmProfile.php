@@ -3,14 +3,16 @@
 namespace App\Components\Dashboard;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Lukeraymonddowning\Honey\Traits\WithHoney;
 
 class EmProfile extends Component
 {
     use LivewireAlert;
-
+    use WithHoney;
     use WithFileUploads;
 
     public $avatar;
@@ -52,7 +54,6 @@ class EmProfile extends Component
     {
         return [
             'name' => ['required'],
-            'email' => ['required', 'email', 'unique:users'],
         ];
     }
 
@@ -64,36 +65,46 @@ class EmProfile extends Component
 
     public function updateProfile()
     {
+        try {
+            $this->validate();
 
-        //  $this->validate();
+            if (!$this->honeyPasses()) {
+                return null;
+            }
 
-        $this->user->update([
-            'name' => $this->name,
-            'email' => $this->email,
-            'establishment_date' => $this->establishment_date,
-            'representative_name' => $this->representative_name,
-            'business_number' => $this->business_number,
-            'contact_person_number' => $this->contact_person_number,
-            'contact_person_name' => $this->contact_person_name,
-            'number_of_employees' => $this->number_of_employees,
-            'business_information' => $this->business_information,
-            'sectors' => $this->sectors,
-            'company_website_address' => $this->company_website_address,
-            'company_type' => $this->company_type,
-            'take' => $this->take,
-            'capital' => $this->capital,
-            'Listed_or_not' => $this->Listed_or_not,
-            'address' => $this->address,
-            //   'password' => bcrypt($this->password),
-        ]);
+            $this->user->update([
+                'name' => $this->name,
+                'establishment_date' => $this->establishment_date,
+                'representative_name' => $this->representative_name,
+                'business_number' => $this->business_number,
+                'contact_person_number' => $this->contact_person_number,
+                'contact_person_name' => $this->contact_person_name,
+                'number_of_employees' => $this->number_of_employees,
+                'business_information' => $this->business_information,
+                'sectors' => $this->sectors,
+                'company_website_address' => $this->company_website_address,
+                'company_type' => $this->company_type,
+                'take' => $this->take,
+                'capital' => $this->capital,
+                'Listed_or_not' => $this->Listed_or_not,
+                'address' => $this->address,
+            ]);
 
-        if ($this->avatar) {
-            $path = $this->avatar->store('avatars','public');
-            $this->user->avatar = $path;
+            if ($this->password == $this->password_confirmation) {
+                $this->user->password = bcrypt($this->password);
+            }
+
+            if ($this->avatar) {
+                $path = $this->avatar->store('avatars', 'public');
+                $this->user->avatar = $path;
+
+            }
             $this->user->save();
+            $this->alert('success', '저장', ['position' => 'center']);
+        } catch (ValidationException $exception) {
+            dd($exception->validator->errors());
+            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
         }
-
-        $this->alert('success', '저장', ['position' => 'center']);
     }
 
     public function changeAvatar()

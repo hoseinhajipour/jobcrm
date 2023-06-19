@@ -6,13 +6,16 @@ use App\Models\EducationHistory;
 use App\Models\User;
 use App\Models\WorkHistory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Lukeraymonddowning\Honey\Traits\WithHoney;
 
 class JsProfile extends Component
 {
     use LivewireAlert;
+    use WithHoney;
     use WithFileUploads;
 
     public $avatar;
@@ -38,7 +41,7 @@ class JsProfile extends Component
 
 
         $this->WorkHistories = $this->user->WorkHistories;
-
+        $this->avatar = $this->user->avatar;
         if (count($this->WorkHistories) == 0) {
             $this->addWorkHistory();
         }
@@ -66,8 +69,6 @@ class JsProfile extends Component
     {
         return [
             'name' => ['required'],
-            'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'confirmed'],
             'EducationHistories.*.education' => '',
             'EducationHistories.*.school' => '',
             'EducationHistories.*.school_department' => '',
@@ -91,40 +92,46 @@ class JsProfile extends Component
 
     public function update()
     {
-        /*
-        $this->validate();
+        try {
+            $this->validate();
 
-        if (!$this->honeyPasses()) {
-            return null;
-        }
-*/
-        $this->user->update([
-            'name' => $this->name,
-            'email' => $this->email,
-            'birth_date' => $this->birth_date,
-            'gender' => $this->gender,
-            'phone' => $this->phone,
-            'address' => $this->address,
-            'language' => $this->language,
-            'o_a' => $this->o_a,
-            'support_areas' => $this->support_areas,
-            'self_introduction' => $this->self_introduction,
-            //  'password' => bcrypt($this->password),
-        ]);
-        if ($this->avatar) {
-            $path = $this->avatar->store('avatars', 'public');
-            $this->user->avatar = $path;
+            if (!$this->honeyPasses()) {
+                return null;
+            }
+
+            $this->user->update([
+                'name' => $this->name,
+                'email' => $this->email,
+                'birth_date' => $this->birth_date,
+                'gender' => $this->gender,
+                'phone' => $this->phone,
+                'address' => $this->address,
+                'language' => $this->language,
+                'o_a' => $this->o_a,
+                'support_areas' => $this->support_areas,
+                'self_introduction' => $this->self_introduction,
+            ]);
+
+            if ($this->password == $this->password_confirmation) {
+                $this->user->password = bcrypt($this->password);
+            }
+            if ($this->avatar) {
+                $path = $this->avatar->store('avatars', 'public');
+                $this->user->avatar = $path;
+
+            }
             $this->user->save();
-        }
+            foreach ($this->EducationHistories as $EducationHistory) {
+                $EducationHistory->save();
+            }
+            foreach ($this->WorkHistories as $WorkHistory) {
+                $WorkHistory->save();
+            }
 
-        foreach ($this->EducationHistories as $EducationHistory) {
-            $EducationHistory->save();
+            $this->alert('success', '성공한 것', ['position' => 'center']);
+        } catch (ValidationException $exception) {
+            $this->alert('error', $exception->validator->errors(), ['position' => 'center']);
         }
-        foreach ($this->WorkHistories as $WorkHistory) {
-            $WorkHistory->save();
-        }
-
-        $this->alert('success', '성공한 것', ['position' => 'center']);
     }
 
     public function addEducationHistory()
