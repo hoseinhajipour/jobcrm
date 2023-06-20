@@ -173,7 +173,7 @@
                                 <div class=" col-md-6">
                                     <div class="field item form-group ">
 
-                                        <label class="col-form-label   label-align">출근시간<span class="required">*</span></label>
+                                        <label class="col-form-label label-align">출근시간<span class="required">*</span></label>
 
                                         <input class="form-control"
                                                wire:model.defer="workingTime"
@@ -189,8 +189,7 @@
                                         <label class="col-form-label label-align">퇴근시간<span class="required">*</span></label>
 
                                         <input wire:model.defer="closingTime"
-                                               class="form-control"
-                                               class='time'
+                                               class="form-control time"
                                                type="time"
                                                name="time">
 

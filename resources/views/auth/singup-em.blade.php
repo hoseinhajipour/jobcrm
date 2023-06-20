@@ -22,7 +22,7 @@
 
                     <ul class="nav nav-pills nav-fill" id="myTab">
                         <li class="nav-item">
-                            <a class="nav-link " href="{{route('SingupJs')}}">개인회원</a>
+                            <a class="nav-link" href="{{route('SingupJs')}}">개인회원</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="{{route('SingupEm')}}">기업회원</a>

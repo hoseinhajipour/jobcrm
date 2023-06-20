@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
@@ -14,12 +15,24 @@ class Post extends Model
     use Translatable;
     use Resizable;
 
-    protected $translatable = ['title', 'seo_title', 'excerpt', 'body', 'slug', 'meta_description', 'meta_keywords'];
+    protected $translatable = ['title', 'seo_title', 'excerpt', 'body', 'meta_description', 'meta_keywords'];
 
     public const PUBLISHED = 'PUBLISHED';
 
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            $product->slug = Str::replace(" ", "_", $product->title);
+        });
+
+        static::updating(function ($product) {
+            $product->slug = Str::replace(" ", "_", $product->title);
+        });
+    }
     public function save(array $options = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post
