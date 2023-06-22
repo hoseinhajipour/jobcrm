@@ -74,7 +74,7 @@
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="#">
-                                                <img src="{{asset(Voyager::image($job->user->avatar))}}" alt=""
+                                                <img src="{{Voyager::image($job->user->avatar)??""}}" alt=""
                                                      width="64">
                                             </a>
                                         </div>
