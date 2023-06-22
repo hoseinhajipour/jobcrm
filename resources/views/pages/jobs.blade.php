@@ -70,6 +70,7 @@
                         <div class="container">
 
                             @forelse($jobs as $job)
+                                @if($job->user)
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
@@ -94,6 +95,7 @@
                                         <span>{{$job->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>
+                                @endif
                             @empty
                                 <p class="alert alert-warning">아무것도 찾을 수 없음</p>
                             @endforelse
